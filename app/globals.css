@@ -170,18 +170,13 @@ html, body {
 /* ─── Nav link hover ─── */
 .nav-link {
   position: relative;
-  transition: color 0.25s ease;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  transition: opacity 0.2s ease;
 }
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 1.5px;
-  background: linear-gradient(90deg, #ef6600, #cb0000);
-  border-radius: 99px;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.nav-link:hover {
+  background: linear-gradient(52deg, #ef6600 22%, #cb0000 91%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.nav-link:hover { color: #ef6600; }
-.nav-link:hover::after { width: 100%; }
