@@ -88,23 +88,23 @@ export function GoNetDSP() {
         </div>
 
         {/* Stats */}
-        <div className="flex items-center gap-6 md:gap-10 flex-wrap">
+        <div className="flex items-center justify-between md:justify-start gap-3 md:gap-10">
           {STATS.map((s, i) => (
-            <div key={s.label} className="gonet-stat flex items-center gap-6 md:gap-10">
-              <div className="text-right">
+            <div key={s.label} className="gonet-stat flex items-center gap-3 md:gap-10 min-w-0">
+              <div className="text-left md:text-right min-w-0">
                 <p
-                  className="gonet-stat-value font-bricolage font-extrabold text-5xl md:text-[64px] leading-none tracking-[-2.88px] text-gradient"
+                  className="gonet-stat-value font-bricolage font-extrabold text-[32px] md:text-[64px] leading-none tracking-[-1.5px] md:tracking-[-2.88px] text-gradient"
                   data-value={s.num}
                   data-suffix={s.suffix}
                 >
                   0{s.suffix}
                 </p>
-                <p className="font-bricolage font-medium text-sm md:text-base mt-1 tracking-tight" style={{ color: "var(--fg)" }}>
+                <p className="font-bricolage font-medium text-[11px] md:text-base mt-1 tracking-tight leading-tight" style={{ color: "var(--fg)" }}>
                   {s.label}
                 </p>
               </div>
               {i < STATS.length - 1 && (
-                <div className="w-px h-16" style={{ background: "var(--border)" }} />
+                <div className="w-px h-10 md:h-16 shrink-0" style={{ background: "var(--border)" }} />
               )}
             </div>
           ))}

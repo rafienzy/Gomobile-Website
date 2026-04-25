@@ -83,17 +83,17 @@ export function ContactCTA() {
         Tell us about your next campaign. We&apos;ll handle the strategy, the buying, and the proof it worked.
       </p>
 
-      <div className="cta-item flex flex-row gap-4 items-center">
-        <Link href="/contact">
-          <MagneticButton className="btn-primary h-[60px] px-10 text-[15px] whitespace-nowrap">
+      <div className="cta-item flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full sm:w-auto">
+        <Link href="/contact" className="w-full sm:w-auto">
+          <MagneticButton className="btn-primary h-[60px] px-10 text-[15px] whitespace-nowrap w-full sm:w-auto">
             GET IN TOUCH
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M3.75 9h10.5M9 3.75L14.25 9L9 14.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </MagneticButton>
         </Link>
-        <Link href="/case-study">
-          <MagneticButton className="btn-outline h-[60px] px-10 text-[15px] whitespace-nowrap">
+        <Link href="/case-study" className="w-full sm:w-auto">
+          <MagneticButton className="btn-outline h-[60px] px-10 text-[15px] whitespace-nowrap w-full sm:w-auto">
             SEE OUR WORK
           </MagneticButton>
         </Link>

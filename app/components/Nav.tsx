@@ -66,24 +66,46 @@ export function Nav() {
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed left-0 right-0 top-6 md:top-[92px] z-50 px-6 md:px-[150px]">
-      <div className="flex items-center justify-between">
-        {/* Logo */}
+    <nav ref={navRef} className="fixed left-0 right-0 top-6 md:top-[92px] z-50 px-4 md:px-[150px]">
+
+      {/* ── Mobile bar ── */}
+      <div className="md:hidden flex items-center justify-between rounded-2xl px-5 py-3 glass">
         <Link href="/" aria-label="Go Mobile home">
           <Image
             src={theme === "dark" ? "/assets/gomobile-darkmode.svg" : "/assets/gomobile-lightmode.svg"}
             alt="Go Mobile"
             width={100}
             height={22}
-            className="h-4 md:h-5 w-auto"
+            className="h-4 w-auto"
+            priority
+          />
+        </Link>
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          className="text-2xl leading-none"
+          style={{ color: "var(--fg)" }}
+        >
+          {open ? "✕" : "☰"}
+        </button>
+      </div>
+
+      {/* ── Desktop bar ── */}
+      <div className="hidden md:flex items-center justify-between">
+        <Link href="/" aria-label="Go Mobile home">
+          <Image
+            src={theme === "dark" ? "/assets/gomobile-darkmode.svg" : "/assets/gomobile-lightmode.svg"}
+            alt="Go Mobile"
+            width={100}
+            height={22}
+            className="h-5 w-auto"
             priority
           />
         </Link>
 
-        {/* Desktop pill — glassmorphism */}
         <div
           ref={innerRef}
-          className="hidden md:flex items-center gap-5 rounded-full pl-12 pr-2.5 py-2.5 backdrop-blur-sm glass"
+          className="flex items-center gap-5 rounded-full pl-12 pr-2.5 py-2.5 backdrop-blur-sm glass"
         >
           <ul className="flex gap-8 text-xs font-bold font-helvetica">
             {LINKS.map((l) => (
@@ -94,8 +116,6 @@ export function Nav() {
               </li>
             ))}
           </ul>
-
-          {/* Theme toggle */}
           <button
             onClick={toggle}
             aria-label="Toggle theme"
@@ -110,26 +130,15 @@ export function Nav() {
               className="w-[18px] h-[18px] object-contain"
             />
           </button>
-
-          {/* CTA */}
           <Link href="/contact">
             <MagneticButton className="btn-primary h-[46px] text-sm">LET&apos;S TALK</MagneticButton>
           </Link>
         </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setOpen(!open)}
-          style={{ color: "var(--fg)" }}
-        >
-          {open ? "✕" : "☰"}
-        </button>
       </div>
 
-      {/* Mobile drawer */}
+      {/* ── Mobile drawer ── */}
       {open && (
-        <div className="md:hidden mt-4 rounded-2xl p-6 flex flex-col gap-4 glass">
+        <div className="md:hidden mt-2 rounded-2xl p-6 flex flex-col gap-4 glass">
           {LINKS.map((l) => (
             <Link
               key={l.href}
