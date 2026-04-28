@@ -104,8 +104,8 @@ export function Hero() {
         className="absolute inset-0 z-[1]"
         style={{
           background: theme === "dark"
-            ? "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.60) 60%, rgba(10,10,10,1) 100%)"
-            : "linear-gradient(to bottom, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0.65) 60%, rgba(248,248,248,1) 100%)",
+            ? "linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.75) 45%, rgba(10,10,10,1) 72%)"
+            : "linear-gradient(to bottom, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.80) 45%, rgba(248,248,248,1) 72%)",
         }}
       />
 
