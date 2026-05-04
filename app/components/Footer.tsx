@@ -18,9 +18,9 @@ const NAV_COLS = [
   {
     heading: "Go NET",
     links: [
-      { label: "Go Predicts", href: "/gonet" },
-      { label: "Go Design", href: "/gonet" },
-      { label: "Go ASO", href: "/gonet" },
+      //{ label: "Go Predicts", href: "/gonet" },
+      //{ label: "Go Design", href: "/gonet" },
+      //{ label: "Go ASO", href: "/gonet" },
     ],
   },
 ];
