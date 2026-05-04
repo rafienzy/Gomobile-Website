@@ -110,6 +110,7 @@ export function ContactBody() {
               </div>
 
               {/* Budget */}
+              {/*
               <div className="flex flex-col gap-3">
                 <label className="text-xs font-bold uppercase tracking-[1.5px]" style={{ color: "var(--muted)" }}>
                   Estimated monthly budget
@@ -135,6 +136,7 @@ export function ContactBody() {
                   })}
                 </div>
               </div>
+              */}
 
               {/* Message */}
               <div className="flex flex-col gap-2">

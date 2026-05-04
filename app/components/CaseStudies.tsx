@@ -89,7 +89,7 @@ export function CaseStudies() {
           </h2>
         </div>
         <p className="max-w-[317px] text-base leading-[1.5]" style={{ color: "var(--muted)" }}>
-          {isDemo ? LOREM_DESC : 'From programmatic buying to rich media production, we cover every layer of your digital campaign.'}
+          {isDemo ? LOREM_DESC : 'Real briefs, real budgets, real results. See how we turned campaign goals into numbers worth talking about.'}
         </p>
       </div>
 
