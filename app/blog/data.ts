@@ -395,6 +395,172 @@ export const BLOG_POSTS: BlogPost[] = [
         "The headline numbers for SEA digital advertising are healthy. But the distribution of where that spend goes — and the quality of the inventory absorbing it — is increasingly uneven. The gap between programmatic buyers who filter well and those who don't is widening, and it's showing up in cost-per-outcome data. Standard industry benchmarks won't tell you this because they aggregate across both populations.",
     },
   },
+  // ─── Paste into app/blog/data.ts → inside the BLOG_POSTS array ───
+// Add a comma after the last existing entry before pasting.
+
+{
+  "slug": "how-to-make-a-sandwich",
+  "img": "/assets/featured-case-1.png",
+  "category": "Programmatic",
+  "title": "How to Make a Sandwich",
+  "excerpt": "Making a sandwich might seem like the easiest thing in the world, and honestly",
+  "author": "Rafi Abdillah",
+  "authorRole": "Designer / Chef",
+  "date": "May 4, 2026",
+  "readTime": "5 min read",
+  "body": {
+    "intro": "",
+    "sections": [],
+    "conclusion": ""
+  },
+  "blocks": [
+    {
+      "id": "u1wgy0q",
+      "type": "quote",
+      "content": "Making a sandwich might seem like the easiest thing in the world—and honestly, it is. But a great sandwich? That takes just a little more thought. Whether you're putting together a quick lunch or testing out your CMS with some mock content, this guide walks you through the process step by step."
+    },
+    {
+      "id": "0j5ho63",
+      "type": "heading2",
+      "content": "🥪 What You’ll Need"
+    },
+    {
+      "id": "l8bvq3y",
+      "type": "paragraph",
+      "content": "At its core, a sandwich only requires a few basic components:"
+    },
+    {
+      "id": "fhpfll3",
+      "type": "bulletList",
+      "content": "Bread – white, whole wheat, sourdough, or anything you like\nProtein – chicken, turkey, eggs, tofu, or even just cheese\nSpread – mayonnaise, mustard, butter, or sauce\nVegetables – lettuce, tomato, cucumber, onions (optional but recommended)\nExtras – cheese, pickles, or seasoning"
+    },
+    {
+      "id": "8z47125",
+      "type": "divider",
+      "content": ""
+    },
+    {
+      "id": "fz6e463",
+      "type": "heading2",
+      "content": "🔪 Step-by-Step Instructions"
+    },
+    {
+      "id": "4ztue5k",
+      "type": "heading3",
+      "content": "1. Choose Your Bread"
+    },
+    {
+      "id": "4gsabvm",
+      "type": "paragraph",
+      "content": "Start by selecting your bread. Soft bread works well for simple sandwiches, while crusty bread adds texture and structure."
+    },
+    {
+      "id": "psy8z2f",
+      "type": "heading3",
+      "content": "2. Add Your Spread"
+    },
+    {
+      "id": "7y68uxs",
+      "type": "paragraph",
+      "content": "Spread your choice of condiment evenly across one or both slices. This adds flavor and prevents the sandwich from being too dry."
+    },
+    {
+      "id": "b8ri72b",
+      "type": "heading3",
+      "content": "3. Layer the Protein"
+    },
+    {
+      "id": "hmcmhxr",
+      "type": "paragraph",
+      "content": "Place your main filling—like grilled chicken or sliced deli meat—on one slice of bread. Make sure it’s evenly distributed."
+    },
+    {
+      "id": "1dbuigd",
+      "type": "heading3",
+      "content": "4. Add Vegetables"
+    },
+    {
+      "id": "xghpcuz",
+      "type": "paragraph",
+      "content": "Layer your veggies on top. This adds crunch, freshness, and a bit of color."
+    },
+    {
+      "id": "ys79ozx",
+      "type": "heading3",
+      "content": "5. Add Extras"
+    },
+    {
+      "id": "nzpxuwq",
+      "type": "paragraph",
+      "content": "Cheese, pickles, or even a sprinkle of salt and pepper can elevate your sandwich."
+    },
+    {
+      "id": "tfer2wv",
+      "type": "heading3",
+      "content": "6. Close and Slice"
+    },
+    {
+      "id": "57yj777",
+      "type": "paragraph",
+      "content": "Place the second slice of bread on top. Press gently, then slice the sandwich in half if you like."
+    },
+    {
+      "id": "tkrsju1",
+      "type": "heading2",
+      "content": "💡 Tips for a Better Sandwich"
+    },
+    {
+      "id": "lq4694n",
+      "type": "bulletList",
+      "content": "Balance flavors – combine salty, fresh, and creamy elements\nDon’t overfill – too much stuffing makes it hard to eat\nToast if needed – a quick toast can improve texture\nUse fresh ingredients – it makes a noticeable difference"
+    },
+    {
+      "id": "6f48xrp",
+      "type": "heading2",
+      "content": "🧪 Example Variation"
+    },
+    {
+      "id": "fit42yp",
+      "type": "paragraph",
+      "content": "Simple Chicken Sandwich"
+    },
+    {
+      "id": "a5zv1mc",
+      "type": "bulletList",
+      "content": "Whole wheat bread\nGrilled chicken breast\nLettuce and tomato\nMayonnaise\nA pinch of salt and pepper"
+    },
+    {
+      "id": "rm7ayhe",
+      "type": "heading2",
+      "content": "📝 Final Thoughts"
+    },
+    {
+      "id": "rtmmvzq",
+      "type": "paragraph",
+      "content": "A sandwich is more than just food—it’s a flexible, customizable meal that can match your taste, diet, and mood. Once you understand the basics, you can experiment endlessly.\n\nPerfect for testing your CMS—and even better for lunch."
+    }
+  ],
+  "tags": [
+    "PROGRAMMATIC",
+    "SANDWICH",
+    "COOK"
+  ],
+  "relatedSlugs": [
+    "incrementality-testing",
+    "why-our-dsp-rejects-23-percent",
+    "mmm-is-back"
+  ],
+  "seo": {
+    "metaTitle": "How to Make a Sandwich",
+    "metaDescription": "Making a sandwich might seem like the easiest thing in the world, and honestly,",
+    "focusKeyword": "how to make a sandwich",
+    "ogTitle": "",
+    "ogDescription": "",
+    "ogImage": "",
+    "canonical": "",
+    "noIndex": false
+  }
+},
   {
     slug: "incrementality-testing",
     img: "/assets/featured-case-2.png",
