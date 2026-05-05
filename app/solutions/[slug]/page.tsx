@@ -3,12 +3,11 @@ import { Nav } from "../../components/Nav";
 import { Footer } from "../../components/Footer";
 import { ContactCTA } from "../../components/ContactCTA";
 import { BackgroundGrain } from "../../components/BackgroundGrain";
-import { getService, SERVICES } from "../data";
+import { getService } from "../data";
 import { ServiceDetail } from "./ServiceDetail";
 import { getDbCaseStudies } from "@/lib/db/case-study";
-export function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.slug }));
-}
+
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
