@@ -39,7 +39,7 @@ const LOREM_SERVICE: Service = {
   relatedCases: [],
 };
 
-export function ServiceDetail({ data, relatedCases = [] }: { data: Service; relatedCases?: CaseStudy[] }) {
+export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { data: Service; relatedCases?: CaseStudy[]; relatedCasesSlot?: React.ReactNode }) {
   const { isDemo } = useDemo();
   const d = isDemo ? LOREM_SERVICE : data;
   const ref = useRef<HTMLDivElement>(null);
@@ -195,8 +195,8 @@ export function ServiceDetail({ data, relatedCases = [] }: { data: Service; rela
         </div>
       </section>
 
-      {/* ── Related cases ── */}
-      {related.length > 0 && (
+      {/* ── Related cases (slot takes priority; falls back to prop) ── */}
+      {relatedCasesSlot ?? (related.length > 0 && (
         <section className="px-6 md:px-[136px] py-10 md:py-16">
           <div className="svc-section mb-10">
             <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>CASE STUDIES</p>
@@ -222,7 +222,7 @@ export function ServiceDetail({ data, relatedCases = [] }: { data: Service; rela
             ))}
           </div>
         </section>
-      )}
+      ))}
 
       {/* ── Next service ── */}
       <section className="px-6 md:px-[136px] py-10 md:py-16">
