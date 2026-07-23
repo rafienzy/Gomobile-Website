@@ -103,11 +103,6 @@ export function Services() {
             {isDemo ? <>Lorem ipsum dolor<br />sit amet consectetur.</> : <>Full-cycle digital<br />advertising solutions.</>}
           </h2>
         </div>
-        <p className="max-w-[317px] text-base leading-[1.5]" style={{ color: "var(--muted)" }}>
-          {isDemo
-            ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore magna.'
-            : 'From programmatic buying to rich media production, we cover every layer of your digital campaign.'}
-        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

@@ -45,12 +45,12 @@ const LOREM_VALUES = [
 ];
 
 const TEAM = [
+  { name: "Daniil Pisarenko", role: "Country Manager", initials: "DP" },
+  { name: "Jessica Pauli", role: "Director of Client Services and Operations", initials: "JP" },
   { name: "Vinasia", role: "Finance", initials: "VI" },
   { name: "Gian Luis Wizny", role: "General Affairs", initials: "GW" },
   { name: "Rafi Abdillah", role: "Graphic Designer", initials: "RA" },
   { name: "Reiza Bhatara Bachri", role: "Business Development", initials: "RB" },
-  { name: "Daniil Pisarenko", role: "Country Manager", initials: "DP" },
-  { name: "Jessica Pauli", role: "Director of Client Services and Operations", initials: "JP" },
   { name: "Sangganing Pangasa", role: "Media Buyer", initials: "SP" },
   { name: "Cindy Sintya Riris", role: "Account Manager", initials: "CR" },
   { name: "Figo Maulana Said", role: "Communication Manager", initials: "FS" },
