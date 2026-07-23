@@ -5,4 +5,14 @@ out
 .env*
 *.log
 .DS_Store
+
+# Claude Code local state
 .claude/settings.local.json
+.claude/worktrees/
+
+# Build artifacts (regenerated on every build — must not be tracked)
+tsconfig.tsbuildinfo
+
+# Local working files, not part of the site
+deck-assets/
+filter_slow.txt
