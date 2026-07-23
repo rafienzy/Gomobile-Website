@@ -21,7 +21,6 @@ export default function SolutionsPage() {
             Solutions built<br />for <span className="text-gradient-animated">performance</span>.
           </>
         }
-        lede="From programmatic buying to high-impact rich media — we plan, build, and optimize across every channel that matters."
       />
       <SolutionsBody />
       <ContactCTA />
