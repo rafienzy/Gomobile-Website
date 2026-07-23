@@ -6,7 +6,6 @@ import { addReveal } from "../utils/scrollReveal";
 import { Icon } from "../components/Icon";
 
 const BUDGETS = ["< $10K", "$10K–$50K", "$50K–$150K", "$150K–$500K", "$500K+"];
-const SERVICES = ["Programmatic Display", "Video / CTV / OTT", "Rich Media & HTML5", "Social Media Buying", "GoNet DSP", "Analytics & Attribution"];
 
 const OFFICES = [
   { city: "Jakarta",   address: "Menara BCA, Jl. MH Thamrin No.1, Jakarta 10310",  email: "jakarta@gomobile.id"   },
@@ -17,11 +16,7 @@ const OFFICES = [
 export function ContactBody() {
   const ref = useRef<HTMLDivElement>(null);
   const [budget, setBudget]   = useState("");
-  const [services, setServices] = useState<string[]>([]);
   const [sent, setSent]       = useState(false);
-
-  const toggleService = (s: string) =>
-    setServices((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -81,33 +76,6 @@ export function ContactBody() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Work email" name="email" type="email" placeholder="you@company.com" required />
                 <Field label="Phone (optional)" name="phone" type="tel" placeholder="+62 812 ..." />
-              </div>
-
-              {/* Services */}
-              <div className="flex flex-col gap-3">
-                <label className="text-xs font-bold uppercase tracking-[1.5px]" style={{ color: "var(--muted)" }}>
-                  What are you looking for?
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {SERVICES.map((s) => {
-                    const active = services.includes(s);
-                    return (
-                      <button
-                        key={s}
-                        type="button"
-                        onClick={() => toggleService(s)}
-                        className="px-4 py-2 rounded-full text-xs font-bold tracking-tight transition-all duration-200"
-                        style={{
-                          background: active ? "linear-gradient(65deg,#ef6600,#cb0000)" : "transparent",
-                          color:  active ? "#fff" : "var(--fg)",
-                          border: `1px solid ${active ? "transparent" : "var(--border)"}`,
-                        }}
-                      >
-                        {s}
-                      </button>
-                    );
-                  })}
-                </div>
               </div>
 
               {/* Budget */}

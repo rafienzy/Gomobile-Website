@@ -10,9 +10,8 @@ const STATS = [
   { num: 24,    suffix: "",    label: "SSPs via OpenRTB" },
   { num: 15,    suffix: "+",   label: "Ad Formats" },
   { num: 9,     suffix: "yrs", label: "In Operation" },
-  { num: 2.4,   suffix: "B+",  label: "Daily Bid Requests" },
   { num: 98.7,  suffix: "%",   label: "Brand Safe Rate" },
-  { num: 106.7, suffix: "%",   label: "Avg Delivery Accuracy" },
+  { num: 106.7, suffix: "%",   label: "KPI Achievement" },
 ];
 
 const FEATURES = [
@@ -60,26 +59,10 @@ const FEATURES = [
   },
 ];
 
-const SPECS = [
-  { label: "Bid Protocol",       v: "OpenRTB 2.5 + 3.0" },
-  { label: "Response Time",      v: "< 80ms avg" },
-  { label: "QPS Capacity",       v: "2.4B+ daily" },
-  { label: "Ad Formats",         v: "15+ IAB-certified" },
-  { label: "Attribution",        v: "Click + view, custom window" },
-  { label: "Data Activation",    v: "1P, 2P, 3P segments" },
-  { label: "Creative Types",     v: "Display, Video, Native, HTML5" },
-  { label: "Brand Safety",       v: "IAS + DV certified" },
-  { label: "Reporting",          v: "Real-time, 30-min refresh" },
-  { label: "Support",            v: "Dedicated trading desk" },
-];
-
-const SSPS = ["Xandr", "Index Exchange", "Magnite", "PubMatic", "OpenX", "TripleLift", "Sovrn", "InMobi", "IronSource", "DistroScale", "Beachfront", "Sharethrough"];
-
 const LOREM_STATS = [
   { num: 24,    suffix: "",    label: "Lorem Ipsum" },
   { num: 15,    suffix: "+",   label: "Adipiscing Elit" },
   { num: 9,     suffix: "yrs", label: "Consectetur Inc" },
-  { num: 2.4,   suffix: "B+",  label: "Sed Do Eiusmod" },
   { num: 98.7,  suffix: "%",   label: "Tempor Incididunt" },
   { num: 106.7, suffix: "%",   label: "Labore Et Dolore" },
 ];
@@ -92,21 +75,6 @@ const LOREM_FEATURES = [
   { icon: "link", title: "Dolore Magna Aliqua", tag: "LOREM IPSUM", desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.", bullets: ["Perspiciatis unde omnis", "Natus error sit amet", "Voluptatem accusantium", "Doloremque laudantium"] },
   { icon: "device-mobile", title: "Enim Ad Minim", tag: "LOREM IPSUM", desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.", bullets: ["Ipsam voluptatem quia", "Aspernatur aut odit", "Consequuntur magni", "Dolores eos ratione"] },
 ];
-
-const LOREM_SPECS = [
-  { label: "Lorem Ipsum",       v: "Dolor Sit Amet" },
-  { label: "Consectetur",       v: "< Adipiscing Elit" },
-  { label: "Sed Do Eiusmod",    v: "Tempor Incididunt" },
-  { label: "Ut Labore",         v: "15+ Dolore Magna" },
-  { label: "Aliqua Enim",       v: "Minim, veniam window" },
-  { label: "Nostrud Exercit",   v: "1P, 2P, 3P lorem" },
-  { label: "Ullamco Laboris",   v: "Lorem, Ipsum, Dolor, Sit" },
-  { label: "Nisi Ut Aliquip",   v: "IAS + Lorem certified" },
-  { label: "Commodo Consequat", v: "Real-time, 30-min refresh" },
-  { label: "Duis Aute Irure",   v: "Dedicated lorem desk" },
-];
-
-const LOREM_SSPS = ["Lorem Ipsum", "Dolor Sit Amet", "Consectetur Inc", "Adipiscing Elit", "Sed Do Eiusmod", "Tempor Inc", "Labore Dolore", "Magna Aliqua", "Enim Ad Minim", "Quis Nostrud", "Ullamco Laboris", "Nisi Aliquip"];
 
 export function GoNetBody() {
   const { isDemo } = useDemo();
@@ -192,7 +160,7 @@ export function GoNetBody() {
 
       {/* ── Stats ── */}
       <section className="px-6 md:px-[136px] pb-16 md:pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {(isDemo ? LOREM_STATS : STATS).map((s) => (
             <div key={s.label} className="gn-stat flex flex-col gap-2 p-6 rounded-[20px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
@@ -253,34 +221,6 @@ export function GoNetBody() {
         </div>
       </section>
 
-      {/* ── Tech Specs ── */}
-      <section className="px-6 md:px-[136px] py-10 md:py-16">
-        <div className="gn-section mb-10">
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>{isDemo ? 'LOREM IPSUM' : 'TECHNICAL SPECIFICATIONS'}</p>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-            {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : 'Built for performance at scale.'}
-          </h2>
-        </div>
-        <div
-          className="rounded-[28px] overflow-hidden"
-          style={{ border: "1px solid var(--border)" }}
-        >
-          {(isDemo ? LOREM_SPECS : SPECS).map((s, i) => (
-            <div
-              key={s.label}
-              className="gn-spec grid grid-cols-2 px-8 py-5"
-              style={{
-                borderBottom: i < SPECS.length - 1 ? "1px solid var(--border)" : "none",
-                background: i % 2 === 0 ? "var(--card)" : "transparent",
-              }}
-            >
-              <p className="text-sm font-bold" style={{ color: "var(--muted)" }}>{s.label}</p>
-              <p className="text-sm font-bold" style={{ color: "var(--fg)" }}>{s.v}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── SSP Partners ── */}
       <section className="px-6 md:px-[136px] py-10 md:py-16">
         <div className="gn-section mb-10">
@@ -289,23 +229,11 @@ export function GoNetBody() {
             {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : '24 SSPs, direct OpenRTB.'}
           </h2>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {(isDemo ? LOREM_SSPS : SSPS).map((s) => (
-            <div
-              key={s}
-              className="gn-ssp px-5 py-3 rounded-full text-sm font-bold"
-              style={{ background: "var(--card)", border: "1px solid var(--border)", color: "var(--fg)" }}
-            >
-              {s}
-            </div>
-          ))}
-          <div
-            className="gn-ssp px-5 py-3 rounded-full text-sm font-bold"
-            style={{ background: "linear-gradient(90deg, rgba(239,102,0,0.15), rgba(203,0,0,0.15))", border: "1px solid rgba(239,102,0,0.3)", color: "#ef6600" }}
-          >
-            +12 more
-          </div>
-        </div>
+        <p className="gn-section max-w-[820px] text-lg md:text-xl leading-[1.6]" style={{ color: "var(--muted)" }}>
+          {isDemo
+            ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.'
+            : 'GoNet plugs directly into 24 premium supply-side platforms over OpenRTB — including Xandr, Index Exchange, Magnite, PubMatic, OpenX, TripleLift, Sovrn, and Sharethrough, with in-app inventory via InMobi and IronSource and CTV supply through DistroScale and Beachfront. Every integration is direct: no daisy-chain reselling, no resold DSP seats.'}
+        </p>
       </section>
 
       {/* ── How it connects ── */}

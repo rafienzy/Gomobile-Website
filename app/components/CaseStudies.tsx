@@ -9,20 +9,18 @@ import { MagneticButton } from "./MagneticButton";
 import { addReveal } from "../utils/scrollReveal";
 import { useDemo } from "../context/DemoMode";
 
-const CASES = [
-  { img: "/assets/featured-case-1.png", title: "Singapore Airlines", slug: "singapore-airlines" },
-  { img: "/assets/featured-case-2.png", title: "Indofood",           slug: "indofood" },
-  { img: "/assets/featured-case-3.png", title: "Bank Jago",          slug: "bank-jago" },
-];
-const LOREM_CASES_HOME = [
-  { img: "/assets/featured-case-1.png", title: "Lorem Ipsum Corp",       slug: "singapore-airlines" },
-  { img: "/assets/featured-case-2.png", title: "Adipiscing Elit Ltd",     slug: "indofood" },
-  { img: "/assets/featured-case-3.png", title: "Consectetur Inc",         slug: "bank-jago" },
-];
-const DESC =
-  "Reach your audience with precision across premium publisher networks display, native, and in-app placements powered by our GoNet DSP.";
 const LOREM_DESC =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+const CASES = [
+  { img: "/assets/featured-case-1.png", title: "Singapore Airlines", slug: "singapore-airlines", desc: "Premium video drove a 38% lift in flight searches across SEA.", tags: ["CTV", "VIDEO"] },
+  { img: "/assets/featured-case-2.png", title: "Indofood",           slug: "indofood",           desc: "Gamified rich media outperformed display CTR by 6× across in-app inventory.", tags: ["RICH MEDIA", "GAMIFIED"] },
+  { img: "/assets/featured-case-3.png", title: "Bank Jago",          slug: "bank-jago",          desc: "Always-on programmatic delivered a 22% lower CAC than social-only baselines.", tags: ["PROGRAMMATIC", "NATIVE"] },
+];
+const LOREM_CASES_HOME = [
+  { img: "/assets/featured-case-1.png", title: "Lorem Ipsum Corp",       slug: "singapore-airlines", desc: LOREM_DESC, tags: ["LOREM", "IPSUM"] },
+  { img: "/assets/featured-case-2.png", title: "Adipiscing Elit Ltd",     slug: "indofood",           desc: LOREM_DESC, tags: ["DOLOR", "SIT"] },
+  { img: "/assets/featured-case-3.png", title: "Consectetur Inc",         slug: "bank-jago",          desc: LOREM_DESC, tags: ["AMET", "ELIT"] },
+];
 
 export function CaseStudies() {
   const { isDemo } = useDemo();
@@ -103,10 +101,11 @@ export function CaseStudies() {
               <h3 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight text-white">
                 {c.title}
               </h3>
-              <p className="text-sm md:text-base text-white/90 mt-3 leading-[1.5]">{isDemo ? LOREM_DESC : DESC}</p>
+              <p className="text-sm md:text-base text-white/90 mt-3 leading-[1.5]">{c.desc}</p>
               <div className="flex gap-1.5 mt-4">
-                <span className="rounded-full px-4 py-1 text-xs font-normal text-white bg-brand-gradient">CPM</span>
-                <span className="rounded-full px-4 py-1 text-xs font-normal text-white bg-brand-gradient">NATIVE ADS</span>
+                {c.tags.map((t) => (
+                  <span key={t} className="rounded-full px-4 py-1 text-xs font-normal text-white bg-brand-gradient">{t}</span>
+                ))}
               </div>
             </div>
           </article>
