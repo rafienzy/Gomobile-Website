@@ -83,9 +83,6 @@ export function GoNetDSP() {
           >
             <span className="text-gradient">GO</span>NET
           </h2>
-          <p className="max-w-[560px] text-base leading-[1.5] mt-2" style={{ color: "var(--muted)" }}>
-            Our independent real-time bidding platform for APP &amp; WEB traffic — connecting to 24 SSPs with AI-powered targeting and built-in brand safety, no third-party cookies required.
-          </p>
         </div>
 
         {/* Stats */}
