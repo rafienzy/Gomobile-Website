@@ -21,7 +21,6 @@ export default function ContactPage() {
             you&apos;re <span className="text-gradient-animated">building</span>.
           </>
         }
-        lede="Drop us the brief. We'll come back with a plan, a timeline, and a team that's done it before."
       />
       <ContactBody />
       <Footer />
