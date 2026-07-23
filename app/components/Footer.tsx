@@ -11,7 +11,7 @@ const NAV_COLS = [
     links: [
       { label: "Case Study", href: "/case-study" },
       { label: "Blog", href: "/blog" },
-      { label: "Privacy & Policy", href: "#" },
+      { label: "Privacy Policy", href: "/privacy" },
       { label: "Contacts", href: "/contact" },
     ],
   },
@@ -149,12 +149,12 @@ export function Footer() {
         style={{ borderTop: "1px solid var(--border)" }}
       >
         <p className="font-helvetica text-sm" style={{ color: "var(--muted)" }}>
-          © 2025 Go Mobile, Inc. All rights reserved.
+          © {new Date().getFullYear()} Go Mobile, Inc. All rights reserved.
         </p>
         <div className="flex gap-6">
           {[
-            { label: "Privacy & Policy", href: "#" },
-            { label: "Terms of Service", href: "#" },
+            { label: "Privacy Policy", href: "/privacy" },
+            { label: "Terms of Service", href: "/terms" },
           ].map(({ label, href }) => (
             <Link key={label} href={href} className="font-helvetica text-sm hover:opacity-70 transition" style={{ color: "var(--muted)" }}>
               {label}
