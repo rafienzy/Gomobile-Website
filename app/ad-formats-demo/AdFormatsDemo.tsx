@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Icon } from "../components/Icon";
 
 interface AdFmt {
   id: string; label: string; size: string;
@@ -515,7 +516,7 @@ export function AdFormatsDemo() {
                 <p className="font-bricolage font-bold text-sm leading-none" style={{ color: "var(--fg)" }}>Ad Formats</p>
                 <p className="text-[9px] font-helvetica tracking-widest mt-0.5" style={{ color: "var(--muted)" }}>{enabledCount}/{FORMATS.length} ACTIVE</p>
               </div>
-              <button onClick={() => setPanelOpen(false)} className="ml-auto w-6 h-6 rounded-full flex items-center justify-center text-xs" style={{ color: "var(--muted)" }}>✕</button>
+              <button onClick={() => setPanelOpen(false)} aria-label="Close" className="ml-auto w-6 h-6 rounded-full flex items-center justify-center" style={{ color: "var(--muted)" }}><Icon name="xmark" className="w-4 h-4" /></button>
             </div>
             <div className="px-2 py-2 flex flex-col gap-0.5 max-h-[380px] overflow-y-auto">
               {FORMATS.map((f) => {

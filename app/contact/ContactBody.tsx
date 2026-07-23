@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
+import { Icon } from "../components/Icon";
 
 const BUDGETS = ["< $10K", "$10K–$50K", "$50K–$150K", "$150K–$500K", "$500K+"];
 const SERVICES = ["Programmatic Display", "Video / CTV / OTT", "Rich Media & HTML5", "Social Media Buying", "GoNet DSP", "Analytics & Attribution"];
@@ -47,10 +48,10 @@ export function ContactBody() {
           {sent ? (
             <div className="flex flex-col items-center justify-center h-full min-h-[400px] gap-6 text-center">
               <div
-                className="w-20 h-20 rounded-full flex items-center justify-center text-3xl"
+                className="w-20 h-20 rounded-full flex items-center justify-center"
                 style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
               >
-                ✓
+                <Icon name="check" className="w-9 h-9 text-[#ef6600]" />
               </div>
               <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-tight tracking-tight" style={{ color: "var(--fg)" }}>
                 We&apos;ve got it.
@@ -178,10 +179,10 @@ export function ContactBody() {
             className="glass-card rounded-[28px] p-8 flex flex-col gap-4"
           >
             <div
-              className="w-14 h-14 rounded-full flex items-center justify-center text-xl"
+              className="w-14 h-14 rounded-full flex items-center justify-center"
               style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
             >
-              ⚡
+              <Icon name="bolt" className="w-6 h-6 text-[#ef6600]" />
             </div>
             <h3 className="font-bricolage font-bold text-xl tracking-tight" style={{ color: "var(--fg)" }}>
               1-business-day response

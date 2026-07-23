@@ -9,6 +9,7 @@ import { Service, SERVICES } from "../data";
 import type { CaseStudy } from "@/lib/models/case-study";
 import { Html5Gallery } from "./Html5Gallery";
 import { useDemo } from "../../context/DemoMode";
+import { Icon } from "../../components/Icon";
 
 const LOREM_SERVICE: Service = {
   slug: "programmatic-display",
@@ -25,10 +26,10 @@ const LOREM_SERVICE: Service = {
     { v: "106%",  l: "Avg Adipiscing" },
   ],
   features: [
-    { icon: "🎯", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna." },
-    { icon: "🛡️", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-    { icon: "⚡", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-    { icon: "📊", title: "Incididunt Labore", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est." },
+    { icon: "viewfinder", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna." },
+    { icon: "shield", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+    { icon: "bolt", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+    { icon: "chart-bar", title: "Incididunt Labore", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est." },
   ],
   process: [
     { num: "01", title: "Lorem Ipsum", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore." },
@@ -155,9 +156,9 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
           {d.features.map((f) => (
             <div key={f.title} className="svc-feature flex flex-col gap-4 p-8 rounded-[24px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-xl"
+              <div className="w-14 h-14 rounded-full flex items-center justify-center"
                 style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}>
-                {f.icon}
+                <Icon name={f.icon} className="w-6 h-6 text-[#ef6600]" />
               </div>
               <h3 className="font-bricolage font-bold text-xl tracking-tight" style={{ color: "var(--fg)" }}>{f.title}</h3>
               <p className="text-sm leading-[1.6]" style={{ color: "var(--muted)" }}>{f.desc}</p>

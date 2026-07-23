@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
 import { useDemo } from "../context/DemoMode";
+import { Icon } from "../components/Icon";
 
 const STATS = [
   { v: "9", s: "yrs", l: "In Operation" },
@@ -14,17 +15,17 @@ const STATS = [
 
 const VALUES = [
   {
-    icon: "🎯",
+    icon: "viewfinder",
     title: "Performance over promises",
     desc: "We don't ship pretty decks. We ship lift, and we report it the way a CFO wants to read it.",
   },
   {
-    icon: "🔬",
+    icon: "wrench",
     title: "Engineering-first thinking",
     desc: "Our DSP, our pipelines, our creative builds — we own the stack so you don't pay middlemen.",
   },
   {
-    icon: "🤝",
+    icon: "users",
     title: "Real partnership",
     desc: "Your media team gets a strategist, a trader, and a creative tech lead — not an account inbox.",
   },
@@ -58,9 +59,9 @@ const LOREM_STATS = [
 ];
 
 const LOREM_VALUES = [
-  { icon: "🎯", title: "Lorem ipsum dolor sit", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna." },
-  { icon: "🔬", title: "Adipiscing elit tempor", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-  { icon: "🤝", title: "Consectetur incididunt", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+  { icon: "viewfinder", title: "Lorem ipsum dolor sit", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna." },
+  { icon: "wrench", title: "Adipiscing elit tempor", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+  { icon: "users", title: "Consectetur incididunt", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
 ];
 
 const LOREM_TIMELINE = [
@@ -168,10 +169,10 @@ export function AboutBody() {
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}
             >
               <div
-                className="w-16 h-16 rounded-full flex items-center justify-center text-2xl"
+                className="w-16 h-16 rounded-full flex items-center justify-center"
                 style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
               >
-                {v.icon}
+                <Icon name={v.icon} className="w-7 h-7 text-[#ef6600]" />
               </div>
               <h3 className="font-bricolage font-bold text-2xl leading-[1.2] tracking-tight" style={{ color: "var(--fg)" }}>
                 {v.title}
