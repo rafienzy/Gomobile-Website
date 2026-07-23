@@ -8,9 +8,22 @@ import { Icon } from "../components/Icon";
 const BUDGETS = ["< $10K", "$10K–$50K", "$50K–$150K", "$150K–$500K", "$500K+"];
 
 const OFFICES = [
-  { city: "Jakarta",   address: "Menara BCA, Jl. MH Thamrin No.1, Jakarta 10310",  email: "jakarta@gomobile.id"   },
-  { city: "Singapore", address: "1 Raffles Place, #20-61 Tower 2, Singapore 048616", email: "sg@gomobile.id"    },
-  { city: "Kuala Lumpur", address: "Level 18, Menara IMC, Jl. Sultan Ismail, KL 50250", email: "kl@gomobile.id" },
+  {
+    city: "Jakarta",
+    label: "SEA Regional Hub",
+    address: "Menara Astra, 37th Floor, Jl. Jenderal Sudirman Kav. 5–6, Karet Tengsin, Tanah Abang, Jakarta Pusat 10220",
+    phone: "+62 818 903 358",
+    email: "bd@gomobileagency.com",
+    span: "md:col-span-2",
+  },
+  {
+    city: "Moscow",
+    label: "Go Ahead",
+    address: "25 Ostozhenka St., Bldg 1, Moscow 119034",
+    phone: "+7 (495) 665 91 24",
+    email: "hi@goahead.ai",
+    span: "md:col-span-1",
+  },
 ];
 
 export function ContactBody() {
@@ -191,14 +204,14 @@ export function ContactBody() {
               PREFER EMAIL?
             </p>
             <a
-              href="mailto:hello@gomobile.id"
+              href="mailto:bd@gomobileagency.com"
               className="font-bricolage font-bold text-lg tracking-tight transition-opacity hover:opacity-70"
               style={{ color: "var(--fg)" }}
             >
-              hello@gomobile.id
+              bd@gomobileagency.com
             </a>
             <p className="text-sm" style={{ color: "var(--muted)" }}>
-              Or call us at +62 21 5088 0123
+              Or call us at +62 818 903 358
             </p>
           </div>
         </div>
@@ -216,20 +229,34 @@ export function ContactBody() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {OFFICES.map((o) => (
-            <div key={o.city} className="office-card glass-card rounded-[28px] p-8 flex flex-col gap-4">
-              <h3 className="font-bricolage font-bold text-2xl tracking-tight" style={{ color: "var(--fg)" }}>
-                {o.city}
-              </h3>
+            <div key={o.city} className={`office-card glass-card rounded-[28px] p-8 flex flex-col gap-4 ${o.span}`}>
+              <div className="flex flex-col gap-1">
+                <p className="font-helvetica font-bold text-[11px] tracking-[3px] uppercase" style={{ color: "#ef6600" }}>
+                  {o.label}
+                </p>
+                <h3 className="font-bricolage font-bold text-2xl tracking-tight" style={{ color: "var(--fg)" }}>
+                  {o.city}
+                </h3>
+              </div>
               <p className="text-sm leading-[1.6]" style={{ color: "var(--muted)" }}>
                 {o.address}
               </p>
-              <a
-                href={`mailto:${o.email}`}
-                className="text-sm font-bold transition-opacity hover:opacity-60 mt-auto"
-                style={{ color: "#ef6600" }}
-              >
-                {o.email}
-              </a>
+              <div className="flex flex-col gap-1 mt-auto">
+                <a
+                  href={`tel:${o.phone.replace(/[^\d+]/g, "")}`}
+                  className="text-sm transition-opacity hover:opacity-60"
+                  style={{ color: "var(--fg)" }}
+                >
+                  {o.phone}
+                </a>
+                <a
+                  href={`mailto:${o.email}`}
+                  className="text-sm font-bold transition-opacity hover:opacity-60"
+                  style={{ color: "#ef6600" }}
+                >
+                  {o.email}
+                </a>
+              </div>
             </div>
           ))}
         </div>
