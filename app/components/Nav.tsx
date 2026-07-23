@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MagneticButton } from "./MagneticButton";
+import { Icon } from "./Icon";
 
 /**
  * Inline SVG logo split into two stacked layers:
@@ -127,10 +128,10 @@ export function Nav() {
         <button
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
-          className="text-2xl leading-none"
+          className="leading-none"
           style={{ color: "var(--fg)" }}
         >
-          {open ? "✕" : "☰"}
+          <Icon name={open ? "xmark" : "bars"} className="w-6 h-6" />
         </button>
       </div>
 

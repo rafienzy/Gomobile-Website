@@ -1,7 +1,15 @@
 import { MongoClient, Db } from 'mongodb';
 
-const uri = process.env.MONGODB_URI!;
+const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB || 'gomobile';
+
+if (!uri) {
+  throw new Error(
+    'MONGODB_URI is not set. Create a `.env.local` file in the project root with ' +
+      'MONGODB_URI=<your connection string> (and MONGODB_DB if not "gomobile"), ' +
+      'then restart the dev server.'
+  );
+}
 
 let client: MongoClient;
 let clientPromise: Promise<MongoClient>;

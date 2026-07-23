@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
 import { useDemo } from "../context/DemoMode";
+import { Icon } from "../components/Icon";
 
 const SOLUTIONS = [
   {
@@ -47,12 +48,12 @@ const SOLUTIONS = [
 ];
 
 const ADDONS = [
-  { icon: "📊", title: "Analytics & Attribution", desc: "MMM, MTA, and incrementality testing — we measure what actually drove the lift." },
-  { icon: "🧪", title: "Creative Testing", desc: "Rapid creative iteration cycles tied to performance data, not opinions." },
-  { icon: "🔍", title: "Audience Research", desc: "First-party data strategy, segmentation, and lookalike modeling." },
-  { icon: "🛡️", title: "Brand Safety & Verification", desc: "IAS, DV, and MOAT integration on every placement, every campaign." },
-  { icon: "📡", title: "Data Clean Rooms", desc: "Privacy-safe activation across LiveRamp, AWS, and Google PAIR." },
-  { icon: "🎬", title: "Production Support", desc: "Storyboard to delivery — video and static creative produced in-house." },
+  { icon: "chart-bar", title: "Analytics & Attribution", desc: "MMM, MTA, and incrementality testing — we measure what actually drove the lift." },
+  { icon: "beaker", title: "Creative Testing", desc: "Rapid creative iteration cycles tied to performance data, not opinions." },
+  { icon: "search", title: "Audience Research", desc: "First-party data strategy, segmentation, and lookalike modeling." },
+  { icon: "shield", title: "Brand Safety & Verification", desc: "IAS, DV, and MOAT integration on every placement, every campaign." },
+  { icon: "signal", title: "Data Clean Rooms", desc: "Privacy-safe activation across LiveRamp, AWS, and Google PAIR." },
+  { icon: "film", title: "Production Support", desc: "Storyboard to delivery — video and static creative produced in-house." },
 ];
 
 const LOREM_SOLUTIONS = [
@@ -63,12 +64,12 @@ const LOREM_SOLUTIONS = [
 ];
 
 const LOREM_ADDONS = [
-  { icon: "📊", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit — sed do eiusmod tempor." },
-  { icon: "🧪", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
-  { icon: "🔍", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
-  { icon: "🛡️", title: "Sed Do Eiusmod", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
-  { icon: "📡", title: "Incididunt Labore", desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
-  { icon: "🎬", title: "Dolore Magna Aliqua", desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+  { icon: "chart-bar", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit — sed do eiusmod tempor." },
+  { icon: "beaker", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+  { icon: "search", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+  { icon: "shield", title: "Sed Do Eiusmod", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+  { icon: "signal", title: "Incididunt Labore", desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+  { icon: "film", title: "Dolore Magna Aliqua", desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
 ];
 
 export function SolutionsBody() {
@@ -152,10 +153,10 @@ export function SolutionsBody() {
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}
             >
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center text-xl"
+                className="w-14 h-14 rounded-full flex items-center justify-center"
                 style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
               >
-                {a.icon}
+                <Icon name={a.icon} className="w-6 h-6 text-[#ef6600]" />
               </div>
               <h3 className="font-bricolage font-bold text-xl tracking-tight" style={{ color: "var(--fg)" }}>
                 {a.title}

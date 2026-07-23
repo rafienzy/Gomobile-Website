@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Arrow } from "./Hero";
 import { MagneticButton } from "./MagneticButton";
 import { addReveal } from "../utils/scrollReveal";
+import { Icon } from "./Icon";
 
 const STATS = [
   { value: "24", label: "SSPs via OpenRTB", num: 24, suffix: "" },
@@ -123,10 +124,10 @@ export function GoNetDSP() {
           >
             {/* Icon bubble */}
             <div
-              className="w-[72px] h-[72px] rounded-full flex items-center justify-center text-2xl shrink-0"
+              className="w-[72px] h-[72px] rounded-full flex items-center justify-center shrink-0"
               style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
             >
-              {i === 0 ? "🎯" : i === 1 ? "🛡️" : "⚡"}
+              <Icon name={i === 0 ? "viewfinder" : i === 1 ? "shield" : "bolt"} className="w-8 h-8 text-[#ef6600]" />
             </div>
             <div className="flex flex-col gap-3">
               {/* fix #1: var(--fg) instead of hardcoded text-white */}

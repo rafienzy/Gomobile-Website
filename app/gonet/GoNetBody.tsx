@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
 import { useDemo } from "../context/DemoMode";
+import { Icon } from "../components/Icon";
 
 const STATS = [
   { num: 24,    suffix: "",    label: "SSPs via OpenRTB" },
@@ -15,42 +16,42 @@ const STATS = [
 
 const FEATURES = [
   {
-    icon: "🎯",
+    icon: "viewfinder",
     title: "AI Sensible Targeting",
     tag: "INTELLIGENCE",
     desc: "Full-page content analysis via computer vision. Real-time user profiling that adapts to intent and mood shifts — privacy-safe across WEB and IN-APP environments. No third-party cookie dependency.",
     bullets: ["Page-level contextual scoring", "Behavioural intent signals", "Mood & sentiment detection", "Privacy-safe by design"],
   },
   {
-    icon: "🛡️",
+    icon: "shield",
     title: "Pre-bid Traffic Filter",
     tag: "BRAND SAFETY",
     desc: "Filters fraudulent impressions before they hit your budget. Every live bid is analysed against 3rd-party trackers and verification to protect brand safety goals — before the auction, not after.",
     bullets: ["IAS + DoubleVerify integration", "Invalid Traffic (IVT) rejection", "Content category blocking", "Seller verification via ads.txt"],
   },
   {
-    icon: "⚡",
+    icon: "bolt",
     title: "ML Price Optimiser",
     tag: "PERFORMANCE",
     desc: "Machine learning predicts optimal bid prices in real-time — maximising impression value while keeping CPMs efficient across every placement and format.",
     bullets: ["Bid price prediction per auction", "Win rate vs CPM trade-off model", "Placement-level value scoring", "Automatic floor optimisation"],
   },
   {
-    icon: "📊",
+    icon: "chart-bar",
     title: "Reporting & Transparency",
     tag: "INSIGHTS",
     desc: "Full placement-level transparency. Every domain, every app, every placement — with real-time blocking capability and daily performance exports.",
     bullets: ["Domain + app-level reporting", "Real-time campaign dashboard", "Third-party tag compatibility", "Custom attribution windows"],
   },
   {
-    icon: "🔗",
+    icon: "link",
     title: "24 SSP Connections",
     tag: "SUPPLY",
     desc: "Direct OpenRTB integrations with 24 premium supply-side platforms across display, video, native, and in-app inventory. No daisy-chain reselling.",
     bullets: ["Xandr, Index, Magnite, Pubmatic", "OpenX, TripleLift, Sovrn", "In-app via IronSource, InMobi", "CTV via DistroScale, Beachfront"],
   },
   {
-    icon: "📱",
+    icon: "device-mobile",
     title: "Cross-Environment",
     tag: "REACH",
     desc: "Unified buying across WEB, IN-APP, CTV, and OTT from a single DSP seat — with device-graph frequency capping to control reach across screens.",
@@ -67,12 +68,12 @@ const LOREM_STATS = [
 ];
 
 const LOREM_FEATURES = [
-  { icon: "🎯", title: "Lorem Ipsum Dolor", tag: "LOREM IPSUM", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim.", bullets: ["Lorem ipsum dolor sit", "Adipiscing elit tempor", "Consectetur incididunt", "Sed do eiusmod labore"] },
-  { icon: "🛡️", title: "Adipiscing Elit Sit", tag: "LOREM IPSUM", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.", bullets: ["Quis nostrud exercitation", "Ullamco laboris nisi", "Aliquip ex ea commodo", "Consequat duis aute"] },
-  { icon: "⚡", title: "Consectetur Tempor", tag: "LOREM IPSUM", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.", bullets: ["Irure dolor reprehenderit", "Voluptate velit esse", "Cillum dolore fugiat", "Nulla pariatur excepteur"] },
-  { icon: "📊", title: "Incididunt Labore", tag: "LOREM IPSUM", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem.", bullets: ["Occaecat cupidatat non", "Proident sunt in culpa", "Officia deserunt mollit", "Anim id est laborum"] },
-  { icon: "🔗", title: "Dolore Magna Aliqua", tag: "LOREM IPSUM", desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.", bullets: ["Perspiciatis unde omnis", "Natus error sit amet", "Voluptatem accusantium", "Doloremque laudantium"] },
-  { icon: "📱", title: "Enim Ad Minim", tag: "LOREM IPSUM", desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.", bullets: ["Ipsam voluptatem quia", "Aspernatur aut odit", "Consequuntur magni", "Dolores eos ratione"] },
+  { icon: "viewfinder", title: "Lorem Ipsum Dolor", tag: "LOREM IPSUM", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim.", bullets: ["Lorem ipsum dolor sit", "Adipiscing elit tempor", "Consectetur incididunt", "Sed do eiusmod labore"] },
+  { icon: "shield", title: "Adipiscing Elit Sit", tag: "LOREM IPSUM", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.", bullets: ["Quis nostrud exercitation", "Ullamco laboris nisi", "Aliquip ex ea commodo", "Consequat duis aute"] },
+  { icon: "bolt", title: "Consectetur Tempor", tag: "LOREM IPSUM", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.", bullets: ["Irure dolor reprehenderit", "Voluptate velit esse", "Cillum dolore fugiat", "Nulla pariatur excepteur"] },
+  { icon: "chart-bar", title: "Incididunt Labore", tag: "LOREM IPSUM", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem.", bullets: ["Occaecat cupidatat non", "Proident sunt in culpa", "Officia deserunt mollit", "Anim id est laborum"] },
+  { icon: "link", title: "Dolore Magna Aliqua", tag: "LOREM IPSUM", desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.", bullets: ["Perspiciatis unde omnis", "Natus error sit amet", "Voluptatem accusantium", "Doloremque laudantium"] },
+  { icon: "device-mobile", title: "Enim Ad Minim", tag: "LOREM IPSUM", desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.", bullets: ["Ipsam voluptatem quia", "Aspernatur aut odit", "Consequuntur magni", "Dolores eos ratione"] },
 ];
 
 export function GoNetBody() {
@@ -194,9 +195,9 @@ export function GoNetBody() {
             <div key={f.title} className="gn-feature flex flex-col gap-5 p-10 rounded-[28px] min-h-[360px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
               <div className="flex items-start justify-between">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center text-2xl"
+                <div className="w-16 h-16 rounded-full flex items-center justify-center"
                   style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}>
-                  {f.icon}
+                  <Icon name={f.icon} className="w-7 h-7 text-[#ef6600]" />
                 </div>
                 <span className="text-[10px] font-bold tracking-[2px] px-2.5 py-1 rounded-full"
                   style={{ background: "rgba(239,102,0,0.12)", color: "#ef6600" }}>
