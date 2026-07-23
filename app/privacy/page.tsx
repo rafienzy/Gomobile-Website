@@ -27,8 +27,8 @@ export default function PrivacyPage() {
         <LegalSection title="1. Who we are">
           <p>
             Go Mobile, Inc. (&ldquo;Go Mobile,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is a
-            digital marketing agency specializing in performance buying and programmatic advertising, with offices in
-            Jakarta, Singapore, and Kuala Lumpur. This policy applies to gomobile.id and the services we provide through it.
+            digital marketing agency specializing in performance buying and programmatic advertising, headquartered in
+            Jakarta, Indonesia. This policy applies to gomobile.id and the services we provide through it.
           </p>
         </LegalSection>
 
@@ -137,8 +137,8 @@ export default function PrivacyPage() {
         <LegalSection title="13. Contact us">
           <p>
             Questions about this policy or your data? Email us at{" "}
-            <a href="mailto:hello@gomobile.id" style={{ color: "#ef6600" }}>hello@gomobile.id</a>, or write to us at any
-            of our offices in Jakarta, Singapore, or Kuala Lumpur.
+            <a href="mailto:bd@gomobileagency.com" style={{ color: "#ef6600" }}>bd@gomobileagency.com</a>, or write to us
+            at our Jakarta office.
           </p>
         </LegalSection>
       </LegalBody>
