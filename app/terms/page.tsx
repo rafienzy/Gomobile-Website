@@ -107,7 +107,7 @@ export default function TermsPage() {
         <LegalSection title="11. Contact us">
           <p>
             Questions about these terms? Email us at{" "}
-            <a href="mailto:hello@gomobile.id" style={{ color: "#ef6600" }}>hello@gomobile.id</a>.
+            <a href="mailto:bd@gomobileagency.com" style={{ color: "#ef6600" }}>bd@gomobileagency.com</a>.
           </p>
         </LegalSection>
       </LegalBody>

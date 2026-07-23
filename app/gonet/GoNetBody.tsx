@@ -186,9 +186,6 @@ export function GoNetBody() {
               {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : <>What GoNet does<br />that others can't.</>}
             </h2>
           </div>
-          <p className="max-w-[360px] text-base leading-[1.5]" style={{ color: "var(--muted)" }}>
-            Built from the ground up for SEA inventory — no resold third-party DSP seats, no black-box fees.
-          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {(isDemo ? LOREM_FEATURES : FEATURES).map((f) => (
