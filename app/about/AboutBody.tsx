@@ -43,6 +43,30 @@ const LOREM_VALUES = [
   { icon: "🤝", title: "Consectetur incididunt", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
 ];
 
+const TEAM = [
+  { name: "Vinasia", role: "Finance", initials: "VI" },
+  { name: "Gian Luis Wizny", role: "General Affairs", initials: "GW" },
+  { name: "Rafi Abdillah", role: "Graphic Designer", initials: "RA" },
+  { name: "Reiza Bhatara Bachri", role: "Business Development", initials: "RB" },
+  { name: "Daniil Pisarenko", role: "Country Manager", initials: "DP" },
+  { name: "Jessica Pauli", role: "Director of Client Services and Operations", initials: "JP" },
+  { name: "Sangganing Pangasa", role: "Media Buyer", initials: "SP" },
+  { name: "Cindy Sintya Riris", role: "Account Manager", initials: "CR" },
+  { name: "Figo Maulana Said", role: "Communication Manager", initials: "FS" },
+];
+
+const LOREM_TEAM = [
+  { name: "Lorem Ipsum", role: "Lorem Dolor", initials: "LI" },
+  { name: "Dolor Sit", role: "Amet Consectetur", initials: "DS" },
+  { name: "Adipiscing Elit", role: "Sed Eiusmod", initials: "AE" },
+  { name: "Tempor Incididunt", role: "Ut Labore", initials: "TI" },
+  { name: "Dolore Magna", role: "Aliqua Enim", initials: "DM" },
+  { name: "Quis Nostrud", role: "Exercitation", initials: "QN" },
+  { name: "Ullamco Laboris", role: "Nisi Aliquip", initials: "UL" },
+  { name: "Commodo Consequat", role: "Duis Aute", initials: "CC" },
+  { name: "Irure Dolor", role: "In Reprehenderit", initials: "ID" },
+];
+
 export function AboutBody() {
   const { isDemo } = useDemo();
   const ref = useRef<HTMLDivElement>(null);
@@ -139,6 +163,42 @@ export function AboutBody() {
               <p className="text-sm md:text-base leading-[1.5]" style={{ color: "var(--muted)" }}>
                 {v.desc}
               </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="px-6 md:px-[136px] py-16 md:py-24">
+        <div className="section-header mb-10">
+          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
+            {isDemo ? 'LOREM IPSUM' : 'THE PEOPLE'}
+          </p>
+          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+            {isDemo ? <>Lorem ipsum<br />adipiscing elit.</> : 'Meet the team.'}
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {(isDemo ? LOREM_TEAM : TEAM).map((m) => (
+            <div
+              key={m.name}
+              className="team-card flex flex-col items-center gap-4 p-6 md:p-8 rounded-[28px] text-center"
+              style={{ background: "var(--card)", border: "1px solid var(--border)" }}
+            >
+              <div
+                className="w-20 h-20 rounded-full flex items-center justify-center text-xl font-bricolage font-bold text-white"
+                style={{ background: "linear-gradient(135deg, #ef6600, #cb0000)" }}
+              >
+                {m.initials}
+              </div>
+              <div>
+                <p className="font-bricolage font-bold text-base md:text-lg" style={{ color: "var(--fg)" }}>
+                  {m.name}
+                </p>
+                <p className="text-xs md:text-sm mt-1" style={{ color: "var(--muted)" }}>
+                  {m.role}
+                </p>
+              </div>
             </div>
           ))}
         </div>
