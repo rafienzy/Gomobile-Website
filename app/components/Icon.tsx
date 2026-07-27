@@ -28,7 +28,7 @@ import {
   CheckIcon,
   XMarkIcon,
   Bars3Icon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/24/solid";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 

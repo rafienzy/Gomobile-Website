@@ -119,13 +119,10 @@ export function GoNetDSP() {
               borderRadius: "28px",
             }}
           >
-            {/* Icon bubble */}
-            <div
-              className="w-[72px] h-[72px] rounded-full flex items-center justify-center shrink-0"
-              style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
-            >
-              <Icon name={i === 0 ? "viewfinder" : i === 1 ? "shield" : "bolt"} className="w-8 h-8 text-[#ef6600]" />
-            </div>
+            <Icon
+              name={i === 0 ? "viewfinder" : i === 1 ? "shield" : "bolt"}
+              className="w-14 h-14 text-[#ef6600] shrink-0"
+            />
             <div className="flex flex-col gap-3">
               {/* fix #1: var(--fg) instead of hardcoded text-white */}
               <h3

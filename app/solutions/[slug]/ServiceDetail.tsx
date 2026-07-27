@@ -156,10 +156,7 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
           {d.features.map((f) => (
             <div key={f.title} className="svc-feature flex flex-col gap-4 p-8 rounded-[24px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
-              <div className="w-14 h-14 rounded-full flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}>
-                <Icon name={f.icon} className="w-6 h-6 text-[#ef6600]" />
-              </div>
+              <Icon name={f.icon} className="w-12 h-12 text-[#ef6600]" />
               <h3 className="font-bricolage font-bold text-xl tracking-tight" style={{ color: "var(--fg)" }}>{f.title}</h3>
               <p className="text-sm leading-[1.6]" style={{ color: "var(--muted)" }}>{f.desc}</p>
             </div>

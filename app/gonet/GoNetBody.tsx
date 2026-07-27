@@ -192,10 +192,7 @@ export function GoNetBody() {
             <div key={f.title} className="gn-feature flex flex-col gap-5 p-10 rounded-[28px] min-h-[360px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
               <div className="flex items-start justify-between">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}>
-                  <Icon name={f.icon} className="w-7 h-7 text-[#ef6600]" />
-                </div>
+                <Icon name={f.icon} className="w-14 h-14 text-[#ef6600]" />
                 <span className="text-[10px] font-bold tracking-[2px] px-2.5 py-1 rounded-full"
                   style={{ background: "rgba(239,102,0,0.12)", color: "#ef6600" }}>
                   {f.tag}

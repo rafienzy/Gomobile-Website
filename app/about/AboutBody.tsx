@@ -152,12 +152,7 @@ export function AboutBody() {
               className="value-card flex flex-col gap-5 p-10 rounded-[28px] min-h-[280px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}
             >
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
-              >
-                <Icon name={v.icon} className="w-7 h-7 text-[#ef6600]" />
-              </div>
+              <Icon name={v.icon} className="w-14 h-14 text-[#ef6600]" />
               <h3 className="font-bricolage font-bold text-2xl leading-[1.2] tracking-tight" style={{ color: "var(--fg)" }}>
                 {v.title}
               </h3>
