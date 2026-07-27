@@ -17,6 +17,10 @@ tsconfig.tsbuildinfo
 deck-assets/
 filter_slow.txt
 
-# Case study cover source art (3x PNG masters, ~75MB).
+# Case study cover source art (3x PNG exports, ~71MB).
 # The optimized .webp files in the same folder are what the site uses.
 public/assets/case-covers/*.png
+
+# Root-level asset scratch folder. Next.js only serves public/, so anything
+# here is either a duplicate of public/assets/ or an unused source export.
+/assets/
