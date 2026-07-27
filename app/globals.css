@@ -187,6 +187,26 @@ html, body {
   color: var(--bg);
 }
 
+/* ─── Horizontal scrollers ───────────────────────────────────────────────────
+   The native horizontal bar is invisible on macOS anyway, so it is hidden and
+   replaced by an explicit rail and thumb plus arrow buttons.
+   ─────────────────────────────────────────────────────────────────────────── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.rmb-arrow {
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease, color 0.25s ease;
+}
+.rmb-arrow:hover {
+  border-color: rgba(239, 102, 0, 0.55);
+  background: linear-gradient(65deg, rgba(239,102,0,0.12), rgba(203,0,0,0.12));
+  transform: scale(1.06);
+}
+.rmb-arrow:active { transform: scale(0.94); }
+
 /* ─── Nav link hover ─── */
 .nav-link {
   position: relative;
