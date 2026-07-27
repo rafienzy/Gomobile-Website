@@ -80,10 +80,20 @@ export function CaseStudyBody({ cases: liveCases = [] }: { cases?: CardCase[] })
           {filtered.map((c) => (
             <Link key={c.brand + c.headline} href={`/case-study/${c.slug}`}>
             <article
-              className="cs-card relative rounded-[28px] overflow-hidden h-[480px] md:h-[520px] group"
+              // Shorter on phones now that the metrics row is gone, otherwise
+              // the freed space just becomes empty artwork.
+              className="cs-card relative rounded-[28px] overflow-hidden h-[400px] md:h-[520px] group"
             >
               <Image src={c.img} alt={c.brand} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover scale-[1.01] transition-transform duration-700 group-hover:scale-[1.06]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+              {/* Two layers: a flat scrim over the whole cover, then a gradient
+                  weighted to the bottom. The gradient on its own faded to fully
+                  transparent at the top, but the card content runs the full
+                  height, so the category label and tag chips ended up sitting
+                  straight on the artwork and became hard to read on a phone,
+                  where the card is narrower and the image busier. Together
+                  these land at roughly 60% opacity up top and 92% at the base. */}
+              <div className="absolute inset-0 bg-black/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
               <div className="absolute inset-0 p-7 md:p-9 flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                   <span className="text-[11px] font-bold tracking-[2px] text-white/80 uppercase">
@@ -103,7 +113,11 @@ export function CaseStudyBody({ cases: liveCases = [] }: { cases?: CardCase[] })
                     {c.cardHeadline ?? c.headline}
                   </p>
                   {/* flex-wrap so cards carrying 4 stats fall to two rows instead of squashing */}
-                  <div className="flex flex-wrap gap-x-6 md:gap-x-10 gap-y-4 mt-2 pt-5 border-t border-white/15">
+                  {/* Hidden on phones. Four metrics wrap to two rows there and
+                      eat most of the card, crowding out the headline they are
+                      meant to support. The numbers are all on the case study
+                      itself, one tap away. */}
+                  <div className="hidden md:flex flex-wrap gap-x-6 md:gap-x-10 gap-y-4 mt-2 pt-5 border-t border-white/15">
                     {c.metrics.map((m) => (
                       <div key={m.l} className="flex flex-col min-w-[110px]">
                         <p className="font-bricolage font-extrabold text-2xl md:text-3xl leading-none tracking-tight text-gradient-animated">
