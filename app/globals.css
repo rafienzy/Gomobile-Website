@@ -108,8 +108,15 @@ html, body {
 }
 
 /* ─── Grain overlay ─── */
+/* position: fixed, not absolute. The markup already asks for `fixed`, but this
+   rule ships after @tailwind utilities, so an `absolute` here silently beat the
+   utility. Combined with inset:0 that stretched the layer to the full document
+   height (over 10,000px on the home page), and because mix-blend-mode forces it
+   onto its own composited layer, the whole thing had to be rasterised: roughly
+   149MB of texture on a 412px phone at DPR 3, which killed the renderer a beat
+   after first paint. Fixed keeps it viewport-sized, about an 11x reduction. */
 .grain-bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 3px 3px;
