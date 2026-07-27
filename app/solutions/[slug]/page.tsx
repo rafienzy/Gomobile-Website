@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,12 +5,13 @@ import { Nav } from "../../components/Nav";
 import { Footer } from "../../components/Footer";
 import { ContactCTA } from "../../components/ContactCTA";
 import { BackgroundGrain } from "../../components/BackgroundGrain";
-import { getService } from "../data";
+import { getService, SERVICES } from "../data";
 import { ServiceDetail } from "./ServiceDetail";
-import { getDbCaseStudies } from "@/lib/db/case-study";
-import { SkeletonBox, SkeletonLine } from '../../components/Skeleton';
+import { getCaseStudies } from "@/lib/content/case-studies";
 
-export const dynamic = 'force-dynamic';
+export function generateStaticParams() {
+  return SERVICES.map((s) => ({ slug: s.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -23,11 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-/* ── Only related cases are async (everything else is hardcoded) ─────────── */
-async function RelatedCases({ relatedSlugs }: { relatedSlugs: string[] }) {
+function RelatedCases({ relatedSlugs }: { relatedSlugs: string[] }) {
   if (!relatedSlugs.length) return null;
-  const allCases = await getDbCaseStudies('published');
-  const cases = allCases.filter((c) => relatedSlugs.includes(c.slug));
+  const cases = getCaseStudies("published").filter((c) => relatedSlugs.includes(c.slug));
   if (!cases.length) return null;
 
   return (
@@ -60,25 +58,6 @@ async function RelatedCases({ relatedSlugs }: { relatedSlugs: string[] }) {
   );
 }
 
-/* ── Skeleton only for the related cases cards ───────────────────────────── */
-function RelatedCasesSkeleton() {
-  return (
-    <section className="px-6 md:px-[136px] py-10 md:py-16">
-      <div className="mb-10 flex flex-col gap-3">
-        <SkeletonLine className="h-3 w-24" />
-        <SkeletonLine className="h-8 w-48" />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <SkeletonBox key={i} className="overflow-hidden h-[280px]">
-            <div className="animate-pulse h-full w-full" style={{ background: 'var(--border)' }} />
-          </SkeletonBox>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const data = getService(slug);
@@ -88,18 +67,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
       <Nav />
-      {/*
-        ServiceDetail renders immediately with all hardcoded service content.
-        The relatedCasesSlot is injected as a Suspense boundary so only
-        the related case study cards show a skeleton.
-      */}
       <ServiceDetail
         data={data}
-        relatedCasesSlot={
-          <Suspense fallback={<RelatedCasesSkeleton />}>
-            <RelatedCases relatedSlugs={data.relatedCases ?? []} />
-          </Suspense>
-        }
+        relatedCasesSlot={<RelatedCases relatedSlugs={data.relatedCases ?? []} />}
       />
       <ContactCTA />
       <Footer />

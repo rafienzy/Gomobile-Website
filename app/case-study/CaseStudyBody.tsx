@@ -8,95 +8,26 @@ import { addReveal } from "../utils/scrollReveal";
 import { useDemo } from "../context/DemoMode";
 import { LOREM_CASES } from "../demo/lorem-data";
 
-const CATEGORIES = ["All", "Travel", "FMCG", "Banking", "Tech", "Lifestyle"];
+const CATEGORIES = ["All", "Travel", "Lifestyle", "Banking", "Logistics", "Events"];
 
-const CASES = [
-  {
-    slug: "singapore-airlines",
-    img: "/assets/featured-case-1.png",
-    brand: "Singapore Airlines",
-    category: "Travel",
-    headline: "Premium video drove a 38% lift in flight searches across SEA.",
-    metrics: [
-      { v: "+38%", l: "Search Lift" },
-      { v: "2.4×", l: "ROAS" },
-      { v: "12M", l: "Reach" },
-    ],
-    tags: ["CTV", "PROGRAMMATIC", "VIDEO"],
-  },
-  {
-    slug: "indofood",
-    img: "/assets/featured-case-2.png",
-    brand: "Indofood",
-    category: "FMCG",
-    headline: "Gamified rich media outperformed display CTR by 6× across in-app inventory.",
-    metrics: [
-      { v: "6.1×", l: "vs Display CTR" },
-      { v: "27s", l: "Avg Engagement" },
-      { v: "₹0.04", l: "Cost per Engagement" },
-    ],
-    tags: ["RICH MEDIA", "IN-APP", "GAMIFIED"],
-  },
-  {
-    slug: "bank-jago",
-    img: "/assets/featured-case-3.png",
-    brand: "Bank Jago",
-    category: "Banking",
-    headline: "Always-on programmatic delivered a 22% lower CAC than social-only baselines.",
-    metrics: [
-      { v: "-22%", l: "CAC" },
-      { v: "+58%", l: "Acquisitions" },
-      { v: "98.7%", l: "Brand Safe" },
-    ],
-    tags: ["PROGRAMMATIC", "NATIVE", "DISPLAY"],
-  },
-  {
-    slug: "maybank",
-    img: "/assets/featured-case-1.png",
-    brand: "Maybank",
-    category: "Banking",
-    headline: "Cross-channel orchestration drove a 1.8× lift in qualified leads.",
-    metrics: [
-      { v: "1.8×", l: "Qualified Leads" },
-      { v: "-31%", l: "CPL" },
-      { v: "4.2M", l: "Reach" },
-    ],
-    tags: ["DISPLAY", "META", "VIDEO"],
-  },
-  {
-    slug: "iqos",
-    img: "/assets/featured-case-2.png",
-    brand: "IQOS",
-    category: "Lifestyle",
-    headline: "Audience-first targeting cut wasted impressions by 41% in launch markets.",
-    metrics: [
-      { v: "-41%", l: "Wasted Impressions" },
-      { v: "+62%", l: "Brand Recall" },
-      { v: "3.1×", l: "Engagement" },
-    ],
-    tags: ["NATIVE", "AUDIENCE", "TIKTOK"],
-  },
-  {
-    slug: "ocbc",
-    img: "/assets/featured-case-3.png",
-    brand: "OCBC",
-    category: "Banking",
-    headline: "Sequential CTV + mobile retargeting lifted product application starts by 47%.",
-    metrics: [
-      { v: "+47%", l: "App Starts" },
-      { v: "-19%", l: "CPA" },
-      { v: "9.6M", l: "Reach" },
-    ],
-    tags: ["CTV", "MOBILE", "PROGRAMMATIC"],
-  },
-];
+/** Minimal shape the card needs — satisfied by both CaseStudy and LoremCase. */
+type CardCase = {
+  slug: string;
+  img: string;
+  brand: string;
+  category: string;
+  headline: string;
+  cardHeadline?: string;
+  metrics: { v: string; l: string }[];
+  tags: string[];
+};
 
-export function CaseStudyBody({ cases: liveCases = [] }: { cases?: typeof CASES }) {
+export function CaseStudyBody({ cases: liveCases = [] }: { cases?: CardCase[] }) {
   const { isDemo } = useDemo();
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState("All");
 
-  const allCases = isDemo ? LOREM_CASES : liveCases;
+  const allCases: CardCase[] = isDemo ? LOREM_CASES : liveCases;
   const filtered = active === "All" ? allCases : allCases.filter((c) => c.category === active);
 
   useEffect(() => {
@@ -169,11 +100,12 @@ export function CaseStudyBody({ cases: liveCases = [] }: { cases?: typeof CASES 
                     {c.brand}
                   </h3>
                   <p className="text-sm md:text-base text-white/90 leading-[1.5] max-w-[520px]">
-                    {c.headline}
+                    {c.cardHeadline ?? c.headline}
                   </p>
-                  <div className="flex gap-6 md:gap-10 mt-2 pt-5 border-t border-white/15">
+                  {/* flex-wrap so cards carrying 4 stats fall to two rows instead of squashing */}
+                  <div className="flex flex-wrap gap-x-6 md:gap-x-10 gap-y-4 mt-2 pt-5 border-t border-white/15">
                     {c.metrics.map((m) => (
-                      <div key={m.l} className="flex flex-col">
+                      <div key={m.l} className="flex flex-col min-w-[110px]">
                         <p className="font-bricolage font-extrabold text-2xl md:text-3xl leading-none tracking-tight text-gradient-animated">
                           {m.v}
                         </p>

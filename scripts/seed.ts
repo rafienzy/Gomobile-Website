@@ -1,6 +1,9 @@
 /**
- * One-time seed script: imports all hardcoded blog posts and case studies
- * from the legacy data.ts files into MongoDB.
+ * One-time seed script: imports the hardcoded blog posts from the legacy
+ * data.ts file into MongoDB.
+ *
+ * Case studies are NOT seeded — they are static content served from
+ * content/case-studies.json. See lib/content/case-studies.ts.
  *
  * Run: npx tsx scripts/seed.ts
  */
@@ -17,7 +20,6 @@ const dbName = process.env.MONGODB_DB || 'gomobile';
 // ─── Import legacy hardcoded data ────────────────────────────────────────────
 // We dynamically require to avoid TypeScript path alias issues in plain Node
 const { BLOG_POSTS } = require('../app/blog/data');
-const { CASE_STUDIES } = require('../app/case-study/data');
 
 async function seed() {
   const client = new MongoClient(uri);
@@ -52,35 +54,9 @@ async function seed() {
 
     console.log(`\nBlog posts: ${blogInserted} inserted, ${blogSkipped} skipped (already exist)`);
 
-    // ── Case studies ──────────────────────────────────────────────────────────
-    const caseCol = db.collection('case_studies');
-
-    let caseSkipped = 0;
-    let caseInserted = 0;
-
-    for (const cs of CASE_STUDIES) {
-      const existing = await caseCol.findOne({ slug: cs.slug });
-      if (existing) {
-        caseSkipped++;
-        continue;
-      }
-      await caseCol.insertOne({
-        ...cs,
-        status: 'published',
-        createdAt: now,
-        updatedAt: now,
-      });
-      caseInserted++;
-      console.log(`  ✓ Case study: ${cs.brand} — ${cs.headline.slice(0, 50)}…`);
-    }
-
-    console.log(`\nCase studies: ${caseInserted} inserted, ${caseSkipped} skipped (already exist)`);
-
     // ── Indexes ────────────────────────────────────────────────────────────────
     await blogCol.createIndex({ slug: 1 }, { unique: true });
     await blogCol.createIndex({ status: 1, createdAt: -1 });
-    await caseCol.createIndex({ slug: 1 }, { unique: true });
-    await caseCol.createIndex({ status: 1, category: 1 });
 
     console.log('\nIndexes ensured ✓');
     console.log('\nSeed complete!');

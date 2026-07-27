@@ -47,7 +47,7 @@ export const SERVICES: Service[] = [
       { num: "03", title: "Campaign Activation", desc: "DSP configuration, creative trafficking, and bid strategy setup. Live within 48 hours of brief sign-off." },
       { num: "04", title: "Always-On Optimization", desc: "Daily bid floor adjustments, creative rotation, audience refinement. Reporting every 48 hours with recommended actions." },
     ],
-    relatedCases: ["bank-jago", "maybank", "ocbc"],
+    relatedCases: ["camel", "gudang-garam", "classmild"],
   },
   {
     slug: "video-ctv-ott",
@@ -77,7 +77,7 @@ export const SERVICES: Service[] = [
       { num: "03", title: "Sequencing Setup", desc: "Audience pools and creative sequences built per funnel stage. Frequency caps set per sequence layer to prevent overexposure." },
       { num: "04", title: "Measurement & Reporting", desc: "VCR, skip rate, quartile completion, and brand uplift survey (optional) reported weekly. Placement-level transparency included." },
     ],
-    relatedCases: ["singapore-airlines", "ocbc"],
+    relatedCases: ["singapore-airlines"],
   },
   {
     slug: "rich-media-html5",
@@ -115,7 +115,7 @@ export const SERVICES: Service[] = [
       { title: "Video Overlay",     type: "Rich Video",    w: 300, h: 250, bg: "#0a1628", accent: "#cb0000", badge: "VID" },
       { title: "Product Carousel",  type: "Interactive",   w: 300, h: 250, bg: "#1c1c1c", accent: "#ef6600", badge: "DCO" },
     ],
-    relatedCases: ["indofood"],
+    relatedCases: ["classmild", "gudang-garam"],
   },
   {
     slug: "social-media",
@@ -145,7 +145,7 @@ export const SERVICES: Service[] = [
       { num: "03", title: "Campaign Build", desc: "Account structure, campaign hierarchy, ad set configuration, and tracking verification. Pre-launch QA checklist signed off before go-live." },
       { num: "04", title: "Optimization & Reporting", desc: "Weekly performance review with recommendations. Budget shifts actioned within 24 hours. Monthly creative refresh to combat fatigue." },
     ],
-    relatedCases: ["iqos", "maybank"],
+    relatedCases: ["bintan-triathlon"],
   },
 ];
 

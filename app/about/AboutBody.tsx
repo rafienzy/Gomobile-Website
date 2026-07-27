@@ -8,7 +8,7 @@ import { Icon } from "../components/Icon";
 
 const STATS = [
   { v: "9", s: "yrs", l: "In Operation" },
-  { v: "2400", s: "+", l: "Campaigns Launched" },
+  { v: "2421", s: "", l: "Campaigns Launched" },
   { v: "120", s: "+", l: "Brand Partners" },
   { v: "24", s: "", l: "SSPs Connected" },
 ];

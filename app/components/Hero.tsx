@@ -8,9 +8,9 @@ import Link from "next/link";
 import { useDemo } from "../context/DemoMode";
 
 const STATS = [
-  { value: "2,400+", label: "CAMPAIGNS\nLAUNCHED" },
+  { value: "2,421", label: "CAMPAIGNS\nLAUNCHED" },
   { value: "24",    label: "SSPS VIA\nOPENRTB" },
-  { value: "106.7%",label: "AVG DELIVERY\nACCURACY" },
+  { value: "106.7%",label: "KPI\nACHIEVEMENT" },
 ];
 
 function Accolade({ logo, alt, rank, label, w }: { logo: string; alt: string; rank: string; label: string; w: number }) {

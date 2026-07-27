@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350" role="img" aria-label="Bank Jago — placeholder cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7a1a"/>
+      <stop offset="1" stop-color="#8c1b00"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.25" cy="0.2" r="0.75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.35" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
+    </linearGradient>
+    <pattern id="grid" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M120 0H0V120" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+    </pattern>
+  </defs>
+
+  <rect width="2400" height="1350" fill="url(#bg)"/>
+  <rect width="2400" height="1350" fill="url(#grid)"/>
+  <rect width="2400" height="1350" fill="url(#glow)"/>
+  <circle cx="1872" cy="405" r="567" fill="#ffffff" fill-opacity="0.05"/>
+  <circle cx="1872" cy="405" r="378.00000000000006" fill="#ffffff" fill-opacity="0.05"/>
+  <rect width="2400" height="1350" fill="url(#scrim)"/>
+
+  <!--
+    No brand or category text: every placement (listing card, detail hero,
+    next-case card) overlays the brand name in HTML, so baked-in text collides.
+    Only the centred marker, kept clear of the card's top chips and bottom copy.
+  -->
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <rect x="925" y="629" width="550" height="92" rx="46" fill="#000000" fill-opacity="0.34" stroke="#ffffff" stroke-opacity="0.30" stroke-width="2"/>
+    <text x="1200" y="689" text-anchor="middle" font-size="34" font-weight="700" letter-spacing="7" fill="#ffffff" fill-opacity="0.78">PLACEHOLDER COVER</text>
+  </g>
+</svg>
