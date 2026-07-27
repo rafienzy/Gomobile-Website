@@ -12,25 +12,25 @@ const SOLUTIONS = [
   {
     slug: "programmatic-display",
     thumb: "/assets/service-thumb-programmatic.png",
-    eyebrow: "01 — PROGRAMMATIC",
+    eyebrow: "01 · PROGRAMMATIC",
     title: "Programmatic Display",
-    desc: "Reach the right person at the right moment across premium publisher inventory. Display, native, and in-app — powered by our GoNet DSP and 24 SSP integrations.",
+    desc: "Reach the right person at the right moment across premium publisher inventory. Display, native, and in-app, powered by our GoNet DSP and 24 SSP integrations.",
     features: ["Real-time bidding via OpenRTB", "AI-driven audience profiling", "Brand-safe inventory only", "WEB + IN-APP coverage"],
     tags: ["DISPLAY", "NATIVE", "IN-APP"],
   },
   {
     slug: "video-ctv-ott",
     thumb: "/assets/service-thumb-video.png",
-    eyebrow: "02 — VIDEO",
+    eyebrow: "02 · VIDEO",
     title: "Video, CTV & OTT",
-    desc: "In-stream, out-stream, Connected TV, and OTT placements. We put your brand where the screens are — and where the attention is.",
+    desc: "In-stream, out-stream, Connected TV, and OTT placements. We put your brand where the screens are, and where the attention is.",
     features: ["Pre-roll, mid-roll, out-stream", "CTV across major OEMs", "OTT premium publishers", "VPAID + VAST 4.0 support"],
     tags: ["IN-STREAM", "CTV", "OTT"],
   },
   {
     slug: "rich-media-html5",
     thumb: "/assets/service-thumb-richmedia.png",
-    eyebrow: "03 — CREATIVE",
+    eyebrow: "03 · CREATIVE",
     title: "Rich Media & HTML5",
     desc: "Interactive, code-based ads built in-house. Gamified banners, expandables, scratch-to-reveal, and high-impact creative formats engineered for engagement.",
     features: ["Custom HTML5 builds", "Gamified mechanics", "Expandable & interscroller", "Cross-device responsive"],
@@ -39,7 +39,7 @@ const SOLUTIONS = [
   {
     slug: "social-media",
     thumb: "/assets/service-thumb-social.png",
-    eyebrow: "04 — SOCIAL",
+    eyebrow: "04 · SOCIAL",
     title: "Social Media Buying",
     desc: "Strategic paid campaigns across Meta, TikTok, and LinkedIn. Audience-first planning, creative A/B testing, and funnel-based optimization end-to-end.",
     features: ["Meta + TikTok + LinkedIn", "Creative A/B at scale", "Full-funnel reporting", "Pixel + CAPI implementation"],
@@ -48,23 +48,23 @@ const SOLUTIONS = [
 ];
 
 const ADDONS = [
-  { icon: "chart-bar", title: "Analytics & Attribution", desc: "MMM, MTA, and incrementality testing — we measure what actually drove the lift." },
+  { icon: "chart-bar", title: "Analytics & Attribution", desc: "MMM, MTA, and incrementality testing. We measure what actually drove the lift." },
   { icon: "beaker", title: "Creative Testing", desc: "Rapid creative iteration cycles tied to performance data, not opinions." },
   { icon: "search", title: "Audience Research", desc: "First-party data strategy, segmentation, and lookalike modeling." },
   { icon: "shield", title: "Brand Safety & Verification", desc: "IAS, DV, and MOAT integration on every placement, every campaign." },
   { icon: "signal", title: "Data Clean Rooms", desc: "Privacy-safe activation across LiveRamp, AWS, and Google PAIR." },
-  { icon: "film", title: "Production Support", desc: "Storyboard to delivery — video and static creative produced in-house." },
+  { icon: "film", title: "Production Support", desc: "Storyboard to delivery: video and static creative produced in-house." },
 ];
 
 const LOREM_SOLUTIONS = [
-  { slug: "programmatic-display", thumb: "/assets/service-thumb-programmatic.png", eyebrow: "01 — LOREM IPSUM", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim.", features: ["Lorem ipsum dolor sit", "Adipiscing elit tempor", "Consectetur incididunt ut", "Sed do eiusmod labore"], tags: ["DISPLAY", "NATIVE", "IN-APP"] },
-  { slug: "video-ctv-ott", thumb: "/assets/service-thumb-video.png", eyebrow: "02 — LOREM IPSUM", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.", features: ["Quis nostrud exercitation", "Ullamco laboris nisi", "Aliquip ex ea commodo", "Consequat duis aute irure"], tags: ["IN-STREAM", "CTV", "OTT"] },
-  { slug: "rich-media-html5", thumb: "/assets/service-thumb-richmedia.png", eyebrow: "03 — LOREM IPSUM", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.", features: ["Irure dolor reprehenderit", "Voluptate velit esse", "Cillum dolore fugiat nulla", "Pariatur excepteur sint"], tags: ["HTML5", "GAMIFIED", "EXPANDABLE"] },
-  { slug: "social-media", thumb: "/assets/service-thumb-social.png", eyebrow: "04 — LOREM IPSUM", title: "Incididunt Ut Labore", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem.", features: ["Occaecat cupidatat non", "Proident sunt in culpa", "Officia deserunt mollit", "Anim id est laborum"], tags: ["META", "TIKTOK", "LINKEDIN"] },
+  { slug: "programmatic-display", thumb: "/assets/service-thumb-programmatic.png", eyebrow: "01 · LOREM IPSUM", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim.", features: ["Lorem ipsum dolor sit", "Adipiscing elit tempor", "Consectetur incididunt ut", "Sed do eiusmod labore"], tags: ["DISPLAY", "NATIVE", "IN-APP"] },
+  { slug: "video-ctv-ott", thumb: "/assets/service-thumb-video.png", eyebrow: "02 · LOREM IPSUM", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.", features: ["Quis nostrud exercitation", "Ullamco laboris nisi", "Aliquip ex ea commodo", "Consequat duis aute irure"], tags: ["IN-STREAM", "CTV", "OTT"] },
+  { slug: "rich-media-html5", thumb: "/assets/service-thumb-richmedia.png", eyebrow: "03 · LOREM IPSUM", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.", features: ["Irure dolor reprehenderit", "Voluptate velit esse", "Cillum dolore fugiat nulla", "Pariatur excepteur sint"], tags: ["HTML5", "GAMIFIED", "EXPANDABLE"] },
+  { slug: "social-media", thumb: "/assets/service-thumb-social.png", eyebrow: "04 · LOREM IPSUM", title: "Incididunt Ut Labore", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem.", features: ["Occaecat cupidatat non", "Proident sunt in culpa", "Officia deserunt mollit", "Anim id est laborum"], tags: ["META", "TIKTOK", "LINKEDIN"] },
 ];
 
 const LOREM_ADDONS = [
-  { icon: "chart-bar", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit — sed do eiusmod tempor." },
+  { icon: "chart-bar", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor." },
   { icon: "beaker", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
   { icon: "search", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
   { icon: "shield", title: "Sed Do Eiusmod", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },

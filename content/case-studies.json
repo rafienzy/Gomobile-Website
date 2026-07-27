@@ -3,7 +3,7 @@
     "slug": "bintan-triathlon",
     "brand": "Bintan Triathlon",
     "category": "Events",
-    "headline": "One team for the whole event: website, email, paid media, and social — 2.2× traffic, 4× reach, and 10× engagement by race weekend.",
+    "headline": "One team for the whole event, covering website, email, paid media, and social. By race weekend: 2.2× traffic, 4× reach, and 10× engagement.",
     "img": "/assets/case-covers/bintan-triathlon.svg",
     "period": "FEB – JUN 2024 · FULL-SERVICE ENGAGEMENT",
     "tags": ["FULL SERVICE", "SOCIAL", "PAID MEDIA"],
@@ -15,9 +15,9 @@
       { "v": "+14.8%", "l": "Net Follower Growth", "desc": "Net new followers gained across social platforms." }
     ],
     "overview": {
-      "challenge": "A destination triathlon lives or dies by the weeks before race day. Bintan Triathlon needed one partner to own the full digital journey — from the first time an athlete hears about the race to the moment they register, show up, and share it — on a fixed, immovable deadline.",
-      "solution": "Go Mobile ran the event's entire digital operation as a full-service partner: we built the website, ran email marketing, managed paid advertising, and operated social media — and backed it with event documentation, asset creation, and regular performance reporting, from February to June 2024.",
-      "result": "By race weekend, website traffic had grown 2.2×, total reach 4×, and engagement 10×, with net follower growth of +14.8%. Email marketing reached a 54% open rate with an 11% click-through rate — and every workstream was documented and reported back as it happened."
+      "challenge": "A destination triathlon lives or dies by the weeks before race day. Bintan Triathlon needed one partner to own the full digital journey, from the first time an athlete hears about the race to the moment they register, show up, and share it, all on a fixed and immovable deadline.",
+      "solution": "Go Mobile ran the event's entire digital operation as a full-service partner: we built the website, ran email marketing, managed paid advertising, and operated social media. We backed it with event documentation, asset creation, and regular performance reporting, from February to June 2024.",
+      "result": "By race weekend, website traffic had grown 2.2×, total reach 4×, and engagement 10×, with net follower growth of +14.8%. Email marketing reached a 54% open rate with an 11% click-through rate, and every workstream was documented and reported back as it happened."
     },
     "approachHeading": {
       "eyebrow": "FOUR WORKSTREAMS, ONE TEAM",
@@ -25,22 +25,22 @@
     },
     "approach": [
       { "title": "Website & Lead Generation", "desc": "We developed the event's website framework and design from scratch, built as a lead-generation engine: every page engineered to move visitors toward registration." },
-      { "title": "Email Marketing", "desc": "Lifecycle email kept athletes moving from interest to start line — announcements, registration pushes, and race-week logistics. The program reached a 54% open rate with an 11% click-through rate." },
-      { "title": "Paid Media & Social", "desc": "Paid campaigns and always-on social content ran side by side, with visual creative A/B testing to find what made athletes stop scrolling — driving 4× reach and 10× engagement growth." },
-      { "title": "Content, Documentation & Reporting", "desc": "Our team produced the event's creative assets, documented the event itself, and delivered performance reports throughout — so the organisers always knew what was working." }
+      { "title": "Email Marketing", "desc": "Lifecycle email kept athletes moving from interest to start line: announcements, registration pushes, and race-week logistics. The program reached a 54% open rate with an 11% click-through rate." },
+      { "title": "Paid Media & Social", "desc": "Paid campaigns and always-on social content ran side by side, with visual creative A/B testing to find what made athletes stop scrolling, driving 4× reach and 10× engagement growth." },
+      { "title": "Content, Documentation & Reporting", "desc": "Our team produced the event's creative assets, documented the event itself, and delivered performance reports throughout, so the organisers always knew what was working." }
     ],
     "channels": ["Website Development", "Email Marketing", "Paid Advertising", "Social Media", "Creative Production"],
     "status": "published",
     "needsReview": [
-      "overview.challenge — written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "overview.result / approach[1] — deck says '+54% EMAIL OPEN RATE WITH 11% CTR'. Published here as absolute rates; flip wording if it was a +54% improvement (Open Question #3)."
+      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
+      "overview.result and approach[1]: deck says '+54% EMAIL OPEN RATE WITH 11% CTR'. Published here as absolute rates; flip wording if it was a +54% improvement (Open Question #3)."
     ]
   },
   {
     "slug": "bank-jago",
     "brand": "Bank Jago",
     "category": "Banking",
-    "headline": "Nineteen months of always-on mobile user acquisition cut cost per action by 52.5% — while installs kept compounding past 495K.",
+    "headline": "Nineteen months of always-on mobile user acquisition cut cost per action by 52.5%, while installs kept compounding past 495K.",
     "img": "/assets/case-covers/bank-jago.svg",
     "period": "19-MONTH ENGAGEMENT · MOBILE MARKETING",
     "tags": ["MOBILE", "PERFORMANCE", "UA"],
@@ -52,9 +52,9 @@
       { "v": "4.91%", "l": "Monthly Improvement", "desc": "Average month-on-month performance gain across the campaign." }
     ],
     "overview": {
-      "challenge": "Digital banks win on adoption, and adoption is a performance problem: acquire users at an efficient cost, and make sure they don't stop at the install. Bank Jago needed sustained, improving user acquisition — not a one-quarter spike.",
-      "solution": "We ran a long-term mobile marketing program built around Bank Jago's promotional offers, spanning paid campaigns and OEM device channels, with creative-level optimization guided by MMP data — improving month over month for nineteen consecutive months.",
-      "result": "Over 19 months, cost per action fell 52.5% while the campaign delivered 495K+ installs, with 16.48% of users progressing to key in-app events and an average 4.91% month-on-month improvement — proof that always-on beats bursts."
+      "challenge": "Digital banks win on adoption, and adoption is a performance problem: acquire users at an efficient cost, and make sure they don't stop at the install. Bank Jago needed sustained, improving user acquisition, not a one-quarter spike.",
+      "solution": "We ran a long-term mobile marketing program built around Bank Jago's promotional offers, spanning paid campaigns and OEM device channels, with creative-level optimization guided by MMP data, improving month over month for nineteen consecutive months.",
+      "result": "Over 19 months, cost per action fell 52.5% while the campaign delivered 495K+ installs, with 16.48% of users progressing to key in-app events and an average 4.91% month-on-month improvement. Proof that always-on beats bursts."
     },
     "approachHeading": {
       "eyebrow": "OUR APPROACH",
@@ -62,23 +62,23 @@
     },
     "approach": [
       { "title": "Offer-led messaging", "desc": "Bank Jago's promotional offers were matched to the audiences most likely to act on them, so every campaign led with a reason to open an account." },
-      { "title": "OEM device channels", "desc": "Beyond paid media, we used OEM channels to put the app on devices from the moment of purchase — reaching users before the app-store battle even starts." },
+      { "title": "OEM device channels", "desc": "Beyond paid media, we used OEM channels to put the app on devices from the moment of purchase, reaching users before the app-store battle even starts." },
       { "title": "Category education", "desc": "Creative consistently promoted the benefits of digital banking itself, growing the category while growing the brand." },
       { "title": "Creative-level optimization", "desc": "Campaigns were optimized at the individual-creative level, with raw MMP data analysed continuously to guide budget and creative decisions." }
     ],
     "channels": ["Mobile UA", "OEM Channels", "Creative Optimization", "MMP Analytics"],
     "status": "published",
     "needsReview": [
-      "overview.challenge — written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "metrics[2] / metrics[3] — explainer wording for 'Event Progressions' and 'Monthly Improvement' is assumed; confirm definitions (Open Question #1).",
-      "overview.solution / approach[1] / approach[3] — confirm OEM pre-install channels can be named publicly. Appsflyer deliberately generalised to 'MMP' (Open Question #2)."
+      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
+      "metrics[2] and metrics[3]: explainer wording for 'Event Progressions' and 'Monthly Improvement' is assumed; confirm definitions (Open Question #1).",
+      "overview.solution, approach[1], approach[3]: confirm OEM pre-install channels can be named publicly. Appsflyer deliberately generalised to 'MMP' (Open Question #2)."
     ]
   },
   {
     "slug": "singapore-airlines",
     "brand": "Singapore Airlines",
     "category": "Travel",
-    "headline": "The Enhance Flight Experience campaign put premium in-stream video in front of the right audience — 11.6M+ completed views at a 20.31% VTR.",
+    "headline": "The Enhance Flight Experience campaign put premium in-stream video in front of the right audience: 11.6M+ completed views at a 20.31% VTR.",
     "img": "/assets/case-covers/singapore-airlines.svg",
     "period": "ENHANCE FLIGHT EXPERIENCE · PROGRAMMATIC VIA GONET",
     "tags": ["PROGRAMMATIC", "VIDEO", "GONET"],
@@ -90,9 +90,9 @@
       { "v": "20.31%", "l": "VTR", "desc": "View-through rate across the full campaign." }
     ],
     "overview": {
-      "challenge": "A premium airline needs premium attention: the Enhance Flight Experience story only works if people actually watch it — in full, in brand-safe environments worthy of the brand.",
-      "solution": "We ran the campaign as programmatic video through GoNet, our in-house DSP — placing in-stream video exclusively across a curated set of premium publishers, with completed views as the success metric.",
-      "result": "The campaign served 57.3M+ impressions and delivered 11.6M+ completed views — a 20.31% view-through rate — plus 125K+ clicks from viewers who wanted more."
+      "challenge": "A premium airline needs premium attention: the Enhance Flight Experience story only works if people actually watch it, in full, in brand-safe environments worthy of the brand.",
+      "solution": "We ran the campaign as programmatic video through GoNet, our in-house DSP, placing in-stream video exclusively across a curated set of premium publishers, with completed views as the success metric.",
+      "result": "The campaign served 57.3M+ impressions and delivered 11.6M+ completed views, a 20.31% view-through rate, plus 125K+ clicks from viewers who wanted more."
     },
     "campaignSnapshot": [
       { "label": "Ad format", "value": "Video Ads" },
@@ -104,7 +104,7 @@
     "channels": ["Programmatic Video", "GoNet DSP", "Premium Publishers"],
     "status": "published",
     "needsReview": [
-      "overview.challenge — written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
+      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
     ]
   },
   {
@@ -122,7 +122,7 @@
       { "v": "+20%", "l": "Revenue", "desc": "Revenue growth over the program." }
     ],
     "overview": {
-      "challenge": "For a logistics app, the app store is the storefront — and a 3.4 rating is a closed door. Lion Parcel needed more installs without more media spend: pure organic growth, earned in the store itself.",
+      "challenge": "For a logistics app, the app store is the storefront, and a 3.4 rating is a closed door. Lion Parcel needed more installs without more media spend: pure organic growth, earned in the store itself.",
       "solution": "A five-month app store optimization subscription working with organic traffic only: visual and textual metadata optimization, a reviews-and-ratings improvement program, and a full revision of the app's search semantics core.",
       "result": "Organic installs grew 31%, revenue grew 20%, and the store rating climbed from 3.4 to 4.8. The result earned its own budget: Lion Parcel went on to increase its performance-channel investment 2.1×."
     },
@@ -131,27 +131,27 @@
       "title": "Earned growth, in the store."
     },
     "approach": [
-      { "title": "Metadata optimization", "desc": "Visual and textual store assets — icons, screenshots, titles, descriptions — optimized for both conversion and search." },
+      { "title": "Metadata optimization", "desc": "Visual and textual store assets, from icons and screenshots to titles and descriptions, optimized for both conversion and search." },
       { "title": "Reviews & ratings", "desc": "A structured program to grow review volume and lift the rating, taking the store score from 3.4 to 4.8." },
       { "title": "Semantics core revision", "desc": "The app's keyword foundation rebuilt so Lion Parcel surfaces where its customers actually search." },
-      { "title": "Compounding results", "desc": "With the store converting, organic installs rose 31% and revenue 20% — and the client scaled performance-channel budgets 2.1× on the back of it." }
+      { "title": "Compounding results", "desc": "With the store converting, organic installs rose 31% and revenue 20%, and the client scaled performance-channel budgets 2.1× on the back of it." }
     ],
     "channels": ["App Store Optimization", "Organic Growth", "Reviews & Ratings"],
     "status": "published",
     "needsReview": [
-      "overview.challenge — written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "metrics — a 4th hero stat '+90% RR' exists in the copy pack but is WITHHELD because nobody could confirm what RR stands for (Open Question #5). To restore it once confirmed, add: { \"v\": \"+90%\", \"l\": \"<real label>\", \"desc\": \"<real explainer>\" }"
+      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
+      "metrics: a 4th hero stat '+90% RR' exists in the copy pack but is WITHHELD because nobody could confirm what RR stands for (Open Question #5). To restore it once confirmed, add: { \"v\": \"+90%\", \"l\": \"<real label>\", \"desc\": \"<real explainer>\" }"
     ]
   },
   {
     "slug": "gudang-garam",
     "brand": "Gudang Garam",
     "category": "Lifestyle",
-    "headline": "GG De Luxe held a 1.00% CTR at full scale — 253K+ clicks from 25.5M+ premium impressions across mobile and desktop.",
+    "headline": "GG De Luxe held a 1.00% CTR at full scale: 253K+ clicks from 25.5M+ premium impressions across mobile and desktop.",
     "img": "/assets/case-covers/gudang-garam.svg",
     "period": "GG DE LUXE · PROGRAMMATIC VIA GONET",
     "tags": ["DISPLAY", "HTML5", "GONET"],
-    "cardHeadline": "GG De Luxe held a 1.00% CTR at full scale — 253K+ clicks across 25.5M+ premium impressions on mobile and desktop.",
+    "cardHeadline": "GG De Luxe held a 1.00% CTR at full scale: 253K+ clicks across 25.5M+ premium impressions on mobile and desktop.",
     "metrics": [
       { "v": "25.5M+", "l": "Impressions", "desc": "Served exclusively on premium APP and WEB inventory." },
       { "v": "8.5M+", "l": "Reach", "desc": "Unique users reached across mobile and desktop." },
@@ -159,9 +159,9 @@
       { "v": "1.00%", "l": "CTR", "desc": "Sustained at full campaign scale." }
     ],
     "overview": {
-      "challenge": "Scale usually costs engagement: the wider a display campaign goes, the faster click-through decays. GG De Luxe needed both — mass reach across mobile and desktop, without the CTR falling off.",
+      "challenge": "Scale usually costs engagement: the wider a display campaign goes, the faster click-through decays. GG De Luxe needed both, mass reach across mobile and desktop, without the CTR falling off.",
       "solution": "We ran the campaign through GoNet across premium publishers only, combining standard banners with interactive HTML5 creative, on both mobile and desktop.",
-      "result": "The campaign reached 8.5M+ unique users with 25.5M+ impressions and 253K+ clicks — holding a 1.00% CTR at full scale."
+      "result": "The campaign reached 8.5M+ unique users with 25.5M+ impressions and 253K+ clicks, holding a 1.00% CTR at full scale."
     },
     "campaignSnapshot": [
       { "label": "Ad format", "value": "Standard Banners & HTML5" },
@@ -174,14 +174,14 @@
     "channels": ["Programmatic Display", "HTML5", "GoNet DSP"],
     "status": "published",
     "needsReview": [
-      "overview.challenge — written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
+      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
     ]
   },
   {
     "slug": "camel",
     "brand": "Camel",
     "category": "Lifestyle",
-    "headline": "The Intense Blue campaign reached 30M+ people — 90.9M+ impressions served exclusively on premium and property publishers.",
+    "headline": "The Intense Blue campaign reached 30M+ people, with 90.9M+ impressions served exclusively on premium and property publishers.",
     "img": "/assets/case-covers/camel.svg",
     "period": "INTENSE BLUE CAMPAIGN · PROGRAMMATIC VIA GONET",
     "tags": ["PROGRAMMATIC", "DISPLAY", "GONET"],
@@ -193,9 +193,9 @@
       { "v": "0.42%", "l": "CTR", "desc": "Across 90M+ impressions at awareness scale." }
     ],
     "overview": {
-      "challenge": "Intense Blue was an awareness play at national scale: reach tens of millions of the right people, in environments that protect the brand — without wastage on low-quality inventory.",
+      "challenge": "Intense Blue was an awareness play at national scale: reach tens of millions of the right people, in environments that protect the brand, without wastage on low-quality inventory.",
       "solution": "We ran the campaign through GoNet with animated GIF banner creative, restricted exclusively to premium and property publishers across APP and WEB environments.",
-      "result": "The campaign reached 30M+ unique users and served 90.9M+ impressions, drawing 166.7K+ clicks — awareness at national scale, entirely on premium inventory."
+      "result": "The campaign reached 30M+ unique users and served 90.9M+ impressions, drawing 166.7K+ clicks. Awareness at national scale, entirely on premium inventory."
     },
     "campaignSnapshot": [
       { "label": "Ad format", "value": "GIF Banner" },
@@ -207,18 +207,18 @@
     "channels": ["Programmatic Display", "GoNet DSP", "Premium Publishers"],
     "status": "published",
     "needsReview": [
-      "overview.challenge — written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
+      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
     ]
   },
   {
     "slug": "classmild",
     "brand": "Classmild",
     "category": "Lifestyle",
-    "headline": "Interactive rich media made the banner worth touching — a 1.05% CTR and 62K+ clicks across premium APP and WEB inventory.",
+    "headline": "Interactive rich media made the banner worth touching: a 1.05% CTR and 62K+ clicks across premium APP and WEB inventory.",
     "img": "/assets/case-covers/classmild.svg",
     "period": "AWARENESS SHOWCASES · PROGRAMMATIC VIA GONET",
     "tags": ["RICH MEDIA", "HTML5", "GONET"],
-    "cardHeadline": "Interactive HTML5 rich media drove a 1.05% CTR — 62K+ clicks from 6M+ impressions on premium APP and WEB inventory.",
+    "cardHeadline": "Interactive HTML5 rich media drove a 1.05% CTR: 62K+ clicks from 6M+ impressions on premium APP and WEB inventory.",
     "metrics": [
       { "v": "6M+", "l": "Impressions", "desc": "Served on premium and property publishers, APP and WEB." },
       { "v": "2M+", "l": "Reach", "desc": "Unique users reached by the campaign." },
@@ -226,9 +226,9 @@
       { "v": "1.05%", "l": "CTR", "desc": "Sustained across premium APP and WEB inventory." }
     ],
     "overview": {
-      "challenge": "Standard banners get scrolled past. The Awareness Showcases campaign needed creative that earns interaction — and inventory good enough to showcase it.",
+      "challenge": "Standard banners get scrolled past. The Awareness Showcases campaign needed creative that earns interaction, and inventory good enough to showcase it.",
       "solution": "We built the campaign on interactive HTML5 rich media banners, served through GoNet exclusively on premium and property publishers across APP and WEB.",
-      "result": "The rich media creative drove 62K+ clicks from 6M+ impressions — a 1.05% CTR — reaching 2M+ unique users on premium inventory."
+      "result": "The rich media creative drove 62K+ clicks from 6M+ impressions, a 1.05% CTR, reaching 2M+ unique users on premium inventory."
     },
     "campaignSnapshot": [
       { "label": "Ad format", "value": "Rich Media Banner (HTML5)" },
@@ -240,8 +240,8 @@
     "channels": ["Rich Media & HTML5", "GoNet DSP", "Premium Publishers"],
     "status": "published",
     "needsReview": [
-      "overview.challenge — written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "metrics[3] — the copy pack's explainer claimed the CTR was 'more than double typical display benchmarks'. That comparison is our own claim, not the deck's, so it has been replaced with a factual explainer."
+      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
+      "metrics[3]: the copy pack's explainer claimed the CTR was 'more than double typical display benchmarks'. That comparison is our own claim, not the deck's, so it has been replaced with a factual explainer."
     ]
   }
 ]

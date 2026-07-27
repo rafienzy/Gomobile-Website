@@ -17,7 +17,7 @@ const STATS = [
 const FEATURES = [
   {
     title: "AI Sensible Targeting",
-    desc: "Full-page content analysis via computer vision. Real-time user profiling that adapts to intent and mood shifts — privacy-safe across WEB and IN-APP environments.",
+    desc: "Full-page content analysis via computer vision. Real-time user profiling that adapts to intent and mood shifts, privacy-safe across WEB and IN-APP environments.",
   },
   {
     title: "Pre-bid Traffic Filter",
@@ -25,7 +25,7 @@ const FEATURES = [
   },
   {
     title: "ML Price Optimizer",
-    desc: "Machine learning predicts optimal bid prices in real-time — maximizing impression value while keeping CPMs efficient across every placement and format.",
+    desc: "Machine learning predicts optimal bid prices in real-time, maximizing impression value while keeping CPMs efficient across every placement and format.",
   },
 ];
 

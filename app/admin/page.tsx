@@ -128,7 +128,7 @@ export default function AdminPage() {
             </p>
             <div className="flex items-center gap-2 mt-2">
               <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
-              <span className="text-white/30 text-xs">ISR active — pages revalidate hourly</span>
+              <span className="text-white/30 text-xs">ISR active · pages revalidate hourly</span>
             </div>
           </div>
 
@@ -422,7 +422,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                     </p>
                   ) : (
                     <p className="text-white/50 text-sm mt-1.5">
-                      All caught up — create a new post to get started.
+                      All caught up. Create a new post to get started.
                     </p>
                   )}
                 </div>
@@ -511,7 +511,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                 <strong className="text-white/50">Publishing workflow:</strong> Use{' '}
                 <span className="text-white/50">Save as Draft</span> to store privately, or{' '}
                 <span className="text-orange-400/70">Publish</span> to make it live instantly.
-                Blog posts are stored in MongoDB — no code changes or deployments needed.
+                Blog posts are stored in MongoDB, no code changes or deployments needed.
               </p>
             </div>
 

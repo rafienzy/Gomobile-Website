@@ -5,8 +5,8 @@ import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { SolutionsBody } from "./SolutionsBody";
 export const metadata = {
-  title: "Solutions — Go Mobile",
-  description: "Programmatic, video, rich media, and social — every layer of your digital campaign.",
+  title: "Solutions | Go Mobile",
+  description: "Programmatic, video, rich media, and social: every layer of your digital campaign.",
 };
 
 export default function SolutionsPage() {

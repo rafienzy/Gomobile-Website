@@ -114,7 +114,7 @@ export function Html5Gallery() {
           </h2>
         </div>
         <p className="max-w-[340px] text-base leading-[1.5]" style={{ color: "var(--muted)" }}>
-          Interactive previews of our most popular HTML5 ad formats. Every unit is built from scratch — no templates.
+          Interactive previews of our most popular HTML5 ad formats. Every unit is built from scratch, no templates.
         </p>
       </div>
 

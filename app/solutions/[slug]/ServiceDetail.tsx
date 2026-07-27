@@ -13,10 +13,10 @@ import { Icon } from "../../components/Icon";
 
 const LOREM_SERVICE: Service = {
   slug: "programmatic-display",
-  eyebrow: "01 — LOREM IPSUM",
+  eyebrow: "01 · LOREM IPSUM",
   title: "Lorem Ipsum Dolor",
   thumb: "/assets/service-thumb-programmatic.png",
-  heroDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing — display, native, and in-app.",
+  heroDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing: display, native, and in-app.",
   longDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   tags: ["LOREM", "IPSUM", "DOLOR", "SIT", "AMET"],
   stats: [
@@ -84,7 +84,7 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
 
   const related = isDemo ? [] : relatedCases;
   const nextService = SERVICES[(SERVICES.findIndex((s) => s.slug === data.slug) + 1) % SERVICES.length];
-  const nextSvc = isDemo ? { ...nextService, title: "Lorem Ipsum Dolor", eyebrow: "02 — LOREM IPSUM" } : nextService;
+  const nextSvc = isDemo ? { ...nextService, title: "Lorem Ipsum Dolor", eyebrow: "02 · LOREM IPSUM" } : nextService;
 
   return (
     <div ref={ref}>

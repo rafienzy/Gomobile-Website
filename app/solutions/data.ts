@@ -21,11 +21,11 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     slug: "programmatic-display",
-    eyebrow: "01 — PROGRAMMATIC",
+    eyebrow: "01 · PROGRAMMATIC",
     title: "Programmatic Display",
     thumb: "/assets/service-thumb-programmatic.png",
-    heroDesc: "Precision audience buying across 24 SSPs — display, native, and in-app.",
-    longDesc: "Our programmatic practice is built on GoNet DSP — our independent real-time bidding platform connected to 24 SSPs via OpenRTB. We bring AI-powered audience profiling, pre-bid brand safety filtering, and ML bid optimization to every impression we buy. No black-box fees, no inflated CPMs.",
+    heroDesc: "Precision audience buying across 24 SSPs: display, native, and in-app.",
+    longDesc: "Our programmatic practice is built on GoNet DSP, our independent real-time bidding platform connected to 24 SSPs via OpenRTB. We bring AI-powered audience profiling, pre-bid brand safety filtering, and ML bid optimization to every impression we buy. No black-box fees, no inflated CPMs.",
     tags: ["DISPLAY", "NATIVE", "IN-APP", "WEB", "APP"],
     stats: [
       { v: "24", l: "SSPs Connected" },
@@ -36,10 +36,10 @@ export const SERVICES: Service[] = [
     features: [
       { icon: "viewfinder", title: "AI Audience Profiling", desc: "Real-time user profiling that adapts to intent and mood shifts. Privacy-safe, no third-party cookie dependency across WEB and IN-APP environments." },
       { icon: "shield", title: "Pre-bid Brand Safety", desc: "Every bid request is filtered against IAS, DV, and MOAT before auction entry. Fraudulent impressions never reach your budget." },
-      { icon: "bolt", title: "ML Price Optimizer", desc: "Machine learning predicts optimal bid prices in real-time — maximizing impression value while keeping CPMs efficient across every placement and format." },
-      { icon: "chart-bar", title: "Transparent Reporting", desc: "Full placement-level transparency. You see every domain, app, and placement your budget touches — with the ability to block in real-time." },
+      { icon: "bolt", title: "ML Price Optimizer", desc: "Machine learning predicts optimal bid prices in real-time, maximizing impression value while keeping CPMs efficient across every placement and format." },
+      { icon: "chart-bar", title: "Transparent Reporting", desc: "Full placement-level transparency. You see every domain, app, and placement your budget touches, with the ability to block in real-time." },
       { icon: "arrow-path", title: "Dynamic Creative", desc: "Creative rotation based on audience signal, time-of-day, and performance data. DCO ensures the right message reaches the right person." },
-      { icon: "device-mobile", title: "Cross-Device", desc: "Unified reach across desktop, mobile web, and in-app — with device-graph matching to deduplicate reach and cap frequency across screens." },
+      { icon: "device-mobile", title: "Cross-Device", desc: "Unified reach across desktop, mobile web, and in-app, with device-graph matching to deduplicate reach and cap frequency across screens." },
     ],
     process: [
       { num: "01", title: "Audience Architecture", desc: "We map your target audience across first-party data, contextual signals, and behavioral segments. Suppression lists built from CRM data." },
@@ -51,11 +51,11 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "video-ctv-ott",
-    eyebrow: "02 — VIDEO",
+    eyebrow: "02 · VIDEO",
     title: "Video, CTV & OTT",
     thumb: "/assets/service-thumb-video.png",
-    heroDesc: "In-stream, out-stream, Connected TV and OTT — built for lean-forward and lean-back audiences.",
-    longDesc: "Video is the highest-attention format in digital advertising. We buy premium in-stream placements on CTV OEMs, OTT platforms, and mobile web — with full VPAID + VAST 4.0 support, brand safety pre-screening, and measurable completion metrics at every level.",
+    heroDesc: "In-stream, out-stream, Connected TV and OTT, built for lean-forward and lean-back audiences.",
+    longDesc: "Video is the highest-attention format in digital advertising. We buy premium in-stream placements on CTV OEMs, OTT platforms, and mobile web, with full VPAID + VAST 4.0 support, brand safety pre-screening, and measurable completion metrics at every level.",
     tags: ["IN-STREAM", "OUT-STREAM", "CTV", "OTT", "MOBILE VIDEO"],
     stats: [
       { v: "92%",  l: "Avg VCR" },
@@ -81,11 +81,11 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "rich-media-html5",
-    eyebrow: "03 — CREATIVE",
+    eyebrow: "03 · CREATIVE",
     title: "Rich Media & HTML5",
     thumb: "/assets/service-thumb-richmedia.png",
     heroDesc: "Interactive, code-based ads engineered in-house for maximum engagement.",
-    longDesc: "Our in-house HTML5 creative studio designs and builds gamified banners, expandable units, interscrollers, and scratch-to-reveal mechanics from scratch. Every unit is engineered to IAB specs, mobile-optimized, and built to work across all major ad servers. No off-the-shelf templates — every build is bespoke.",
+    longDesc: "Our in-house HTML5 creative studio designs and builds gamified banners, expandable units, interscrollers, and scratch-to-reveal mechanics from scratch. Every unit is engineered to IAB specs, mobile-optimized, and built to work across all major ad servers. No off-the-shelf templates. Every build is bespoke.",
     tags: ["HTML5", "GAMIFIED", "EXPANDABLE", "INTERSCROLLER", "DCO"],
     stats: [
       { v: "6×",  l: "vs Standard CTR" },
@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
       { icon: "puzzle", title: "Gamified Units", desc: "Scratch-to-reveal, spin-to-win, quiz mechanics, and mini-games. Interaction rates 5–8× standard display benchmarks." },
       { icon: "expand", title: "Expandable Banners", desc: "Two-stage expandables with animation. Panel expands on click or hover to reveal product detail, video, or interactive content." },
       { icon: "scroll", title: "Interscroller & Adhesion", desc: "Full-screen interscroller and sticky adhesion units for mobile web. Highest viewability rates in the format library." },
-      { icon: "paint-brush", title: "DCO Integration", desc: "Dynamic Creative Optimization — feeds, localization, A/B variant testing, and weather/time triggers all built into the HTML5 layer." },
+      { icon: "paint-brush", title: "DCO Integration", desc: "Dynamic Creative Optimization: feeds, localization, A/B variant testing, and weather/time triggers all built into the HTML5 layer." },
       { icon: "check-badge", title: "Cross-Server Compatible", desc: "Built to spec for CM360, GAM, Xandr, The Trade Desk, and all major ad servers. MRAID + VPAID certified." },
       { icon: "bolt", title: "Fast Load", desc: "All units engineered under IAB polite load limits (200kb initial). Zero CLS, zero layout shift. Tested across iOS Safari, Android Chrome, and in-app webviews." },
     ],
@@ -119,11 +119,11 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "social-media",
-    eyebrow: "04 — SOCIAL",
+    eyebrow: "04 · SOCIAL",
     title: "Social Media Buying",
     thumb: "/assets/service-thumb-social.png",
     heroDesc: "Audience-first paid social across Meta, TikTok, and LinkedIn.",
-    longDesc: "We plan and execute paid social campaigns with the same trading rigour we apply to programmatic. Audience architecture built from first-party data, creative A/B testing at scale, full-funnel attribution via CAPI + pixel, and weekly performance reporting tied to business outcomes — not vanity metrics.",
+    longDesc: "We plan and execute paid social campaigns with the same trading rigour we apply to programmatic. Audience architecture built from first-party data, creative A/B testing at scale, full-funnel attribution via CAPI + pixel, and weekly performance reporting tied to business outcomes, not vanity metrics.",
     tags: ["META", "TIKTOK", "LINKEDIN", "REELS", "SPARK ADS"],
     stats: [
       { v: "Meta",    l: "Business Partner" },
@@ -133,10 +133,10 @@ export const SERVICES: Service[] = [
     ],
     features: [
       { icon: "chat", title: "Meta Ads", desc: "Full-funnel Meta campaigns across Feed, Reels, Stories, and Messenger. Advantage+ audience, CAPI integration, and dynamic product ads for e-commerce." },
-      { icon: "music", title: "TikTok Ads", desc: "TopView, In-Feed, Spark Ads, and Branded Effects. Creator-native creative strategy built for the For You Page — not repurposed from other channels." },
+      { icon: "music", title: "TikTok Ads", desc: "TopView, In-Feed, Spark Ads, and Branded Effects. Creator-native creative strategy built for the For You Page, not repurposed from other channels." },
       { icon: "briefcase", title: "LinkedIn Ads", desc: "B2B targeting via job title, industry, company size, and seniority. Sponsored Content, Message Ads, and Lead Gen Forms managed end-to-end." },
       { icon: "beaker", title: "Creative A/B Testing", desc: "Structured creative experiments: hook variants, format tests, and copy angle testing. Statistical significance required before scaling winning variants." },
-      { icon: "signal", title: "CAPI Integration", desc: "Server-side Conversions API implementation for Meta and TikTok. Closes the iOS 14.5+ attribution gap — typically recovers 30–40% of previously unattributed events." },
+      { icon: "signal", title: "CAPI Integration", desc: "Server-side Conversions API implementation for Meta and TikTok. Closes the iOS 14.5+ attribution gap, typically recovering 30–40% of previously unattributed events." },
       { icon: "arrow-path", title: "Full-Funnel Strategy", desc: "Awareness, consideration, and conversion campaigns orchestrated with frequency control across stages. Retargeting pools built from first-party web and CRM data." },
     ],
     process: [

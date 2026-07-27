@@ -22,12 +22,12 @@ const VALUES = [
   {
     icon: "wrench",
     title: "Engineering-first thinking",
-    desc: "Our DSP, our pipelines, our creative builds — we own the stack so you don't pay middlemen.",
+    desc: "Our DSP, our pipelines, our creative builds. We own the stack so you don't pay middlemen.",
   },
   {
     icon: "users",
     title: "Real partnership",
-    desc: "Your media team gets a strategist, a trader, and a creative tech lead — not an account inbox.",
+    desc: "Your media team gets a strategist, a trader, and a creative tech lead, not an account inbox.",
   },
 ];
 

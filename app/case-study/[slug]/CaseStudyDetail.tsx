@@ -36,7 +36,7 @@ const LOREM_CASE: CaseStudy = {
   ],
   channels: ["Lorem", "Ipsum", "Dolor", "Sit Amet"],
   testimonial: {
-    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — and the results backed it up.",
+    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, and the results backed it up.",
     name: "Lorem Ipsum",
     role: "Head of Lorem, Dolor Sit Corp",
   },

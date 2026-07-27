@@ -7,7 +7,7 @@ import { CaseStudyBody } from "./CaseStudyBody";
 import { getCaseStudies } from "@/lib/content/case-studies";
 
 export const metadata = {
-  title: "Case Studies — Go Mobile",
+  title: "Case Studies | Go Mobile",
   description: "Campaigns that moved the numbers. Real brands, real lift, real results.",
 };
 
@@ -21,7 +21,7 @@ export default function CaseStudyPage() {
       <PageHero
         eyebrow="CASE STUDIES"
         title={<>Campaigns that<br />moved the <span className="text-gradient-animated">numbers</span>.</>}
-        lede="A look at how we plan, buy, and optimize for brands across categories — and the lift we delivered."
+        lede="A look at how we plan, buy, and optimize for brands across categories, and the lift we delivered."
       />
       <CaseStudyBody cases={cases} />
       <ContactCTA />

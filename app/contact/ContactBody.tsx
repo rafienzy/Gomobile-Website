@@ -128,7 +128,7 @@ export function ContactBody() {
                 <textarea
                   name="message"
                   rows={5}
-                  placeholder="Goals, timeline, target markets, existing creative — anything useful."
+                  placeholder="Goals, timeline, target markets, existing creative, anything useful."
                   className="rounded-[16px] px-5 py-4 text-sm leading-[1.6] resize-none outline-none transition-all duration-200"
                   style={{
                     background: "rgba(128,128,128,0.08)",

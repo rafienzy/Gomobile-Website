@@ -5,7 +5,7 @@ import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { AboutBody } from "./AboutBody";
 export const metadata = {
-  title: "About — Go Mobile",
+  title: "About | Go Mobile",
   description: "We are a digital marketing agency specializing in performance buying and programmatic advertising.",
 };
 

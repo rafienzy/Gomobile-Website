@@ -4,7 +4,7 @@ import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { ContactBody } from "./ContactBody";
 export const metadata = {
-  title: "Contact — Go Mobile",
+  title: "Contact | Go Mobile",
   description: "Tell us about your next campaign. We'll handle the strategy, the buying, and the proof it worked.",
 };
 

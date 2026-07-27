@@ -30,7 +30,7 @@ export const LOREM_BLOG_POSTS: BlogPost[] = [
     slug: 'lorem-post-2',
     img: '/assets/featured-case-2.png',
     category: 'CTV',
-    title: 'Ut Labore et Dolore Magna Aliqua — Enim Ad Minim Veniam',
+    title: 'Ut Labore et Dolore Magna Aliqua: Enim Ad Minim Veniam',
     excerpt:
       'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.',
     author: 'Dolor Sitat',

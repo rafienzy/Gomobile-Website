@@ -24,7 +24,7 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Go Mobile — Your Ads. The Right People. Real Growth.",
+  title: "Go Mobile | Your Ads. The Right People. Real Growth.",
   description:
     "Go Mobile is a digital marketing agency specializing in performance buying and programmatic advertising.",
 };
