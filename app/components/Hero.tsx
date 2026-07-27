@@ -95,11 +95,27 @@ export function Hero() {
   return (
     <section ref={heroRef} className="relative overflow-hidden pt-[100px] md:pt-[180px] lg:pt-[294px] pb-24 px-6 md:px-[150px]">
 
-      {/* Background image */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/hero-bg.png')" }}
-      />
+      {/*
+        Background image. Deliberately next/image rather than a CSS
+        background-image: a CSS url() bypasses the optimizer entirely, so every
+        device downloaded the full 1920x1080 PNG at 1.87MB and decoded it to a
+        7.9MB bitmap. A phone needs neither. With fill + sizes the optimizer
+        serves a viewport-width WebP, which cuts both the transfer and, more
+        importantly, the decoded bitmap a phone has to hold in memory.
+
+        priority because this is the LCP element: it should not lazy-load.
+      */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/assets/hero-bg.png"
+          alt=""
+          aria-hidden
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
 
       {/* Theme overlay + bottom fade */}
       <div
