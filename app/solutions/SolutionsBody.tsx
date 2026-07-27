@@ -140,9 +140,6 @@ export function SolutionsBody() {
               {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : <>Everything else you<br />might need.</>}
             </h2>
           </div>
-          <p className="max-w-[340px] text-base leading-[1.5]" style={{ color: "var(--muted)" }}>
-            {isDemo ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.' : 'We back every campaign with the strategy, data, and creative production it takes to perform.'}
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
