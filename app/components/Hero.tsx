@@ -171,7 +171,9 @@ export function Hero() {
             className="absolute inset-0 pointer-events-none rounded-[28px]"
             style={{ background: "radial-gradient(ellipse 70% 60% at 20% 80%, rgba(239,102,0,0.12), transparent 70%)" }}
           />
-          <div ref={valueRef} className="relative">
+          {/* text-center to match the label below it: the number was the only
+              left-aligned thing in an otherwise centred mobile column. */}
+          <div ref={valueRef} className="relative text-center">
             <p className="font-bricolage font-extrabold text-[72px] leading-none tracking-[-2.88px] text-gradient-animated">
               {stat.value}
             </p>
