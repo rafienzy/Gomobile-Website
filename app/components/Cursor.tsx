@@ -18,10 +18,23 @@ export function Cursor() {
     setIsTouch(window.matchMedia("(hover: none) and (pointer: coarse)").matches);
   }, []);
 
-  if (isTouch) return null;
+  /*
+   * Every hook below runs unconditionally, and the touch bail-out happens at
+   * the return statement instead.
+   *
+   * It used to sit here, above these three effects. On a desktop that was
+   * invisible, because isTouch never became true and the hook count never
+   * changed. On a real touchscreen the first effect flipped isTouch, the next
+   * render returned early, React counted three fewer hooks than the render
+   * before it and threw "Rendered fewer hooks than expected". Cursor is
+   * mounted in RootLayout, so that unmounted the entire app: the page painted
+   * and then vanished. Device emulators report pointer:fine, so they never
+   * reproduced it. Only real phones did.
+   */
 
   /* ── Reset hover state on every route change ── */
   useEffect(() => {
+    if (isTouch) return;
     const ring = ringRef.current;
     if (!ring) return;
     hovering.current = false;
@@ -29,17 +42,22 @@ export function Cursor() {
       ? "rgba(255,255,255,0.35)"
       : "rgba(0,0,0,0.25)";
     ring.style.opacity = "1";
-  }, [pathname]);
+  }, [pathname, isTouch]);
 
   /* ── Update ring colour when theme changes ── */
   useEffect(() => {
+    if (isTouch) return;
     if (!ringRef.current || hovering.current) return;
     ringRef.current.style.borderColor =
       theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.25)";
-  }, [theme]);
+  }, [theme, isTouch]);
 
   /* ── Main cursor logic ── */
   useEffect(() => {
+    // Nothing to track on a touchscreen: no listeners, no MutationObserver and
+    // no requestAnimationFrame loop, so phones do not burn battery on a cursor
+    // they will never show.
+    if (isTouch) return;
     const dot  = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
@@ -90,7 +108,11 @@ export function Cursor() {
       cancelAnimationFrame(raf.current);
       observer.disconnect();
     };
-  }, []);
+  }, [isTouch]);
+
+  // Safe here: every hook above has already run, so the count is identical on
+  // both branches and React sees a stable list.
+  if (isTouch) return null;
 
   return (
     <>
