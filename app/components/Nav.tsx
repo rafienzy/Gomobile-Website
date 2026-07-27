@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -11,12 +10,12 @@ import { Icon } from "./Icon";
 
 /**
  * Inline SVG logo:
- *  - "go" path — always orange.
- *  - "mobile" path — theme foreground (var(--fg) via currentColor), so it is
- *    dark in light mode and white in dark mode. This keeps it readable over
- *    any background in a given theme (a fixed, z-indexed nav forms its own
- *    stacking context, so mix-blend-mode could not composite against the page
- *    and left the white mark invisible on light backgrounds).
+ *  - "go" path is always orange.
+ *  - "mobile" path follows the theme foreground (var(--fg) via currentColor).
+ *
+ * The mark sits inside the nav pill, which is opaque and inverted against the
+ * page, so callers pass var(--bg) and the logo never has to react to whatever
+ * is scrolling behind the nav.
  */
 function GoMobileLogo({ className, color }: { className?: string; color?: string }) {
   const goPath = "M16.7949 7.55307V21.1426C16.7949 24.1355 16.0704 26.36 14.6214 27.816C13.1725 29.272 11.0555 30 8.27043 30C6.80264 30 5.41013 29.8079 4.09288 29.4237C2.77562 29.0394 1.68419 28.4833 0.818573 27.7553L2.56863 24.3579C3.20843 24.9242 4.01761 25.3691 4.99614 25.6926C5.97466 26.0364 6.95318 26.2083 7.93171 26.2083C9.45595 26.2083 10.5756 25.8342 11.2907 25.0859C12.0246 24.3579 12.3915 23.2457 12.3915 21.7492V21.0516C11.2436 22.4065 9.64412 23.0839 7.59299 23.0839C6.20047 23.0839 4.92087 22.7604 3.75416 22.1132C2.60626 21.4459 1.6936 20.5157 1.01616 19.3225C0.33872 18.1294 0 16.7543 0 15.1972C0 13.64 0.33872 12.2649 1.01616 11.0718C1.6936 9.87865 2.60626 8.95853 3.75416 8.31141C4.92087 7.64407 6.20047 7.3104 7.59299 7.3104C9.79467 7.3104 11.4694 8.08896 12.6173 9.64609V7.55307H16.7949ZM8.46801 19.2012C9.63472 19.2012 10.585 18.8372 11.3189 18.1092C12.0716 17.361 12.448 16.3903 12.448 15.1972C12.448 14.004 12.0716 13.0435 11.3189 12.3155C10.585 11.5672 9.63472 11.1931 8.46801 11.1931C7.30131 11.1931 6.34161 11.5672 5.5889 12.3155C4.83619 13.0435 4.45983 14.004 4.45983 15.1972C4.45983 16.3903 4.83619 17.361 5.5889 18.1092C6.34161 18.8372 7.30131 19.2012 8.46801 19.2012ZM28.1193 24.1153C26.5198 24.1153 25.0802 23.7614 23.8006 23.0536C22.5398 22.3256 21.5519 21.3246 20.8368 20.0505C20.1217 18.7765 19.7642 17.3306 19.7642 15.7128C19.7642 14.095 20.1217 12.6491 20.8368 11.3751C21.5519 10.1011 22.5398 9.1102 23.8006 8.40241C25.0802 7.6744 26.5198 7.3104 28.1193 7.3104C29.7188 7.3104 31.1489 7.6744 32.4097 8.40241C33.6705 9.1102 34.6584 10.1011 35.3735 11.3751C36.0886 12.6491 36.4461 14.095 36.4461 15.7128C36.4461 17.3306 36.0886 18.7765 35.3735 20.0505C34.6584 21.3246 33.6705 22.3256 32.4097 23.0536C31.1489 23.7614 29.7188 24.1153 28.1193 24.1153ZM28.1193 20.2325C29.2483 20.2325 30.1704 19.8281 30.8855 19.0192C31.6194 18.1901 31.9863 17.088 31.9863 15.7128C31.9863 14.3377 31.6194 13.2457 30.8855 12.4368C30.1704 11.6077 29.2483 11.1931 28.1193 11.1931C26.9902 11.1931 26.0587 11.6077 25.3248 12.4368C24.5909 13.2457 24.224 14.3377 24.224 15.7128C24.224 17.088 24.5909 18.1901 25.3248 19.0192C26.0587 19.8281 26.9902 20.2325 28.1193 20.2325Z";
@@ -47,36 +46,9 @@ const LINKS = [
 
 export function Nav() {
   const { theme, toggle } = useTheme();
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  // Logo mark stays white while it sits over the home hero image, then flips to
-  // the theme foreground once scrolled onto content. Pages without a dark hero
-  // (everything but home) are theme-coloured from the top.
-  const [logoOverHero, setLogoOverHero] = useState(pathname === "/");
-  const navRef  = useRef<HTMLElement>(null);
+  const navRef   = useRef<HTMLElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (pathname !== "/") {
-      setLogoOverHero(false);
-      return;
-    }
-    const hero = document.querySelector("main > section");
-    const heroDarkZone = () =>
-      (hero ? hero.getBoundingClientRect().height : window.innerHeight) * 0.6;
-    let threshold = heroDarkZone();
-    const update = () => setLogoOverHero(window.scrollY < threshold);
-    const onResize = () => { threshold = heroDarkZone(); update(); };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", onResize);
-    };
-  }, [pathname]);
-
-  const logoColor = logoOverHero ? "#ffffff" : "var(--fg)";
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -124,34 +96,40 @@ export function Nav() {
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed left-0 right-0 top-6 md:top-[92px] z-50 px-4 md:px-[150px]">
+    <nav ref={navRef} className="fixed left-0 right-0 top-6 md:top-[92px] z-50 px-4 md:px-6">
 
       {/* ── Mobile bar ── */}
-      <div className="md:hidden flex items-center justify-between rounded-2xl px-5 py-3 glass">
+      <div className="md:hidden flex items-center justify-between rounded-2xl px-5 py-3 nav-pill">
         <Link href="/" aria-label="Go Mobile home">
-          <GoMobileLogo className="h-4 w-auto" color={logoColor} />
+          <GoMobileLogo className="h-4 w-auto" color="var(--bg)" />
         </Link>
         <button
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           className="leading-none"
-          style={{ color: "var(--fg)" }}
+          style={{ color: "var(--bg)" }}
         >
           <Icon name={open ? "xmark" : "bars"} className="w-6 h-6" />
         </button>
       </div>
 
       {/* ── Desktop bar ── */}
-      <div className="hidden md:flex items-center justify-between">
-        <Link href="/" aria-label="Go Mobile home">
-          <GoMobileLogo className="h-5 w-auto" color={logoColor} />
-        </Link>
-
+      {/*
+        One pill holding everything, sized to its content and centred rather
+        than stretched to the page gutters. The three groups (logo / links /
+        actions) are separated by a much larger gap than the links are from
+        each other, so they read as distinct clusters.
+      */}
+      <div className="hidden md:flex justify-center">
         <div
           ref={innerRef}
-          className="flex items-center gap-5 rounded-full pl-12 pr-2.5 py-2.5 backdrop-blur-sm glass"
+          className="flex items-center gap-8 lg:gap-20 rounded-full pl-8 pr-2.5 py-2.5 nav-pill"
         >
-          <ul className="flex gap-8 text-xs font-bold font-helvetica">
+          <Link href="/" aria-label="Go Mobile home" className="shrink-0">
+            <GoMobileLogo className="h-[18px] w-auto" color="var(--bg)" />
+          </Link>
+
+          <ul className="flex gap-5 lg:gap-8 text-xs font-bold font-helvetica">
             {LINKS.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="nav-link">
@@ -160,29 +138,32 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <button
-            onClick={toggle}
-            aria-label="Toggle theme"
-            className="h-10 w-10 rounded-full flex items-center justify-center overflow-hidden transition-opacity hover:opacity-70"
-            style={{ background: "rgba(128,128,128,0.15)" }}
-          >
-            <Image
-              src={theme === "dark" ? "/assets/lightmode-btn.png" : "/assets/darkmode-btn.png"}
-              alt={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              width={24}
-              height={24}
-              className="w-[18px] h-[18px] object-contain"
-            />
-          </button>
-          <Link href="/contact">
-            <MagneticButton className="btn-primary h-[46px] text-sm">LET&apos;S TALK</MagneticButton>
-          </Link>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              onClick={toggle}
+              aria-label="Toggle theme"
+              className="h-10 w-10 rounded-full flex items-center justify-center overflow-hidden transition-opacity hover:opacity-70"
+              style={{ background: "color-mix(in srgb, currentColor 18%, transparent)" }}
+            >
+              <Image
+                src={theme === "dark" ? "/assets/lightmode-btn.png" : "/assets/darkmode-btn.png"}
+                alt={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                width={24}
+                height={24}
+                className="w-[18px] h-[18px] object-contain"
+              />
+            </button>
+            <Link href="/contact">
+              <MagneticButton className="btn-primary h-[46px] text-sm">LET&apos;S TALK</MagneticButton>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* ── Mobile drawer ── */}
       {open && (
-        <div className="md:hidden mt-2 rounded-2xl p-6 flex flex-col gap-4 glass" style={{ backdropFilter: "blur(40px) saturate(1.8)", WebkitBackdropFilter: "blur(40px) saturate(1.8)", background: theme === "dark" ? "rgba(10,10,10,0.92)" : "rgba(255,255,255,0.92)" }}>
+        <div className="md:hidden mt-2 rounded-2xl p-6 flex flex-col gap-4 nav-pill">
           {LINKS.map((l) => (
             <Link
               key={l.href}
@@ -197,7 +178,7 @@ export function Nav() {
             <button
               onClick={toggle}
               className="h-10 w-10 rounded-full flex items-center justify-center overflow-hidden transition-opacity hover:opacity-70"
-              style={{ background: "rgba(128,128,128,0.15)" }}
+              style={{ background: "color-mix(in srgb, currentColor 18%, transparent)" }}
             >
               <Image
                 src={theme === "dark" ? "/assets/lightmode-btn.png" : "/assets/darkmode-btn.png"}
