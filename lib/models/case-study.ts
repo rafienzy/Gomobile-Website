@@ -4,12 +4,19 @@ export type CaseMetric = {
   desc: string;
 };
 
+export type CampaignSpec = {
+  label: string;
+  value: string;
+};
+
 export type CaseStudy = {
   slug: string;
   brand: string;
   category: string;
   headline: string;
   subheadline?: string;
+  /** Shorter headline for the listing card. Falls back to `headline`. */
+  cardHeadline?: string;
   img: string;
   period: string;
   objective?: string;
@@ -22,12 +29,22 @@ export type CaseStudy = {
     result: string;
   };
   keyTakeaway?: string;
+  /** Per-case heading for the approach section. Falls back to a generic default. */
+  approachHeading?: { eyebrow: string; title: string };
   approach: { title: string; desc: string }[];
+  /**
+   * Compact spec list shown INSTEAD of `approach` when present. Used for the
+   * GoNet programmatic cases, where execution detail can't be published.
+   */
+  campaignSnapshot?: CampaignSpec[];
   channels: string[];
   testimonial?: { quote: string; name: string; role: string };
   status: 'published' | 'draft';
-  createdAt?: Date;
-  updatedAt?: Date;
+  /**
+   * Editorial flags for copy that hasn't been confirmed by the client or team.
+   * Never rendered — grep for `needsReview` before publishing.
+   */
+  needsReview?: string[];
 };
 
 export type CaseStudyInput = Omit<CaseStudy, 'createdAt' | 'updatedAt'>;

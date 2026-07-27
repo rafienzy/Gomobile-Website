@@ -36,7 +36,7 @@ const LOREM_CASE: CaseStudy = {
   ],
   channels: ["Lorem", "Ipsum", "Dolor", "Sit Amet"],
   testimonial: {
-    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — and the results backed it up.",
+    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, and the results backed it up.",
     name: "Lorem Ipsum",
     role: "Head of Lorem, Dolor Sit Corp",
   },
@@ -184,37 +184,75 @@ export function CaseStudyDetail({ data, nextCase }: { data: CaseStudy; nextCase?
         </div>
       </section>
 
-      {/* ── Approach ── */}
-      <section className="px-6 md:px-[136px] py-10 md:py-16">
-        <div className="cs-section mb-10">
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>OUR APPROACH</p>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-            How we executed it.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {d.approach.map((a, i) => (
-            <div
-              key={a.title}
-              className="cs-approach flex flex-col gap-4 p-8 md:p-10 rounded-[24px]"
-              style={{ background: "var(--card)", border: "1px solid var(--border)" }}
-            >
-              <div className="flex items-center gap-4">
+      {/* ── Campaign snapshot — shown instead of Approach when present ── */}
+      {d.campaignSnapshot?.length ? (
+        <section className="px-6 md:px-[136px] py-10 md:py-16">
+          <div className="cs-section mb-10">
+            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>CAMPAIGN SNAPSHOT</p>
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+              How it was built.
+            </h2>
+          </div>
+          <div
+            className="cs-approach rounded-[24px] overflow-hidden"
+            style={{ background: "var(--card)", border: "1px solid var(--border)" }}
+          >
+            <dl className="divide-y" style={{ borderColor: "var(--border)" }}>
+              {d.campaignSnapshot.map((s) => (
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
-                  style={{ background: "linear-gradient(135deg, #ef6600, #cb0000)" }}
+                  key={s.label}
+                  className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-8 px-8 md:px-10 py-5 md:py-6"
+                  style={{ borderColor: "var(--border)" }}
                 >
-                  {String(i + 1).padStart(2, "0")}
+                  <dt
+                    className="font-helvetica font-bold text-[11px] tracking-[2px] uppercase shrink-0 sm:w-[180px]"
+                    style={{ color: "var(--muted)" }}
+                  >
+                    {s.label}
+                  </dt>
+                  <dd className="text-base md:text-lg font-medium" style={{ color: "var(--fg)" }}>
+                    {s.value}
+                  </dd>
                 </div>
-                <h3 className="font-bricolage font-bold text-lg md:text-xl tracking-tight" style={{ color: "var(--fg)" }}>
-                  {a.title}
-                </h3>
+              ))}
+            </dl>
+          </div>
+        </section>
+      ) : d.approach.length ? (
+        /* ── Approach ── */
+        <section className="px-6 md:px-[136px] py-10 md:py-16">
+          <div className="cs-section mb-10">
+            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
+              {d.approachHeading?.eyebrow ?? "OUR APPROACH"}
+            </p>
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+              {d.approachHeading?.title ?? "How we executed it."}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {d.approach.map((a, i) => (
+              <div
+                key={a.title}
+                className="cs-approach flex flex-col gap-4 p-8 md:p-10 rounded-[24px]"
+                style={{ background: "var(--card)", border: "1px solid var(--border)" }}
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
+                    style={{ background: "linear-gradient(135deg, #ef6600, #cb0000)" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="font-bricolage font-bold text-lg md:text-xl tracking-tight" style={{ color: "var(--fg)" }}>
+                    {a.title}
+                  </h3>
+                </div>
+                <p className="text-sm md:text-base leading-[1.65]" style={{ color: "var(--muted)" }}>{a.desc}</p>
               </div>
-              <p className="text-sm md:text-base leading-[1.65]" style={{ color: "var(--muted)" }}>{a.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {/* ── Channels ── */}
       <section className="px-6 md:px-[136px] py-10">

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = await getDbPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} — Go Mobile Blog`,
+    title: `${post.title} | Go Mobile Blog`,
     description: post.excerpt,
   };
 }

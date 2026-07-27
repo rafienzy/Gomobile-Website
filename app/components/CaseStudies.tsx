@@ -11,18 +11,23 @@ import { useDemo } from "../context/DemoMode";
 
 const LOREM_DESC =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-const CASES = [
-  { img: "/assets/featured-case-1.png", title: "Singapore Airlines", slug: "singapore-airlines", desc: "Premium video drove a 38% lift in flight searches across SEA.", tags: ["CTV", "VIDEO"] },
-  { img: "/assets/featured-case-2.png", title: "Indofood",           slug: "indofood",           desc: "Gamified rich media outperformed display CTR by 6× across in-app inventory.", tags: ["RICH MEDIA", "GAMIFIED"] },
-  { img: "/assets/featured-case-3.png", title: "Bank Jago",          slug: "bank-jago",          desc: "Always-on programmatic delivered a 22% lower CAC than social-only baselines.", tags: ["PROGRAMMATIC", "NATIVE"] },
-];
-const LOREM_CASES_HOME = [
-  { img: "/assets/featured-case-1.png", title: "Lorem Ipsum Corp",       slug: "singapore-airlines", desc: LOREM_DESC, tags: ["LOREM", "IPSUM"] },
-  { img: "/assets/featured-case-2.png", title: "Adipiscing Elit Ltd",     slug: "indofood",           desc: LOREM_DESC, tags: ["DOLOR", "SIT"] },
-  { img: "/assets/featured-case-3.png", title: "Consectetur Inc",         slug: "bank-jago",          desc: LOREM_DESC, tags: ["AMET", "ELIT"] },
+
+/** Shape the homepage cards need. The real list is passed in from the page. */
+export type FeaturedCase = {
+  img: string;
+  title: string;
+  slug: string;
+  desc: string;
+  tags: string[];
+};
+
+const LOREM_CASES_HOME: FeaturedCase[] = [
+  { img: "/assets/featured-case-1.png", title: "Lorem Ipsum Corp",   slug: "bintan-triathlon",   desc: LOREM_DESC, tags: ["LOREM", "IPSUM"] },
+  { img: "/assets/featured-case-2.png", title: "Adipiscing Elit Ltd", slug: "bank-jago",          desc: LOREM_DESC, tags: ["DOLOR", "SIT"] },
+  { img: "/assets/featured-case-3.png", title: "Consectetur Inc",     slug: "singapore-airlines", desc: LOREM_DESC, tags: ["AMET", "ELIT"] },
 ];
 
-export function CaseStudies() {
+export function CaseStudies({ featured = [] }: { featured?: FeaturedCase[] }) {
   const { isDemo } = useDemo();
   const ref = useRef<HTMLDivElement>(null);
 
@@ -89,7 +94,7 @@ export function CaseStudies() {
       </div>
 
       <div className="flex flex-col gap-3">
-        {(isDemo ? LOREM_CASES_HOME : CASES).map((c) => (
+        {(isDemo ? LOREM_CASES_HOME : featured).map((c) => (
           <Link key={c.title} href={`/case-study/${c.slug}`}>
           <article className="case-card relative rounded-[28px] overflow-hidden h-[320px] md:h-[391px]">
             <Image src={c.img} alt={c.title} fill sizes="100vw" className="object-cover scale-[1.01]" />

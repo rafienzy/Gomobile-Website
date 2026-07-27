@@ -5,7 +5,7 @@ import { PageHero } from "../components/PageHero";
 import { LegalBody, LegalSection } from "../components/LegalBody";
 
 export const metadata = {
-  title: "Privacy Policy — Go Mobile",
+  title: "Privacy Policy | Go Mobile",
   description: "How Go Mobile collects, uses, and protects data across our website and programmatic advertising services.",
 };
 
@@ -35,12 +35,12 @@ export default function PrivacyPage() {
         <LegalSection title="2. Information we collect">
           <p>
             <strong>Information you give us.</strong> When you send us a brief, email us, or otherwise get in touch, we
-            collect the details you provide — such as your name, company, work email, phone number, and the contents of
+            collect the details you provide, such as your name, company, work email, phone number, and the contents of
             your message.
           </p>
           <p>
             <strong>Information collected automatically.</strong> When you visit our website we may collect device and
-            usage data — including IP address, browser and device type, pages viewed, referring URLs, and interactions —
+            usage data, including IP address, browser and device type, pages viewed, referring URLs, and interactions,
             through cookies and similar technologies.
           </p>
         </LegalSection>
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
         <LegalSection title="7. Data retention">
           <p>
             We keep personal information only for as long as it is needed for the purposes described here, to comply with
-            legal obligations, resolve disputes, and enforce our agreements — after which it is deleted or anonymized.
+            legal obligations, resolve disputes, and enforce our agreements, after which it is deleted or anonymized.
           </p>
         </LegalSection>
 

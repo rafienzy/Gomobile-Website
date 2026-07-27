@@ -26,10 +26,26 @@ const OFFICES = [
   },
 ];
 
+/**
+ * Opening lines seeded from a `?topic=` param, so a CTA elsewhere on the site
+ * can drop the visitor into the form with the subject already stated.
+ */
+const TOPIC_PREFILL: Record<string, string> = {
+  html5: "We'd like to discuss a custom HTML5 ad unit.\n\n",
+};
+
 export function ContactBody() {
   const ref = useRef<HTMLDivElement>(null);
   const [budget, setBudget]   = useState("");
+  const [message, setMessage] = useState("");
   const [sent, setSent]       = useState(false);
+
+  // Read from window rather than useSearchParams: the latter would opt this
+  // page out of static rendering, and the prefill is not worth that.
+  useEffect(() => {
+    const topic = new URLSearchParams(window.location.search).get("topic");
+    if (topic && TOPIC_PREFILL[topic]) setMessage(TOPIC_PREFILL[topic]);
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -55,12 +71,7 @@ export function ContactBody() {
         <div className="form-panel glass-card rounded-[28px] p-8 md:p-12">
           {sent ? (
             <div className="flex flex-col items-center justify-center h-full min-h-[400px] gap-6 text-center">
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
-              >
-                <Icon name="check" className="w-9 h-9 text-[#ef6600]" />
-              </div>
+              <Icon name="check" className="w-16 h-16 text-[#ef6600]" />
               <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-tight tracking-tight" style={{ color: "var(--fg)" }}>
                 We&apos;ve got it.
               </h2>
@@ -128,7 +139,9 @@ export function ContactBody() {
                 <textarea
                   name="message"
                   rows={5}
-                  placeholder="Goals, timeline, target markets, existing creative — anything useful."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Goals, timeline, target markets, existing creative, anything useful."
                   className="rounded-[16px] px-5 py-4 text-sm leading-[1.6] resize-none outline-none transition-all duration-200"
                   style={{
                     background: "rgba(128,128,128,0.08)",
@@ -159,12 +172,7 @@ export function ContactBody() {
           <div
             className="glass-card rounded-[28px] p-8 flex flex-col gap-4"
           >
-            <div
-              className="w-14 h-14 rounded-full flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}
-            >
-              <Icon name="bolt" className="w-6 h-6 text-[#ef6600]" />
-            </div>
+            <Icon name="bolt" className="w-12 h-12 text-[#ef6600]" />
             <h3 className="font-bricolage font-bold text-xl tracking-tight" style={{ color: "var(--fg)" }}>
               1-business-day response
             </h3>

@@ -19,28 +19,28 @@ const FEATURES = [
     icon: "viewfinder",
     title: "AI Sensible Targeting",
     tag: "INTELLIGENCE",
-    desc: "Full-page content analysis via computer vision. Real-time user profiling that adapts to intent and mood shifts — privacy-safe across WEB and IN-APP environments. No third-party cookie dependency.",
+    desc: "Full-page content analysis via computer vision. Real-time user profiling that adapts to intent and mood shifts, privacy-safe across WEB and IN-APP environments. No third-party cookie dependency.",
     bullets: ["Page-level contextual scoring", "Behavioural intent signals", "Mood & sentiment detection", "Privacy-safe by design"],
   },
   {
     icon: "shield",
     title: "Pre-bid Traffic Filter",
     tag: "BRAND SAFETY",
-    desc: "Filters fraudulent impressions before they hit your budget. Every live bid is analysed against 3rd-party trackers and verification to protect brand safety goals — before the auction, not after.",
+    desc: "Filters fraudulent impressions before they hit your budget. Every live bid is analysed against 3rd-party trackers and verification to protect brand safety goals, before the auction, not after.",
     bullets: ["IAS + DoubleVerify integration", "Invalid Traffic (IVT) rejection", "Content category blocking", "Seller verification via ads.txt"],
   },
   {
     icon: "bolt",
     title: "ML Price Optimiser",
     tag: "PERFORMANCE",
-    desc: "Machine learning predicts optimal bid prices in real-time — maximising impression value while keeping CPMs efficient across every placement and format.",
+    desc: "Machine learning predicts optimal bid prices in real-time, maximising impression value while keeping CPMs efficient across every placement and format.",
     bullets: ["Bid price prediction per auction", "Win rate vs CPM trade-off model", "Placement-level value scoring", "Automatic floor optimisation"],
   },
   {
     icon: "chart-bar",
     title: "Reporting & Transparency",
     tag: "INSIGHTS",
-    desc: "Full placement-level transparency. Every domain, every app, every placement — with real-time blocking capability and daily performance exports.",
+    desc: "Full placement-level transparency. Every domain, every app, every placement, with real-time blocking capability and daily performance exports.",
     bullets: ["Domain + app-level reporting", "Real-time campaign dashboard", "Third-party tag compatibility", "Custom attribution windows"],
   },
   {
@@ -54,7 +54,7 @@ const FEATURES = [
     icon: "device-mobile",
     title: "Cross-Environment",
     tag: "REACH",
-    desc: "Unified buying across WEB, IN-APP, CTV, and OTT from a single DSP seat — with device-graph frequency capping to control reach across screens.",
+    desc: "Unified buying across WEB, IN-APP, CTV, and OTT from a single DSP seat, with device-graph frequency capping to control reach across screens.",
     bullets: ["Desktop + mobile web", "iOS + Android in-app (MRAID)", "CTV via VAST/VPAID", "OTT pre-roll and mid-roll"],
   },
 ];
@@ -148,7 +148,7 @@ export function GoNetBody() {
             {isDemo ? <><span className="text-gradient">LOREM</span>IPSUM</> : <><span className="text-gradient">GO</span>NET</>}
           </h1>
           <p className="text-lg md:text-2xl leading-[1.5] max-w-[640px]" style={{ color: "var(--muted)" }}>
-            {isDemo ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, no third-party cookies required.' : 'Our independent real-time bidding platform for APP & WEB traffic — connecting to 24 SSPs with AI-powered targeting and built-in brand safety, no third-party cookies required.'}
+            {isDemo ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, no third-party cookies required.' : 'Our independent real-time bidding platform for APP & WEB traffic, connecting to 24 SSPs with AI-powered targeting and built-in brand safety, no third-party cookies required.'}
           </p>
           <div className="flex flex-wrap gap-3 mt-2">
             {(isDemo ? ["Lorem Ipsum", "Dolor Sit", "Consectetur", "Adipiscing Elit", "Sed Do Eiusmod"] : ["OpenRTB 2.5+", "24 SSPs", "AI Targeting", "Pre-bid Safety", "ML Optimisation"]).map((t) => (
@@ -192,10 +192,7 @@ export function GoNetBody() {
             <div key={f.title} className="gn-feature flex flex-col gap-5 p-10 rounded-[28px] min-h-[360px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
               <div className="flex items-start justify-between">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, rgba(239,102,0,0.2), rgba(203,0,0,0.12))" }}>
-                  <Icon name={f.icon} className="w-7 h-7 text-[#ef6600]" />
-                </div>
+                <Icon name={f.icon} className="w-14 h-14 text-[#ef6600]" />
                 <span className="text-[10px] font-bold tracking-[2px] px-2.5 py-1 rounded-full"
                   style={{ background: "rgba(239,102,0,0.12)", color: "#ef6600" }}>
                   {f.tag}
@@ -229,7 +226,7 @@ export function GoNetBody() {
         <p className="gn-section max-w-[820px] text-lg md:text-xl leading-[1.6]" style={{ color: "var(--muted)" }}>
           {isDemo
             ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.'
-            : 'GoNet plugs directly into 24 premium supply-side platforms over OpenRTB — including Xandr, Index Exchange, Magnite, PubMatic, OpenX, TripleLift, Sovrn, and Sharethrough, with in-app inventory via InMobi and IronSource and CTV supply through DistroScale and Beachfront. Every integration is direct: no daisy-chain reselling, no resold DSP seats.'}
+            : 'GoNet plugs directly into 24 premium supply-side platforms over OpenRTB, including Xandr, Index Exchange, Magnite, PubMatic, OpenX, TripleLift, Sovrn, and Sharethrough, with in-app inventory via InMobi and IronSource and CTV supply through DistroScale and Beachfront. Every integration is direct: no daisy-chain reselling, no resold DSP seats.'}
         </p>
       </section>
 

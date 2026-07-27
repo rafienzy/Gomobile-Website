@@ -3,9 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import type { BlogPost } from '@/lib/models/blog';
-import type { CaseStudy } from '@/lib/models/case-study';
 import BlogEditor from './BlogEditor';
-import CaseStudyEditor from './CaseStudyEditor';
 
 /* ─── Constants ─────────────────────────────────────────────────────────── */
 
@@ -13,8 +11,8 @@ const SS_TOKEN = 'gm_admin_token';
 
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 
-type View = 'dashboard' | 'blog-editor' | 'case-editor';
-type Section = 'overview' | 'blog' | 'cases';
+type View = 'dashboard' | 'blog-editor';
+type Section = 'overview' | 'blog';
 
 /* ─── Default templates ──────────────────────────────────────────────────── */
 
@@ -36,22 +34,6 @@ const defaultBlog: BlogPost = {
   blocks: [],
   tags: [],
   relatedSlugs: [],
-  status: 'draft',
-};
-
-const defaultCase: CaseStudy = {
-  slug: '',
-  brand: '',
-  category: 'Travel',
-  headline: '',
-  img: '/assets/featured-case-1.png',
-  period: '',
-  channels: [],
-  tags: [],
-  metrics: [],
-  overview: { challenge: '', solution: '', result: '' },
-  approach: [],
-  testimonial: { quote: '', name: '', role: '' },
   status: 'draft',
 };
 
@@ -142,11 +124,11 @@ export default function AdminPage() {
               </span>
             </h2>
             <p className="text-white/40 text-sm leading-relaxed max-w-[280px]">
-              Draft blog posts and case studies, export TypeScript, and ship to production in minutes.
+              Draft blog posts, export TypeScript, and ship to production in minutes.
             </p>
             <div className="flex items-center gap-2 mt-2">
               <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
-              <span className="text-white/30 text-xs">ISR active — pages revalidate hourly</span>
+              <span className="text-white/30 text-xs">ISR active · pages revalidate hourly</span>
             </div>
           </div>
 
@@ -215,9 +197,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
   const [view, setView] = useState<View>('dashboard');
   const [activeSection, setActiveSection] = useState<Section>('overview');
   const [editingBlog, setEditingBlog] = useState<BlogPost | null>(null);
-  const [editingCase, setEditingCase] = useState<CaseStudy | null>(null);
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
-  const [cases, setCases] = useState<CaseStudy[]>([]);
   const [toast, setToast] = useState('');
   const [toastType, setToastType] = useState<'success' | 'error'>('success');
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
@@ -225,7 +205,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
   const [loading, setLoading] = useState(true);
 
   const blogRef = useRef<HTMLDivElement>(null);
-  const caseRef = useRef<HTMLDivElement>(null);
   const mainScrollRef = useRef<HTMLDivElement>(null);
 
   const authHeader = { Authorization: `Bearer ${token}` };
@@ -238,12 +217,8 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
 
   const fetchAll = useCallback(async () => {
     try {
-      const [bRes, cRes] = await Promise.all([
-        fetch('/api/blog?status=all', { headers: authHeader }),
-        fetch('/api/case-study?status=all', { headers: authHeader }),
-      ]);
+      const bRes = await fetch('/api/blog?status=all', { headers: authHeader });
       if (bRes.ok) setBlogs(await bRes.json());
-      if (cRes.ok) setCases(await cRes.json());
     } catch {
       showToast('Failed to load content', 'error');
     } finally {
@@ -281,50 +256,12 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
     }
   }
 
-  async function handleSaveCase(cs: CaseStudy, status: 'draft' | 'published') {
-    setSaving(true);
-    try {
-      const exists = cases.some((c) => c.slug === cs.slug);
-      const url = exists ? `/api/case-study/${cs.slug}` : '/api/case-study';
-      const method = exists ? 'PUT' : 'POST';
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json', ...authHeader },
-        body: JSON.stringify({ ...cs, status }),
-      });
-      if (!res.ok) {
-        const err = await res.json();
-        showToast(err.error || 'Save failed', 'error');
-        return;
-      }
-      await fetchAll();
-      setView('dashboard');
-      setEditingCase(null);
-      showToast(status === 'published' ? 'Case study published ✓' : 'Saved as draft ✓');
-    } catch {
-      showToast('Save failed', 'error');
-    } finally {
-      setSaving(false);
-    }
-  }
-
   async function handleDeleteBlog(slug: string) {
     try {
       await fetch(`/api/blog/${slug}`, { method: 'DELETE', headers: authHeader });
       await fetchAll();
       setDeleteConfirm(null);
       showToast('Post deleted');
-    } catch {
-      showToast('Delete failed', 'error');
-    }
-  }
-
-  async function handleDeleteCase(slug: string) {
-    try {
-      await fetch(`/api/case-study/${slug}`, { method: 'DELETE', headers: authHeader });
-      await fetchAll();
-      setDeleteConfirm(null);
-      showToast('Case study deleted');
     } catch {
       showToast('Delete failed', 'error');
     }
@@ -337,7 +274,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
   function navTo(section: Section) {
     setActiveSection(section);
     if (section === 'blog') setTimeout(() => scrollTo(blogRef), 50);
-    if (section === 'cases') setTimeout(() => scrollTo(caseRef), 50);
     if (section === 'overview') {
       mainScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -345,8 +281,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
 
   const publishedBlogs = blogs.filter((b) => b.status === 'published');
   const draftBlogs = blogs.filter((b) => b.status === 'draft');
-  const publishedCases = cases.filter((c) => c.status === 'published');
-  const draftCases = cases.filter((c) => c.status === 'draft');
 
   /* Editor full-screen takeovers */
   if (view === 'blog-editor') {
@@ -361,18 +295,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
     );
   }
 
-  if (view === 'case-editor') {
-    return (
-      <CaseStudyEditor
-        initial={editingCase ?? defaultCase}
-        onSave={handleSaveCase}
-        onCancel={() => { setView('dashboard'); setEditingCase(null); }}
-        saving={saving}
-      />
-    );
-  }
-
-  const totalDrafts = draftBlogs.length + draftCases.length;
+  const totalDrafts = draftBlogs.length;
 
   /* ── Main layout ── */
   return (
@@ -414,13 +337,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               badge={draftBlogs.length}
               onClick={() => navTo('blog')}
             />
-            <NavItem
-              icon="📊"
-              label="Case Studies"
-              active={activeSection === 'cases'}
-              badge={draftCases.length}
-              onClick={() => navTo('cases')}
-            />
           </div>
 
           {/* Quick add */}
@@ -430,11 +346,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               icon="+"
               label="New Blog Post"
               onClick={() => { setEditingBlog(null); setView('blog-editor'); }}
-            />
-            <NavItem
-              icon="+"
-              label="New Case Study"
-              onClick={() => { setEditingCase(null); setView('case-editor'); }}
             />
           </div>
 
@@ -468,7 +379,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
             <h1 className="text-sm font-semibold text-white/80">
               {activeSection === 'overview' && 'Dashboard'}
               {activeSection === 'blog' && 'Blog Posts'}
-              {activeSection === 'cases' && 'Case Studies'}
             </h1>
             {totalDrafts > 0 && (
               <span className="px-2 py-0.5 bg-orange-500/15 text-orange-400 text-[10px] font-bold rounded-full">
@@ -482,12 +392,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               className="bg-gradient-to-r from-orange-500 to-red-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
             >
               + New Post
-            </button>
-            <button
-              onClick={() => { setEditingCase(null); setView('case-editor'); }}
-              className="border border-white/15 text-white/60 hover:text-white text-xs px-3 py-1.5 rounded-lg hover:border-white/30 transition-all"
-            >
-              + Case Study
             </button>
           </div>
         </header>
@@ -518,7 +422,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                     </p>
                   ) : (
                     <p className="text-white/50 text-sm mt-1.5">
-                      All caught up — create a new post or case study to get started.
+                      All caught up. Create a new post to get started.
                     </p>
                   )}
                 </div>
@@ -527,18 +431,12 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-3 gap-3">
               <StatCard
                 value={loading ? '…' : publishedBlogs.length}
                 label="Blog Posts"
                 sub="published"
                 icon="✍"
-              />
-              <StatCard
-                value={loading ? '…' : publishedCases.length}
-                label="Case Studies"
-                sub="published"
-                icon="📊"
               />
               <StatCard
                 value={loading ? '…' : totalDrafts}
@@ -548,7 +446,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                 accent={totalDrafts > 0}
               />
               <StatCard
-                value={loading ? '…' : blogs.length + cases.length}
+                value={loading ? '…' : blogs.length}
                 label="Total"
                 sub="all content"
                 icon="⟳"
@@ -606,56 +504,6 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               )}
             </div>
 
-            {/* Case Studies section */}
-            <div ref={caseRef} className="flex flex-col gap-4 pb-10">
-              <SectionHeader
-                title="Case Studies"
-                published={publishedCases.length}
-                drafts={draftCases.length}
-                primaryLabel="+ New Case Study"
-                onPrimary={() => { setEditingCase(null); setView('case-editor'); }}
-              />
-
-              {loading && (
-                <p className="text-white/30 text-sm px-1">Loading…</p>
-              )}
-
-              {!loading && draftCases.length > 0 && (
-                <PostGroup label="Drafts" accent>
-                  {draftCases.map((cs) => (
-                    <PostRow
-                      key={cs.slug}
-                      title={cs.brand ? `${cs.brand}${cs.headline ? ' — ' + cs.headline : ''}` : '(Untitled)'}
-                      meta={[cs.category, cs.period].filter(Boolean).join(' · ')}
-                      img={cs.img}
-                      status="draft"
-                      onEdit={() => { setEditingCase(cs); setView('case-editor'); }}
-                      onDelete={() => setDeleteConfirm(`case:${cs.slug}`)}
-                    />
-                  ))}
-                </PostGroup>
-              )}
-
-              {!loading && (
-                <PostGroup label="Published" dimmed>
-                  {publishedCases.map((cs) => (
-                    <PostRow
-                      key={cs.slug}
-                      title={`${cs.brand} — ${cs.headline}`}
-                      meta={[cs.category, cs.period].filter(Boolean).join(' · ')}
-                      img={cs.img}
-                      status="published"
-                      onEdit={() => { setEditingCase(cs); setView('case-editor'); }}
-                      onDuplicate={() => {
-                        setEditingCase({ ...cs, slug: cs.slug + '-copy', brand: cs.brand + ' (Copy)', status: 'draft' });
-                        setView('case-editor');
-                      }}
-                    />
-                  ))}
-                </PostGroup>
-              )}
-            </div>
-
             {/* Workflow hint */}
             <div className="border border-white/[0.06] rounded-xl p-4 bg-white/[0.015] flex items-start gap-3">
               <span className="text-base shrink-0 mt-0.5">💡</span>
@@ -663,7 +511,19 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                 <strong className="text-white/50">Publishing workflow:</strong> Use{' '}
                 <span className="text-white/50">Save as Draft</span> to store privately, or{' '}
                 <span className="text-orange-400/70">Publish</span> to make it live instantly.
-                All content is stored in MongoDB — no code changes or deployments needed.
+                Blog posts are stored in MongoDB, no code changes or deployments needed.
+              </p>
+            </div>
+
+            {/* Case studies moved out of the CMS */}
+            <div className="border border-white/[0.06] rounded-xl p-4 bg-white/[0.015] flex items-start gap-3 mb-10">
+              <span className="text-base shrink-0 mt-0.5">📊</span>
+              <p className="text-white/30 text-xs leading-relaxed">
+                <strong className="text-white/50">Case studies live in the repo.</strong> They are
+                edited in{' '}
+                <code className="text-white/50 bg-white/[0.06] px-1 py-0.5 rounded">content/case-studies.json</code>{' '}
+                and ship with a deploy, so changes get reviewed like code. Array order in that file
+                is the order they appear on the site.
               </p>
             </div>
 
@@ -696,11 +556,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                 Cancel
               </button>
               <button
-                onClick={() => {
-                  if (deleteConfirm.startsWith('blog:'))
-                    handleDeleteBlog(deleteConfirm.replace('blog:', ''));
-                  else handleDeleteCase(deleteConfirm.replace('case:', ''));
-                }}
+                onClick={() => handleDeleteBlog(deleteConfirm.replace('blog:', ''))}
                 className="bg-red-500/20 border border-red-500/30 text-red-400 hover:bg-red-500/30 rounded-lg px-4 py-2 text-sm transition-all"
               >
                 Delete

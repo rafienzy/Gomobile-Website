@@ -443,7 +443,7 @@ export function AdFormatsDemo() {
           See Ads in Context.
         </h1>
         <p className="text-base md:text-xl max-w-[600px] leading-[1.6]" style={{ color: "var(--muted)" }}>
-          Toggle each programmatic format to see exact placement within a realistic editorial environment — mirroring how ads appear on premium Indonesian publishers.
+          Toggle each programmatic format to see exact placement within a realistic editorial environment, mirroring how ads appear on premium Indonesian publishers.
         </p>
       </section>
 

@@ -5,7 +5,7 @@ import { PageHero } from "../components/PageHero";
 import { LegalBody, LegalSection } from "../components/LegalBody";
 
 export const metadata = {
-  title: "Terms of Service — Go Mobile",
+  title: "Terms of Service | Go Mobile",
   description: "The terms that govern your use of the Go Mobile website.",
 };
 
@@ -52,7 +52,7 @@ export default function TermsPage() {
 
         <LegalSection title="4. Intellectual property">
           <p>
-            The Site and its content — including text, graphics, logos, and design — are owned by Go Mobile or its
+            The Site and its content, including text, graphics, logos, and design, are owned by Go Mobile or its
             licensors and are protected by intellectual property laws. You may view and share the content for your own
             informational purposes, but you may not reproduce it commercially without our prior written consent.
           </p>

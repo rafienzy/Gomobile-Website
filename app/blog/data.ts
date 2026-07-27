@@ -56,7 +56,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     body: {
       intro:
-        "We ran the same creative, the same audience segments, and the same pacing rules across two parallel buys — one via open exchange, one via curated PMP deals negotiated directly with premium publishers. We did this for 18 months across seven clients in four SEA markets. The results forced us to change our default buying strategy permanently.",
+        "We ran the same creative, the same audience segments, and the same pacing rules across two parallel buys, one via open exchange, one via curated PMP deals negotiated directly with premium publishers. We did this for 18 months across seven clients in four SEA markets. The results forced us to change our default buying strategy permanently.",
       sections: [
         {
           heading: "The experiment design",
@@ -71,7 +71,7 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: "Where open exchange still makes sense",
           content:
-            "We haven't killed open exchange entirely. For reach extensions at the top of the funnel — pure brand awareness plays where frequency capping and domain quality matter less than scale — open exchange still has a role at very low CPMs. But for anything with a conversion objective attached, we now start from PMP and work outward only when we've exhausted premium supply.",
+            "We haven't killed open exchange entirely. For reach extensions at the top of the funnel, on pure brand awareness plays where frequency capping and domain quality matter less than scale, open exchange still has a role at very low CPMs. But for anything with a conversion objective attached, we now start from PMP and work outward only when we've exhausted premium supply.",
         },
         {
           heading: "What this means for how we structure campaigns",
@@ -80,7 +80,7 @@ export const BLOG_POSTS: BlogPost[] = [
         },
       ],
       conclusion:
-        "The uncomfortable truth is that open exchange is optimised for volume, not for advertisers. PMP requires more upfront work — publisher relationships, deal ID management, and tighter inventory constraints. But the performance gap is now so well documented in our own data that we can't justify defaulting to open exchange for any client with a meaningful cost-per-outcome target. If you're still buying open exchange as your primary channel, run the split test. The numbers will change your mind.",
+        "The uncomfortable truth is that open exchange is optimised for volume, not for advertisers. PMP requires more upfront work: publisher relationships, deal ID management, and tighter inventory constraints. But the performance gap is now so well documented in our own data that we can't justify defaulting to open exchange for any client with a meaningful cost-per-outcome target. If you're still buying open exchange as your primary channel, run the split test. The numbers will change your mind.",
     },
   },
   {
@@ -102,26 +102,26 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     body: {
       intro:
-        "Gamified HTML5 ads consistently outperform static display by a significant margin in our internal benchmarks. But the 6× engagement lift we report isn't universal — it's conditional. We've run enough experiments to know exactly where gamified formats win, where they don't, and what single factor separates the campaigns that hit 6× from the ones that barely beat static.",
+        "Gamified HTML5 ads consistently outperform static display by a significant margin in our internal benchmarks. But the 6× engagement lift we report isn't universal. It's conditional. We've run enough experiments to know exactly where gamified formats win, where they don't, and what single factor separates the campaigns that hit 6× from the ones that barely beat static.",
       sections: [
         {
           heading: "The first 800ms is the entire game",
           content:
-            "When an HTML5 ad loads in a publisher environment, the user has already formed an intent to scroll past it before your animation loop even starts. The only way to interrupt that pattern is to present a clear, immediate invitation in the very first frame — something that communicates 'this is interactive and it will take you less than 3 seconds' without any instruction text. Our top-performing gamified units show a partial interaction state by default: a scratch panel that's already 30% revealed, a spin wheel mid-rotation, a drag handle already displaced from its resting position.",
+            "When an HTML5 ad loads in a publisher environment, the user has already formed an intent to scroll past it before your animation loop even starts. The only way to interrupt that pattern is to present a clear, immediate invitation in the very first frame, something that communicates 'this is interactive and it will take you less than 3 seconds' without any instruction text. Our top-performing gamified units show a partial interaction state by default: a scratch panel that's already 30% revealed, a spin wheel mid-rotation, a drag handle already displaced from its resting position.",
         },
         {
           heading: "What teams get wrong",
           content:
-            "Most teams spend their creative energy on the reward state — the 'win' animation, the coupon reveal, the product showcase that appears after the user completes the mechanic. That's fine, but it's the wrong priority. Users who make it to the reward are already converted to engagement. The attrition happens at the first frame. We've reviewed hundreds of HTML5 builds where the opening frame is a static image with a 'Tap to Play' CTA. That's not gamified — that's a static ad with instructions.",
+            "Most teams spend their creative energy on the reward state: the 'win' animation, the coupon reveal, the product showcase that appears after the user completes the mechanic. That's fine, but it's the wrong priority. Users who make it to the reward are already converted to engagement. The attrition happens at the first frame. We've reviewed hundreds of HTML5 builds where the opening frame is a static image with a 'Tap to Play' CTA. That's not gamified. That's a static ad with instructions.",
         },
         {
           heading: "The formats that perform and the ones that don't",
           content:
-            "Scratch-to-reveal consistently delivers the highest engagement rates across all demographics and markets — the tactile metaphor is universally understood. Spin wheels perform well in prize-led campaigns but poorly when the prize isn't immediately legible. Drag mechanics work in premium placements with adequate space but fail badly in smaller formats. Carousel swipe adapts well to mobile but underperforms on desktop. Know your placement before you choose your mechanic.",
+            "Scratch-to-reveal consistently delivers the highest engagement rates across all demographics and markets, because the tactile metaphor is universally understood. Spin wheels perform well in prize-led campaigns but poorly when the prize isn't immediately legible. Drag mechanics work in premium placements with adequate space but fail badly in smaller formats. Carousel swipe adapts well to mobile but underperforms on desktop. Know your placement before you choose your mechanic.",
         },
       ],
       conclusion:
-        "The 6× figure is real but it requires one non-negotiable condition: an honest, immediate first frame that shows the user what they're being invited to do. Not a CTA. Not a logo. A mid-state interaction that looks like it's waiting for them. Everything else — the mechanic, the reward, the brand message — is secondary to solving that opening 800ms.",
+        "The 6× figure is real but it requires one non-negotiable condition: an honest, immediate first frame that shows the user what they're being invited to do. Not a CTA. Not a logo. A mid-state interaction that looks like it's waiting for them. Everything else, the mechanic, the reward, the brand message, is secondary to solving that opening 800ms.",
     },
   },
   {
@@ -153,7 +153,7 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: "Where sit-down audiences actually live",
           content:
-            "The most reliable sit-down viewing audiences in SEA are on local and regional OTT platforms — the mid-tier publishers that have genuine appointment-viewing content: local drama, live sports, news. Viewers come to these platforms with intent, they watch at a specific time, and they're less likely to be running the content as ambient noise. CPMs are often lower than global platforms because they're not positioned as premium, but viewability and completion metrics tell a different story.",
+            "The most reliable sit-down viewing audiences in SEA are on local and regional OTT platforms, the mid-tier publishers that have genuine appointment-viewing content: local drama, live sports, news. Viewers come to these platforms with intent, they watch at a specific time, and they're less likely to be running the content as ambient noise. CPMs are often lower than global platforms because they're not positioned as premium, but viewability and completion metrics tell a different story.",
         },
         {
           heading: "How to buy it without a direct deal",
@@ -189,7 +189,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     body: {
       intro:
-        "Media mix modeling fell out of fashion when MTA made it seem obsolete. Now MTA is broken — IDFA opt-outs, signal loss from privacy changes, and the cookieless transition have eroded the data quality that made last-touch attribution credible. MMM is back, but the teams trying to run both simultaneously are discovering that the two methodologies disagree in interesting ways and you need a principled approach to resolve those disagreements or you'll just confuse your clients.",
+        "Media mix modeling fell out of fashion when MTA made it seem obsolete. Now MTA is broken: IDFA opt-outs, signal loss from privacy changes, and the cookieless transition have eroded the data quality that made last-touch attribution credible. MMM is back, but the teams trying to run both simultaneously are discovering that the two methodologies disagree in interesting ways and you need a principled approach to resolve those disagreements or you'll just confuse your clients.",
       sections: [
         {
           heading: "Why MTA alone no longer works",
@@ -199,7 +199,7 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: "Why MMM alone isn't enough either",
           content:
-            "MMM doesn't have the granularity to guide in-flight optimisation. A 12-week model refresh cycle is fine for annual planning and budget allocation; it's useless for deciding whether to shift spend between ad groups on Thursday. It also can't give you creative-level or audience-level insight — you're working with aggregate spend and aggregate outcomes. You need both approaches for different decision horizons.",
+            "MMM doesn't have the granularity to guide in-flight optimisation. A 12-week model refresh cycle is fine for annual planning and budget allocation; it's useless for deciding whether to shift spend between ad groups on Thursday. It also can't give you creative-level or audience-level insight, since you're working with aggregate spend and aggregate outcomes. You need both approaches for different decision horizons.",
         },
         {
           heading: "How we run the hybrid stack",
@@ -240,17 +240,17 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: "What actually changed",
           content:
-            "Google reversed the universal third-party cookie deprecation but did not reverse the trajectory toward user control. The Privacy Sandbox continues development. IDFA opt-out on iOS remains unchanged. Firefox and Safari have blocked third-party cookies for years. Samsung Internet and other Android browsers have varied policies. What Google's reversal did was remove a hard deadline — it did not restore third-party cookies to their 2018 reach and reliability.",
+            "Google reversed the universal third-party cookie deprecation but did not reverse the trajectory toward user control. The Privacy Sandbox continues development. IDFA opt-out on iOS remains unchanged. Firefox and Safari have blocked third-party cookies for years. Samsung Internet and other Android browsers have varied policies. What Google's reversal did was remove a hard deadline. It did not restore third-party cookies to their 2018 reach and reliability.",
         },
         {
           heading: "The teams it affects least",
           content:
-            "Any advertiser that responded to the cookie deprecation announcement by building first-party data infrastructure — CRM integrations, clean room activations, server-side event tracking, contextual targeting investment — is essentially unaffected. Their targeting doesn't depend on third-party cookies. Their measurement is grounded in first-party signals. The reversal is noise for them.",
+            "Any advertiser that responded to the cookie deprecation announcement by building first-party data infrastructure, whether CRM integrations, clean room activations, server-side event tracking, or contextual targeting investment, is essentially unaffected. Their targeting doesn't depend on third-party cookies. Their measurement is grounded in first-party signals. The reversal is noise for them.",
         },
         {
           heading: "The teams that should be concerned",
           content:
-            "Teams that interpreted the reversal as an extension of the status quo and paused their first-party data projects are making a strategic error. The cookieless environment isn't a specific future date — it's the current reality for a large and growing share of web traffic. Running cookie-dependent campaigns today means underperforming on iOS, Firefox, and Safari. That's not a future problem; it's a current underperformance you're already absorbing.",
+            "Teams that interpreted the reversal as an extension of the status quo and paused their first-party data projects are making a strategic error. The cookieless environment isn't a specific future date. It's the current reality for a large and growing share of web traffic. Running cookie-dependent campaigns today means underperforming on iOS, Firefox, and Safari. That's not a future problem; it's a current underperformance you're already absorbing.",
         },
         {
           heading: "What to actually do",
@@ -286,21 +286,21 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: "What was taking so long",
           content:
-            "We did a time-audit on a typical rich media build before the rewrite. The actual animation coding was about 30% of the total time. The remaining 70% was: per-ad-network asset packaging (each DSP and publisher has different spec requirements), manual quality checks across device sizes, ad serving tag generation, version management across creative variants, and back-and-forth file transfers with clients. None of that 70% is creative work — it's workflow overhead.",
+            "We did a time-audit on a typical rich media build before the rewrite. The actual animation coding was about 30% of the total time. The remaining 70% was: per-ad-network asset packaging (each DSP and publisher has different spec requirements), manual quality checks across device sizes, ad serving tag generation, version management across creative variants, and back-and-forth file transfers with clients. None of that 70% is creative work. It's workflow overhead.",
         },
         {
           heading: "The new toolchain",
           content:
-            "We built an internal CLI that takes a single source HTML5 build and auto-generates exports for every major ad network specification — IAB standard sizes, platform-specific formats, with asset compression and polyfill injection handled automatically. A validation suite runs the build against each spec and flags issues before any human review. The output is a structured ZIP with everything pre-labelled and a QA report attached. What previously took a day of packaging takes about 8 minutes.",
+            "We built an internal CLI that takes a single source HTML5 build and auto-generates exports for every major ad network specification: IAB standard sizes, platform-specific formats, with asset compression and polyfill injection handled automatically. A validation suite runs the build against each spec and flags issues before any human review. The output is a structured ZIP with everything pre-labelled and a QA report attached. What previously took a day of packaging takes about 8 minutes.",
         },
         {
           heading: "What changed about iteration",
           content:
-            "The faster build cycle changed how we work with clients on creative. Instead of presenting 3 concepts and picking one to execute, we now present 3 directions and execute all of them as lightweight prototypes in the first sprint. Real performance data — CTR, engagement rate, completion — informs which direction gets full production investment. We find a winning concept 2-3× faster and the winning concept is better because it's been validated against actual user behaviour, not a creative brief.",
+            "The faster build cycle changed how we work with clients on creative. Instead of presenting 3 concepts and picking one to execute, we now present 3 directions and execute all of them as lightweight prototypes in the first sprint. Real performance data, whether CTR, engagement rate, or completion, informs which direction gets full production investment. We find a winning concept 2-3× faster and the winning concept is better because it's been validated against actual user behaviour, not a creative brief.",
         },
       ],
       conclusion:
-        "If your HTML5 build cycle is measured in days, the constraint is almost certainly not the creative work — it's the surrounding workflow. Audit where the time actually goes before investing in better creative talent or more detailed briefs. The leverage is usually in the packaging and QA automation, not the animation itself.",
+        "If your HTML5 build cycle is measured in days, the constraint is almost certainly not the creative work. It's the surrounding workflow. Audit where the time actually goes before investing in better creative talent or more detailed briefs. The leverage is usually in the packaging and QA automation, not the animation itself.",
     },
   },
   {
@@ -322,7 +322,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     body: {
       intro:
-        "Every bid request that reaches your DSP costs you something — compute time, evaluation overhead, and the cognitive load of maintaining the targeting logic that decides whether to bid. What most advertisers don't account for is what it costs when you bid on impressions you should have rejected before the auction. In GoNet, our in-house DSP, we reject 23% of incoming bid requests at the pre-bid layer. Here's exactly what we're filtering and why.",
+        "Every bid request that reaches your DSP costs you something: compute time, evaluation overhead, and the cognitive load of maintaining the targeting logic that decides whether to bid. What most advertisers don't account for is what it costs when you bid on impressions you should have rejected before the auction. In GoNet, our in-house DSP, we reject 23% of incoming bid requests at the pre-bid layer. Here's exactly what we're filtering and why.",
       sections: [
         {
           heading: "The categories we filter pre-bid",
@@ -332,21 +332,21 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: "How the rules engine works",
           content:
-            "The filtering layer runs before any targeting evaluation, which is intentional — there's no point running expensive audience matching logic against a bid you're going to reject on quality grounds. Rules execute in order of computational cost: the cheapest checks (format compliance, domain blocklist) run first; the more expensive checks (supply path analysis, viewability prediction) only run if the impression passes the initial filters. The whole process adds approximately 2ms to bid evaluation latency, well within OpenRTB response time requirements.",
+            "The filtering layer runs before any targeting evaluation, which is intentional, because there's no point running expensive audience matching logic against a bid you're going to reject on quality grounds. Rules execute in order of computational cost: the cheapest checks (format compliance, domain blocklist) run first; the more expensive checks (supply path analysis, viewability prediction) only run if the impression passes the initial filters. The whole process adds approximately 2ms to bid evaluation latency, well within OpenRTB response time requirements.",
         },
         {
           heading: "What the 23% actually represents",
           content:
-            "Of the 23% we reject: roughly 40% are domain category blocks (MFA and low-quality sites), 30% are supply path quality failures, 20% are IVT matches, and the remaining 10% are split across viewability prediction failures and geographic anomalies. The distribution varies significantly by market — Indonesia has a higher rate of supply path anomalies than Singapore; Vietnam has elevated IVT rates compared to regional averages. We maintain per-market filter calibrations to account for this.",
+            "Of the 23% we reject: roughly 40% are domain category blocks (MFA and low-quality sites), 30% are supply path quality failures, 20% are IVT matches, and the remaining 10% are split across viewability prediction failures and geographic anomalies. The distribution varies significantly by market. Indonesia has a higher rate of supply path anomalies than Singapore; Vietnam has elevated IVT rates compared to regional averages. We maintain per-market filter calibrations to account for this.",
         },
         {
           heading: "The financial impact",
           content:
-            "Across our managed book of business, pre-bid filtering saves approximately $1.2M annually in wasted spend — impressions that would have been served but delivered no measurable audience value. The actual figure is probably higher because it doesn't account for the downstream cost of poor viewability on campaign metrics and the budget inefficiency of over-serving to fraudulent environments.",
+            "Across our managed book of business, pre-bid filtering saves approximately $1.2M annually in wasted spend, on impressions that would have been served but delivered no measurable audience value. The actual figure is probably higher because it doesn't account for the downstream cost of poor viewability on campaign metrics and the budget inefficiency of over-serving to fraudulent environments.",
         },
       ],
       conclusion:
-        "Pre-bid filtering isn't glamorous work, but it's one of the highest-ROI investments in programmatic infrastructure. If you're running a DSP or working with one, understand what filtering happens before the auction — and what the rejection rate is. A DSP with a 0% pre-bid rejection rate isn't cleaner than ours; it's just passing the cost of those impressions to the advertiser.",
+        "Pre-bid filtering isn't glamorous work, but it's one of the highest-ROI investments in programmatic infrastructure. If you're running a DSP or working with one, understand what filtering happens before the auction, and what the rejection rate is. A DSP with a 0% pre-bid rejection rate isn't cleaner than ours; it's just passing the cost of those impressions to the advertiser.",
     },
   },
   {
@@ -355,7 +355,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Industry",
     title: "The SEA ad market in 5 charts (and one uncomfortable trend).",
     excerpt:
-      "Quarterly numbers from across Indonesia, Singapore, Philippines, and Vietnam — plus what's not in the deck.",
+      "Quarterly numbers from across Indonesia, Singapore, Philippines, and Vietnam, plus what's not in the deck.",
     author: "Reza Adhi",
     authorRole: "Head of Programmatic",
     date: "Feb 29, 2026",
@@ -368,31 +368,31 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     body: {
       intro:
-        "Every quarter we compile internal trading data across our SEA markets and compare it against available industry benchmarks. This quarter's numbers were mostly in line with expectations — except for one trend that doesn't show up in the public reports but has significant implications for how we're planning Q3 budgets.",
+        "Every quarter we compile internal trading data across our SEA markets and compare it against available industry benchmarks. This quarter's numbers were mostly in line with expectations, except for one trend that doesn't show up in the public reports but has significant implications for how we're planning Q3 budgets.",
       sections: [
         {
           heading: "Chart 1: Programmatic share of display is plateauing",
           content:
-            "Programmatic's share of total display spend in SEA hit approximately 78% this quarter and has been flat for three consecutive quarters. This isn't a sign of stagnation — it reflects that programmatic has essentially absorbed all the addressable display inventory. The remaining 22% is primarily direct IO deals for premium placements, sponsorships, and inventory that isn't available via DSP for contractual or technical reasons. We're at peak programmatic share for display.",
+            "Programmatic's share of total display spend in SEA hit approximately 78% this quarter and has been flat for three consecutive quarters. This isn't a sign of stagnation. It reflects that programmatic has essentially absorbed all the addressable display inventory. The remaining 22% is primarily direct IO deals for premium placements, sponsorships, and inventory that isn't available via DSP for contractual or technical reasons. We're at peak programmatic share for display.",
         },
         {
           heading: "Chart 2: CTV is growing faster in Indonesia than anywhere else in the region",
           content:
-            "Indonesia CTV spend grew 84% year-over-year in our portfolio — significantly ahead of Singapore (41%), Philippines (52%), and Vietnam (38%). The driver is smart TV penetration, which is accelerating as device prices fall. The implication: if you're buying CTV in SEA and not over-indexing on Indonesia, you're undersizing the biggest growth market.",
+            "Indonesia CTV spend grew 84% year-over-year in our portfolio, significantly ahead of Singapore (41%), Philippines (52%), and Vietnam (38%). The driver is smart TV penetration, which is accelerating as device prices fall. The implication: if you're buying CTV in SEA and not over-indexing on Indonesia, you're undersizing the biggest growth market.",
         },
         {
           heading: "Chart 3: Social's share of performance budgets is declining",
           content:
-            "For the first time in our data, social media's share of performance-objective campaign budgets declined quarter-over-quarter across three of four markets. The shift is going primarily to programmatic native and search. This tracks with what we hear anecdotally — iOS signal loss has made social performance campaigns measurably less efficient for DTC and e-commerce clients, and the budget is following the efficiency.",
+            "For the first time in our data, social media's share of performance-objective campaign budgets declined quarter-over-quarter across three of four markets. The shift is going primarily to programmatic native and search. This tracks with what we hear anecdotally: iOS signal loss has made social performance campaigns measurably less efficient for DTC and e-commerce clients, and the budget is following the efficiency.",
         },
         {
           heading: "The uncomfortable trend",
           content:
-            "Here's what's not in the public reports: MFA (Made for Advertising) site traffic in SEA is growing. Our pre-bid filter is rejecting a higher volume of MFA-originated bid requests every quarter. These sites are multiplying because the economics work — they generate enough ad revenue from buyers who don't filter pre-bid to stay profitable. The advertisers funding these sites mostly don't know they're doing it. If you're not actively filtering MFA domains either at the DSP level or via your ad verification partner, a meaningful fraction of your budget is subsidising content farms.",
+            "Here's what's not in the public reports: MFA (Made for Advertising) site traffic in SEA is growing. Our pre-bid filter is rejecting a higher volume of MFA-originated bid requests every quarter. These sites are multiplying because the economics work. They generate enough ad revenue from buyers who don't filter pre-bid to stay profitable. The advertisers funding these sites mostly don't know they're doing it. If you're not actively filtering MFA domains either at the DSP level or via your ad verification partner, a meaningful fraction of your budget is subsidising content farms.",
         },
       ],
       conclusion:
-        "The headline numbers for SEA digital advertising are healthy. But the distribution of where that spend goes — and the quality of the inventory absorbing it — is increasingly uneven. The gap between programmatic buyers who filter well and those who don't is widening, and it's showing up in cost-per-outcome data. Standard industry benchmarks won't tell you this because they aggregate across both populations.",
+        "The headline numbers for SEA digital advertising are healthy. But the distribution of where that spend goes, and the quality of the inventory absorbing it, is increasingly uneven. The gap between programmatic buyers who filter well and those who don't is widening, and it's showing up in cost-per-outcome data. Standard industry benchmarks won't tell you this because they aggregate across both populations.",
     },
   },
   {
@@ -429,7 +429,7 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: "Keeping pacing intact",
           content:
-            "The pacing concern is real but manageable. If you withhold 20% of your audience as a control group, your campaign will initially under-pace because your audience pool is smaller. The solution is to set your holdout percentage relative to the headroom in your pacing curve — never more than the percentage by which your current delivery is ahead of pace. For always-on campaigns running at 95%+ delivery, you should use a 5-10% holdout maximum. For campaigns with 30%+ delivery headroom, you can safely use larger holdout groups and get more statistical power.",
+            "The pacing concern is real but manageable. If you withhold 20% of your audience as a control group, your campaign will initially under-pace because your audience pool is smaller. The solution is to set your holdout percentage relative to the headroom in your pacing curve, never more than the percentage by which your current delivery is ahead of pace. For always-on campaigns running at 95%+ delivery, you should use a 5-10% holdout maximum. For campaigns with 30%+ delivery headroom, you can safely use larger holdout groups and get more statistical power.",
         },
         {
           heading: "What to do with the results",
@@ -438,7 +438,7 @@ export const BLOG_POSTS: BlogPost[] = [
         },
       ],
       conclusion:
-        "Incrementality testing isn't a special project — it should be a permanent fixture of your measurement practice. The barrier is mostly operational: the test design, the pacing management, and the result interpretation are learnable skills. The knowledge that comes from 12 months of continuous incrementality testing is significantly more reliable than any attribution model, and it compounds over time as your test history accumulates.",
+        "Incrementality testing isn't a special project. It should be a permanent fixture of your measurement practice. The barrier is mostly operational: the test design, the pacing management, and the result interpretation are learnable skills. The knowledge that comes from 12 months of continuous incrementality testing is significantly more reliable than any attribution model, and it compounds over time as your test history accumulates.",
     },
   },
 ];

@@ -10,7 +10,7 @@ import { SkeletonBox, SkeletonLine } from '../components/Skeleton';
 
 export const dynamic = 'force-dynamic';
 export const metadata = {
-  title: "Blog — Go Mobile",
+  title: "Blog | Go Mobile",
   description: "Insights on programmatic, performance, and the future of advertising.",
 };
 

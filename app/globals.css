@@ -167,6 +167,46 @@ html, body {
 }
 .btn-outline:active { transform: scale(0.97); }
 
+/* ─── Nav pill ───────────────────────────────────────────────────────────────
+   Solid, and inverted against the page: black in light theme, white in dark.
+   --fg is already the opposite of --bg in both themes, so using it as the
+   background gives the inversion for free, and --bg becomes the text colour.
+   No border and no backdrop-filter: the pill is opaque, so neither would show.
+   ─────────────────────────────────────────────────────────────────────────── */
+.nav-pill {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.18);
+}
+.dark .nav-pill {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.55);
+}
+/* Links sit on the inverted surface, so they take the inverted foreground. */
+.nav-pill .nav-link {
+  color: var(--bg);
+}
+
+/* ─── Horizontal scrollers ───────────────────────────────────────────────────
+   The native horizontal bar is invisible on macOS anyway, so it is hidden and
+   replaced by an explicit rail and thumb plus arrow buttons.
+   ─────────────────────────────────────────────────────────────────────────── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.rmb-arrow {
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease, color 0.25s ease;
+}
+.rmb-arrow:hover {
+  border-color: rgba(239, 102, 0, 0.55);
+  background: linear-gradient(65deg, rgba(239,102,0,0.12), rgba(203,0,0,0.12));
+  transform: scale(1.06);
+}
+.rmb-arrow:active { transform: scale(0.94); }
+
 /* ─── Nav link hover ─── */
 .nav-link {
   position: relative;

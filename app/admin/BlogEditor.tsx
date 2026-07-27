@@ -692,7 +692,7 @@ export default function BlogEditor({ initial, allBlogSlugs, onSave, onCancel, sa
                       <span className="text-[10px] text-gray-500">gomobile.co</span>
                     </div>
                     <p className="text-[#1a0dab] text-[14px] font-medium leading-tight truncate hover:underline cursor-pointer">
-                      {metaTitlePreview || 'Post Title — Go Mobile'}
+                      {metaTitlePreview || 'Post Title | Go Mobile'}
                     </p>
                     <p className="text-green-700 text-[10px] mt-0.5 truncate">
                       https://gomobile.co/blog/{post.slug || 'post-slug'}

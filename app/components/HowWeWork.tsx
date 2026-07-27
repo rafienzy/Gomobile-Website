@@ -14,7 +14,7 @@ const STEPS = [
   {
     num: "02",
     title: "Strategy & Planning",
-    desc: "Channel mix, targeting strategy, creative direction, and budget allocation — built for your category and audience.",
+    desc: "Channel mix, targeting strategy, creative direction, and budget allocation, built for your category and audience.",
   },
   {
     num: "03",
@@ -24,7 +24,7 @@ const STEPS = [
   {
     num: "04",
     title: "Optimize & Report",
-    desc: "Real-time data, continuous bid and creative optimization, and transparent performance reports — we prove it worked.",
+    desc: "Real-time data, continuous bid and creative optimization, and transparent performance reports. We prove it worked.",
   },
 ];
 

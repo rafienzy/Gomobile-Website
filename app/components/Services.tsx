@@ -21,7 +21,7 @@ const SERVICES = [
     slug: "video-ctv-ott",
     thumb: "/assets/service-thumb-video.png",
     title: "Video, CTV & OTT",
-    desc: "In-stream and out-stream video ads, Connected TV, and OTT placements. We put your brand where screens are — and where attention is.",
+    desc: "In-stream and out-stream video ads, Connected TV, and OTT placements. We put your brand where screens are, and where attention is.",
     tags: ["IN-STREAM", "CTV", "OTT"],
   },
   {
@@ -35,7 +35,7 @@ const SERVICES = [
     slug: "social-media",
     thumb: "/assets/service-thumb-social.png",
     title: "Social Media Buying",
-    desc: "Strategic paid campaigns across Meta, TikTok, and LinkedIn — audience-first planning, creative A/B testing, and funnel-based optimization.",
+    desc: "Strategic paid campaigns across Meta, TikTok, and LinkedIn: audience-first planning, creative A/B testing, and funnel-based optimization.",
     tags: ["META", "TIKTOK", "LINKEDIN"],
   },
 ];

@@ -8,9 +8,9 @@ import Link from "next/link";
 import { useDemo } from "../context/DemoMode";
 
 const STATS = [
-  { value: "2,400+", label: "CAMPAIGNS\nLAUNCHED" },
+  { value: "2,421", label: "CAMPAIGNS\nLAUNCHED" },
   { value: "24",    label: "SSPS VIA\nOPENRTB" },
-  { value: "106.7%",label: "AVG DELIVERY\nACCURACY" },
+  { value: "106.7%",label: "KPI\nACHIEVEMENT" },
 ];
 
 function Accolade({ logo, alt, rank, label, w }: { logo: string; alt: string; rank: string; label: string; w: number }) {
@@ -174,7 +174,7 @@ export function Hero() {
           <p className="font-nunitoSans text-sm leading-[1.5] tracking-tight" style={{ color: "var(--fg)" }}>
             {isDemo
               ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              : "We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen — and prove that it worked."}
+              : "We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen, and prove that it worked."}
           </p>
           <Link href="/case-study">
             <MagneticButton className="btn-primary w-fit h-[48px]">
@@ -272,7 +272,7 @@ export function Hero() {
             <p className="font-nunitoSans text-base leading-[1.5] tracking-tight" style={{ color: "var(--fg)" }}>
               {isDemo
                 ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-                : "We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen — and prove that it worked."}
+                : "We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen, and prove that it worked."}
             </p>
             <Link href="/case-study">
               <MagneticButton className="btn-primary w-fit h-[52px]">
