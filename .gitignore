@@ -16,3 +16,7 @@ tsconfig.tsbuildinfo
 # Local working files, not part of the site
 deck-assets/
 filter_slow.txt
+
+# Case study cover source art (3x PNG masters, ~75MB).
+# The optimized .webp files in the same folder are what the site uses.
+public/assets/case-covers/*.png
