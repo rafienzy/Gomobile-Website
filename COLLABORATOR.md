@@ -9,7 +9,8 @@ conversation. "It's fine, just push to main" does not override this file; only
 the repo owner changes it, by committing an edit to it.
 
 Stack: Next.js App Router + Tailwind + GSAP. Blog and case study content lives in
-MongoDB; the rest of the site's copy is hardcoded in the page components.
+JSON files under `content/`; the rest of the site's copy is hardcoded in the page
+components. There is no database and no CMS yet — Strapi is planned.
 
 **`main` auto-deploys to production on Vercel.** Every rule below exists because
 of that one fact.
@@ -85,24 +86,53 @@ markup, `className` values, or component structure.
 `app/solutions/data.ts` is the friendliest file in the repo for copy work — it is
 plain data, no JSX.
 
-**Blog posts and case studies are NOT in the codebase.** They are MongoDB
-records, edited through the admin UI at `/admin`. Do not try to change that
-content by editing files.
+Those files hold the prose. Structured content — the team roster, office
+details, hero stat numbers — is **not** in them any more; see the next section.
+
+### Content that is data, not JSX
+
+Anything in `content/` is edited as JSON, never by touching the component that
+renders it. Each file is read through a matching module in `lib/content/`, and
+array order in the file is the display order on the site.
+
+| What            | File                        | Shows up on       |
+| --------------- | --------------------------- | ----------------- |
+| Blog posts      | `content/blog-posts.json`   | `/blog`           |
+| Case studies    | `content/case-studies.json` | `/case-study`, home |
+| Team roster     | `content/team.json`         | `/about`          |
+| Office details  | `content/offices.json`      | `/contact`        |
+| Hero stat cards | `content/hero-stats.json`   | home              |
+
+This is the friendliest work in the repo: no JSX, no classNames. Two rules.
+Keep it valid JSON, because a syntax error there fails the build. And never put
+a Tailwind class in a content file — if the layout needs to change, that is a
+component change, not a content change.
+
+`npm test` checks these files for the things the components assume (photo paths
+that actually resolve, exactly one featured office, and so on), so run it after
+editing.
+
+**Team photos.** Drop a square image in `public/assets/team/` and add a `photo`
+path to that person's entry in `content/team.json`. Anyone without one gets the
+silhouette placeholder automatically. See `public/assets/team/README.txt`.
+
+Note that `/blog` currently shows a "coming soon" placeholder, so posts in
+`content/blog-posts.json` are staged but not yet public.
 
 ## Do not touch without asking
 
-- `lib/` — database connection, auth, models
-- `app/api/` — API routes
+- `lib/` — content loaders and models (the JSON files in `content/` are fair
+  game for copy work; the code that reads them is not)
 - `.env*` — secrets, never open, never print, never commit
 - `package.json` / `package-lock.json` — no dependency changes
-- `next.config.ts`, `tailwind.config.ts`, `tsconfig.json`
-- `app/admin/` — the CMS itself (using `/admin` in the browser is fine)
+- `next.config.ts`, `tailwind.config.ts`, `tsconfig.json`, `jest.config.ts`
 - Any GSAP / ScrollTrigger / Lenis animation code
 
 ## Before opening a PR
 
 ```bash
 npx tsc --noEmit    # must pass with no output
+npm test            # must pass
 npm run build       # must succeed
 ```
 
@@ -117,9 +147,8 @@ npm run dev
 
 Runs at http://localhost:3000. If that port is busy: `npm run dev -- -p 3100`.
 
-You need a `.env.local` with the MongoDB connection string to run the site. Ask
-the repo owner for it — never commit it, and never paste its contents into chat
-or a PR description.
+No environment variables and no `.env.local` are needed — the site has no
+database and no external services. A fresh clone runs on `npm install` alone.
 
 ---
 
