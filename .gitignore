@@ -21,6 +21,23 @@ filter_slow.txt
 # The optimized .webp files in the same folder are what the site uses.
 public/assets/case-covers/*.png
 
+# PNG masters for the large site art, same arrangement as case-covers above:
+# the .webp beside each one is what ships (12.2MB of PNG became 637KB). Listed
+# by name rather than as public/assets/*.png so that small PNGs which are still
+# served, like the theme toggle buttons, keep being tracked.
+public/assets/hero-bg.png
+public/assets/service-thumb-programmatic.png
+public/assets/service-thumb-social.png
+public/assets/service-thumb-richmedia.png
+public/assets/service-thumb-video.png
+public/assets/featured-case-1.png
+public/assets/featured-case-2.png
+public/assets/featured-case-3.png
+
+# Team headshot masters (1080x1080 PNG exports, ~1.1MB each). Same deal: the
+# .webp beside each one is what ships, at 512x512 and roughly 15KB.
+public/assets/team/emp_*.png
+
 # Root-level asset scratch folder. Next.js only serves public/, so anything
 # here is either a duplicate of public/assets/ or an unused source export.
 /assets/

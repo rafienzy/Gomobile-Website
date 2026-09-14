@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Fallback avatar for team members without a headshot.
+
+    Square on purpose: the About card crops it to a circle with rounded-full,
+    so the corners are never seen and the art stays reusable anywhere a square
+    avatar is wanted. Gradient matches the brand ramp used elsewhere on the
+    site (#ef6600 -> #cb0000, top-left to bottom-right).
+
+    This SVG is the source. The site loads the PNG exported from it, so if you
+    edit this file, re-export:
+      npm run build:avatar
+  -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ef6600"/>
+      <stop offset="1" stop-color="#cb0000"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#g)"/>
+
+  <!-- Head and shoulders, centred so the circular crop stays balanced. -->
+  <g fill="#ffffff">
+    <circle cx="256" cy="206" r="88"/>
+    <path d="M104 512c0-116 68-186 152-186s152 70 152 186z"/>
+  </g>
+</svg>
