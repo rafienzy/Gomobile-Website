@@ -144,9 +144,6 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
       {/* ── Title + meta — centered, narrower ── */}
       <section className="px-6 py-10 md:py-14">
         <div className="post-meta max-w-[720px] mx-auto flex flex-col gap-4">
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-            {post.category.toUpperCase()}
-          </p>
           <h1
             className="font-bricolage font-bold text-4xl md:text-[52px] leading-[1.05] tracking-tight"
             style={{ color: "var(--fg)" }}
@@ -201,9 +198,6 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
               ))}
               {post.body.conclusion && (
                 <div className="glass-card p-8 md:p-10 rounded-[20px] flex flex-col gap-4">
-                  <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-                    TAKEAWAY
-                  </p>
                   <p className="text-base md:text-lg leading-[1.8]" style={{ color: "var(--fg)" }}>
                     {post.body.conclusion}
                   </p>
@@ -222,9 +216,6 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
         >
           <div className="flex flex-col gap-10">
             <div>
-              <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-                KEEP READING
-              </p>
               <h2
                 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2"
                 style={{ color: "var(--fg)" }}

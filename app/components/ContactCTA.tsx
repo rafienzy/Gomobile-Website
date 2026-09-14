@@ -65,9 +65,6 @@ export function ContactCTA() {
         style={{ background: "linear-gradient(90deg, transparent, rgba(239,102,0,0.5), transparent)" }}
       />
 
-      <p className="cta-item font-helvetica font-bold text-xs tracking-[9px] mb-4" style={{ color: "#ef6600" }}>
-        LET&apos;S BUILD TOGETHER
-      </p>
 
       <h2
         className="cta-item font-bricolage font-bold text-4xl md:text-6xl lg:text-[72px] leading-[1.05] tracking-[-2.5px] max-w-3xl mb-6"

@@ -15,7 +15,6 @@ export default function PrivacyPage() {
       <BackgroundGrain />
       <Nav />
       <PageHero
-        eyebrow="LEGAL"
         title={
           <>
             Privacy <span className="text-gradient-animated">Policy</span>.

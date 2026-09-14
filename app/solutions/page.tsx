@@ -15,7 +15,6 @@ export default function SolutionsPage() {
       <BackgroundGrain />
       <Nav />
       <PageHero
-        eyebrow="WHAT WE DO"
         title={
           <>
             Solutions built<br />for <span className="text-gradient-animated">performance</span>.

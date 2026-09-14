@@ -6,19 +6,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
 import type { BlogPost } from "@/lib/models/blog";
-import { useDemo } from "../context/DemoMode";
-import { LOREM_BLOG_POSTS } from "../demo/lorem-data";
 
 const TOPICS = ["All", "Programmatic", "Creative", "CTV", "Measurement", "Industry"];
 
 export function BlogBody({ posts: livePosts = [] }: { posts?: BlogPost[] }) {
-  const { isDemo } = useDemo();
   const ref = useRef<HTMLDivElement>(null);
   const [topic, setTopic] = useState("All");
 
-  // Swap entire dataset when demo mode is active
-  const allPosts   = isDemo ? LOREM_BLOG_POSTS : livePosts;
-  const featuredPost = isDemo ? LOREM_BLOG_POSTS[0] : (livePosts[0] ?? null);
+  const allPosts = livePosts;
+  const featuredPost = livePosts[0] ?? null;
 
   const filtered = topic === "All" ? allPosts : allPosts.filter((p) => p.category === topic);
 

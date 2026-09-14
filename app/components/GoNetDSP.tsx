@@ -74,9 +74,6 @@ export function GoNetDSP() {
       {/* Header row */}
       <div className="gonet-header flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
         <div className="flex flex-col gap-2">
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-            OUR IN-HOUSE DSP
-          </p>
           <h2
             className="font-bricolage font-bold text-[56px] md:text-[70px] leading-none tracking-[-5px]"
             style={{ color: "var(--fg)" }}

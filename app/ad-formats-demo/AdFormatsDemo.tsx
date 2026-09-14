@@ -438,7 +438,6 @@ export function AdFormatsDemo() {
     <>
       {/* Hero */}
       <section className="px-6 md:px-[136px] pt-32 pb-14">
-        <p className="font-helvetica font-bold text-xs tracking-[9px] mb-3" style={{ color: "#ef6600" }}>AD FORMAT PREVIEW</p>
         <h1 className="font-bricolage font-bold text-4xl md:text-[64px] leading-none tracking-[-2px] mb-5" style={{ color: "var(--fg)" }}>
           See Ads in Context.
         </h1>

@@ -15,7 +15,6 @@ export default function TermsPage() {
       <BackgroundGrain />
       <Nav />
       <PageHero
-        eyebrow="LEGAL"
         title={
           <>
             Terms of <span className="text-gradient-animated">Service</span>.

@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
-import { useDemo } from "../context/DemoMode";
 import { Icon } from "../components/Icon";
 
 const STATS = [
@@ -59,25 +58,7 @@ const FEATURES = [
   },
 ];
 
-const LOREM_STATS = [
-  { num: 24,    suffix: "",    label: "Lorem Ipsum" },
-  { num: 15,    suffix: "+",   label: "Adipiscing Elit" },
-  { num: 9,     suffix: "yrs", label: "Consectetur Inc" },
-  { num: 98.7,  suffix: "%",   label: "Tempor Incididunt" },
-  { num: 106.7, suffix: "%",   label: "Labore Et Dolore" },
-];
-
-const LOREM_FEATURES = [
-  { icon: "viewfinder", title: "Lorem Ipsum Dolor", tag: "LOREM IPSUM", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim.", bullets: ["Lorem ipsum dolor sit", "Adipiscing elit tempor", "Consectetur incididunt", "Sed do eiusmod labore"] },
-  { icon: "shield", title: "Adipiscing Elit Sit", tag: "LOREM IPSUM", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.", bullets: ["Quis nostrud exercitation", "Ullamco laboris nisi", "Aliquip ex ea commodo", "Consequat duis aute"] },
-  { icon: "bolt", title: "Consectetur Tempor", tag: "LOREM IPSUM", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.", bullets: ["Irure dolor reprehenderit", "Voluptate velit esse", "Cillum dolore fugiat", "Nulla pariatur excepteur"] },
-  { icon: "chart-bar", title: "Incididunt Labore", tag: "LOREM IPSUM", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem.", bullets: ["Occaecat cupidatat non", "Proident sunt in culpa", "Officia deserunt mollit", "Anim id est laborum"] },
-  { icon: "link", title: "Dolore Magna Aliqua", tag: "LOREM IPSUM", desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.", bullets: ["Perspiciatis unde omnis", "Natus error sit amet", "Voluptatem accusantium", "Doloremque laudantium"] },
-  { icon: "device-mobile", title: "Enim Ad Minim", tag: "LOREM IPSUM", desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.", bullets: ["Ipsam voluptatem quia", "Aspernatur aut odit", "Consequuntur magni", "Dolores eos ratione"] },
-];
-
 export function GoNetBody() {
-  const { isDemo } = useDemo();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -145,13 +126,13 @@ export function GoNetBody() {
             <span className="text-xs font-bold tracking-[6px] uppercase" style={{ color: "var(--muted)" }}>Est. 2018</span>
           </div>
           <h1 className="font-bricolage font-bold leading-none tracking-[-5px]" style={{ fontSize: "clamp(72px, 12vw, 140px)", color: "var(--fg)" }}>
-            {isDemo ? <><span className="text-gradient">LOREM</span>IPSUM</> : <><span className="text-gradient">GO</span>NET</>}
+            <span className="text-gradient">GO</span>NET
           </h1>
           <p className="text-lg md:text-2xl leading-[1.5] max-w-[640px]" style={{ color: "var(--muted)" }}>
-            {isDemo ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, no third-party cookies required.' : 'Our independent real-time bidding platform for APP & WEB traffic, connecting to 24 SSPs with AI-powered targeting and built-in brand safety, no third-party cookies required.'}
+            Our independent real-time bidding platform for APP &amp; WEB traffic, connecting to 24 SSPs with AI-powered targeting and built-in brand safety, no third-party cookies required.
           </p>
           <div className="flex flex-wrap gap-3 mt-2">
-            {(isDemo ? ["Lorem Ipsum", "Dolor Sit", "Consectetur", "Adipiscing Elit", "Sed Do Eiusmod"] : ["OpenRTB 2.5+", "24 SSPs", "AI Targeting", "Pre-bid Safety", "ML Optimisation"]).map((t) => (
+            {["OpenRTB 2.5+", "24 SSPs", "AI Targeting", "Pre-bid Safety", "ML Optimisation"].map((t) => (
               <span key={t} className="chip">{t}</span>
             ))}
           </div>
@@ -161,7 +142,7 @@ export function GoNetBody() {
       {/* ── Stats ── */}
       <section className="px-6 md:px-[136px] pb-16 md:pb-24">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-          {(isDemo ? LOREM_STATS : STATS).map((s) => (
+          {STATS.map((s) => (
             <div key={s.label} className="gn-stat flex flex-col gap-2 p-6 rounded-[20px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
               <p
@@ -181,14 +162,13 @@ export function GoNetBody() {
       <section className="px-6 md:px-[136px] py-10 md:py-16">
         <div className="gn-section flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>{isDemo ? 'LOREM IPSUM' : 'PLATFORM CAPABILITIES'}</p>
-            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-              {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : <>What GoNet does<br />that others can't.</>}
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
+              What GoNet does<br />that others can&apos;t.
             </h2>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {(isDemo ? LOREM_FEATURES : FEATURES).map((f) => (
+          {FEATURES.map((f) => (
             <div key={f.title} className="gn-feature flex flex-col gap-5 p-10 rounded-[28px] min-h-[360px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
               <div className="flex items-start justify-between">
@@ -218,38 +198,29 @@ export function GoNetBody() {
       {/* ── SSP Partners ── */}
       <section className="px-6 md:px-[136px] py-10 md:py-16">
         <div className="gn-section mb-10">
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>{isDemo ? 'LOREM IPSUM' : 'SUPPLY PARTNERS'}</p>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-            {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : '24 SSPs, direct OpenRTB.'}
+          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
+            24 SSPs, direct OpenRTB.
           </h2>
         </div>
         <p className="gn-section max-w-[820px] text-lg md:text-xl leading-[1.6]" style={{ color: "var(--muted)" }}>
-          {isDemo
-            ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.'
-            : 'GoNet plugs directly into 24 premium supply-side platforms over OpenRTB, including Xandr, Index Exchange, Magnite, PubMatic, OpenX, TripleLift, Sovrn, and Sharethrough, with in-app inventory via InMobi and IronSource and CTV supply through DistroScale and Beachfront. Every integration is direct: no daisy-chain reselling, no resold DSP seats.'}
+          GoNet plugs directly into 24 premium supply-side platforms over OpenRTB, including Xandr, Index Exchange, Magnite, PubMatic, OpenX, TripleLift, Sovrn, and Sharethrough, with in-app inventory via InMobi and IronSource and CTV supply through DistroScale and Beachfront. Every integration is direct: no daisy-chain reselling, no resold DSP seats.
         </p>
       </section>
 
       {/* ── How it connects ── */}
       <section className="px-6 md:px-[136px] py-10 md:py-16">
         <div className="gn-section mb-10">
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>{isDemo ? 'LOREM IPSUM' : 'HOW IT WORKS'}</p>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-            {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : 'Bid to impression in <80ms.'}
+          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
+            Bid to impression in &lt;80ms.
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-          {(isDemo ? [
-            { num: "01", title: "Lorem Ipsum",    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-            { num: "02", title: "Dolor Sit Amet", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
-            { num: "03", title: "Consectetur",    desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla." },
-            { num: "04", title: "Adipiscing Elit",desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim." },
-          ] : [
+          {[
             { num: "01", title: "Bid Request",    desc: "Publisher sends a bid request via OpenRTB 2.5+. GoNet receives up to 2.4B requests daily." },
             { num: "02", title: "Pre-bid Filter", desc: "Request evaluated for brand safety, fraud signals, and audience match before entering the auction." },
             { num: "03", title: "AI Bid Decision",desc: "ML model scores the impression opportunity and submits a calculated optimal bid price in real-time." },
             { num: "04", title: "Ad Served",      desc: "If bid wins, the creative is returned and rendered. Impression logged, attribution pixel fires." },
-          ]).map((step) => (
+          ].map((step) => (
             <div key={step.num} className="gn-feature flex flex-col gap-4 p-8 rounded-[24px]"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
               <p className="font-bricolage font-extrabold text-5xl leading-none tracking-[-2px] text-gradient">{step.num}</p>

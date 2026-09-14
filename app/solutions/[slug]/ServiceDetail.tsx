@@ -8,41 +8,10 @@ import { addReveal } from "../../utils/scrollReveal";
 import { Service, SERVICES } from "../data";
 import type { CaseStudy } from "@/lib/models/case-study";
 import { Html5Gallery } from "./Html5Gallery";
-import { useDemo } from "../../context/DemoMode";
 import { Icon } from "../../components/Icon";
 
-const LOREM_SERVICE: Service = {
-  slug: "programmatic-display",
-  eyebrow: "01 · LOREM IPSUM",
-  title: "Lorem Ipsum Dolor",
-  thumb: "/assets/service-thumb-programmatic.png",
-  heroDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing: display, native, and in-app.",
-  longDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  tags: ["LOREM", "IPSUM", "DOLOR", "SIT", "AMET"],
-  stats: [
-    { v: "24",    l: "Lorem Ipsum" },
-    { v: "2.4B+", l: "Dolor Sit Amet" },
-    { v: "98.7%", l: "Consectetur Rate" },
-    { v: "106%",  l: "Avg Adipiscing" },
-  ],
-  features: [
-    { icon: "viewfinder", title: "Lorem Ipsum Dolor", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna." },
-    { icon: "shield", title: "Adipiscing Elit Sit", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-    { icon: "bolt", title: "Consectetur Tempor", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-    { icon: "chart-bar", title: "Incididunt Labore", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est." },
-  ],
-  process: [
-    { num: "01", title: "Lorem Ipsum", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore." },
-    { num: "02", title: "Dolor Sit Amet", desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
-    { num: "03", title: "Consectetur", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla." },
-    { num: "04", title: "Adipiscing Elit", desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim." },
-  ],
-  relatedCases: [],
-};
-
 export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { data: Service; relatedCases?: CaseStudy[]; relatedCasesSlot?: React.ReactNode }) {
-  const { isDemo } = useDemo();
-  const d = isDemo ? LOREM_SERVICE : data;
+  const d = data;
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -82,9 +51,9 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
     return () => { heroTweens.forEach((t) => t.kill()); };
   }, []);
 
-  const related = isDemo ? [] : relatedCases;
+  const related = relatedCases;
   const nextService = SERVICES[(SERVICES.findIndex((s) => s.slug === data.slug) + 1) % SERVICES.length];
-  const nextSvc = isDemo ? { ...nextService, title: "Lorem Ipsum Dolor", eyebrow: "02 · LOREM IPSUM" } : nextService;
+  const nextSvc = nextService;
 
   return (
     <div ref={ref}>
@@ -97,6 +66,8 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
           <div className="flex gap-2 flex-wrap mb-4">
             {d.tags.map((t) => <span key={t} className="chip">{t}</span>)}
           </div>
+          {/* Same service numbering the /solutions cards carry, kept for
+              continuity between the listing and this page. */}
           <p className="font-helvetica font-bold text-xs tracking-[9px] mb-3" style={{ color: "#ef6600" }}>{d.eyebrow}</p>
           <h1 className="font-bricolage font-bold text-4xl md:text-[72px] leading-none tracking-[-2px] text-white max-w-[800px]">
             {d.title}
@@ -122,7 +93,6 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
       <section className="px-6 md:px-[136px] pb-10">
         <div className="svc-section grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-10 items-start">
           <div>
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>OVERVIEW</p>
             <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-3" style={{ color: "var(--fg)" }}>
               What this service actually delivers.
             </h2>
@@ -146,8 +116,7 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
       <section className="px-6 md:px-[136px] py-10 md:py-16">
         <div className="svc-section flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>CAPABILITIES</p>
-            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
               What's under the hood.
             </h2>
           </div>
@@ -173,8 +142,7 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
       <section className="px-6 md:px-[136px] py-10 md:py-16">
         <div className="svc-section flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>HOW IT WORKS</p>
-            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
               From brief to live.
             </h2>
           </div>
@@ -197,8 +165,7 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
       {relatedCasesSlot ?? (related.length > 0 && (
         <section className="px-6 md:px-[136px] py-10 md:py-16">
           <div className="svc-section mb-10">
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>CASE STUDIES</p>
-            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
               See it in action.
             </h2>
           </div>
@@ -224,7 +191,6 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
 
       {/* ── Next service ── */}
       <section className="px-6 md:px-[136px] py-10 md:py-16">
-        <p className="font-helvetica font-bold text-xs tracking-[9px] mb-6" style={{ color: "#ef6600" }}>NEXT SERVICE</p>
         <Link href={`/solutions/${nextSvc.slug}`}>
           <article className="svc-case group relative rounded-[28px] overflow-hidden h-[220px] md:h-[280px]">
             <Image src={nextSvc.thumb} alt={nextSvc.title} fill sizes="100vw"

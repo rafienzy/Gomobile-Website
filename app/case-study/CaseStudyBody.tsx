@@ -5,12 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
-import { useDemo } from "../context/DemoMode";
-import { LOREM_CASES } from "../demo/lorem-data";
 
 const CATEGORIES = ["All", "Travel", "Lifestyle", "Banking", "Logistics", "Events"];
 
-/** Minimal shape the card needs — satisfied by both CaseStudy and LoremCase. */
+/** Minimal shape the card needs; CaseStudy satisfies it. */
 type CardCase = {
   slug: string;
   img: string;
@@ -23,11 +21,10 @@ type CardCase = {
 };
 
 export function CaseStudyBody({ cases: liveCases = [] }: { cases?: CardCase[] }) {
-  const { isDemo } = useDemo();
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState("All");
 
-  const allCases: CardCase[] = isDemo ? LOREM_CASES : liveCases;
+  const allCases: CardCase[] = liveCases;
   const filtered = active === "All" ? allCases : allCases.filter((c) => c.category === active);
 
   useEffect(() => {

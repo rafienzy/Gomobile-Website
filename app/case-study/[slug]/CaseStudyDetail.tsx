@@ -6,46 +6,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../../utils/scrollReveal";
 import type { CaseStudy } from "@/lib/models/case-study";
-import { useDemo } from "../../context/DemoMode";
-
-const LOREM_CASE: CaseStudy = {
-  slug: "lorem-ipsum",
-  brand: "Lorem Ipsum Corp",
-  category: "Lorem",
-  headline: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-  img: "/assets/featured-case-1.png",
-  period: "Q3 2025 · 12 weeks",
-  tags: ["LOREM", "IPSUM", "DOLOR"],
-  metrics: [
-    { v: "+38%", l: "Lorem Ipsum",    desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore." },
-    { v: "2.4×", l: "Dolor Sit",      desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi." },
-    { v: "12M",  l: "Amet Consect",   desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." },
-    { v: "92%",  l: "Adipiscing VCR", desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia." },
-  ],
-  overview: {
-    challenge: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.",
-    solution: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa.",
-    result: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis.",
-  },
-  keyTakeaway: "Lorem ipsum dolor sit amet consectetur.",
-  approach: [
-    { title: "Lorem Ipsum Architecture", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim veniam." },
-    { title: "Dolor Sit Amet Sequencing", desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor." },
-    { title: "Consectetur Media Mix", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat." },
-    { title: "Adipiscing Brand Safety", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem ipsum dolor." },
-  ],
-  channels: ["Lorem", "Ipsum", "Dolor", "Sit Amet"],
-  testimonial: {
-    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, and the results backed it up.",
-    name: "Lorem Ipsum",
-    role: "Head of Lorem, Dolor Sit Corp",
-  },
-  status: 'published' as const,
-};
 
 export function CaseStudyDetail({ data, nextCase }: { data: CaseStudy; nextCase?: CaseStudy | null }) {
-  const { isDemo } = useDemo();
-  const d = isDemo ? LOREM_CASE : data;
+  const d = data;
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -109,9 +72,7 @@ export function CaseStudyDetail({ data, nextCase }: { data: CaseStudy; nextCase?
     };
   }, []);
 
-  const next = isDemo && nextCase
-    ? { ...nextCase, brand: "Lorem Ipsum Corp", headline: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.", tags: nextCase.tags }
-    : nextCase ?? null;
+  const next = nextCase ?? null;
 
   return (
     <div ref={ref}>
@@ -188,8 +149,7 @@ export function CaseStudyDetail({ data, nextCase }: { data: CaseStudy; nextCase?
       {d.campaignSnapshot?.length ? (
         <section className="px-6 md:px-[136px] py-10 md:py-16">
           <div className="cs-section mb-10">
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>CAMPAIGN SNAPSHOT</p>
-            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
               How it was built.
             </h2>
           </div>
@@ -222,10 +182,7 @@ export function CaseStudyDetail({ data, nextCase }: { data: CaseStudy; nextCase?
         /* ── Approach ── */
         <section className="px-6 md:px-[136px] py-10 md:py-16">
           <div className="cs-section mb-10">
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-              {d.approachHeading?.eyebrow ?? "OUR APPROACH"}
-            </p>
-            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
               {d.approachHeading?.title ?? "How we executed it."}
             </h2>
           </div>
@@ -301,7 +258,6 @@ export function CaseStudyDetail({ data, nextCase }: { data: CaseStudy; nextCase?
       {/* ── Next case ── */}
       {next && (
         <section className="px-6 md:px-[136px] py-10 md:py-16">
-          <p className="font-helvetica font-bold text-xs tracking-[9px] mb-6" style={{ color: "#ef6600" }}>NEXT CASE STUDY</p>
           <Link href={`/case-study/${next.slug}`}>
             <article className="cs-section group relative rounded-[28px] overflow-hidden h-[280px] md:h-[360px]">
               <Image src={next.img} alt={next.brand} fill sizes="100vw" className="object-cover scale-[1.01] transition-transform duration-700 group-hover:scale-[1.06]" />

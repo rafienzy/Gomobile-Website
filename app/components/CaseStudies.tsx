@@ -7,10 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Arrow } from "./Hero";
 import { MagneticButton } from "./MagneticButton";
 import { addReveal } from "../utils/scrollReveal";
-import { useDemo } from "../context/DemoMode";
-
-const LOREM_DESC =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
 /** Shape the homepage cards need. The real list is passed in from the page. */
 export type FeaturedCase = {
@@ -21,14 +17,7 @@ export type FeaturedCase = {
   tags: string[];
 };
 
-const LOREM_CASES_HOME: FeaturedCase[] = [
-  { img: "/assets/featured-case-1.png", title: "Lorem Ipsum Corp",   slug: "bintan-triathlon",   desc: LOREM_DESC, tags: ["LOREM", "IPSUM"] },
-  { img: "/assets/featured-case-2.png", title: "Adipiscing Elit Ltd", slug: "bank-jago",          desc: LOREM_DESC, tags: ["DOLOR", "SIT"] },
-  { img: "/assets/featured-case-3.png", title: "Consectetur Inc",     slug: "singapore-airlines", desc: LOREM_DESC, tags: ["AMET", "ELIT"] },
-];
-
 export function CaseStudies({ featured = [] }: { featured?: FeaturedCase[] }) {
-  const { isDemo } = useDemo();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -84,17 +73,14 @@ export function CaseStudies({ featured = [] }: { featured?: FeaturedCase[] }) {
     <section ref={ref} className="px-6 md:px-[136px] py-16 md:py-24">
       <div className="cases-header flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
         <div>
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-            {isDemo ? 'LOREM IPSUM' : 'CASE STUDIES'}
-          </p>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-            {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : <>Campaigns that<br />moved the numbers.</>}
+          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
+            Campaigns that<br />moved the numbers.
           </h2>
         </div>
       </div>
 
       <div className="flex flex-col gap-3">
-        {(isDemo ? LOREM_CASES_HOME : featured).map((c) => (
+        {featured.map((c) => (
           <Link key={c.title} href={`/case-study/${c.slug}`}>
           <article className="case-card relative rounded-[28px] overflow-hidden h-[320px] md:h-[391px]">
             <Image src={c.img} alt={c.title} fill sizes="100vw" className="object-cover scale-[1.01]" />
