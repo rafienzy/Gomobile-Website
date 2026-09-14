@@ -9,21 +9,17 @@
     "lint": "next lint",
     "test": "jest --runInBand",
     "test:watch": "jest --watch --runInBand",
-    "seed": "tsx scripts/seed.ts"
+    "build:avatar": "node scripts/build-avatar-placeholder.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@studio-freight/lenis": "^1.0.42",
-    "@types/three": "^0.184.0",
     "gsap": "^3.12.5",
-    "mongodb": "^7.2.0",
     "next": "^16.2.4",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "three": "^0.184.0"
+    "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.15.9",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
@@ -32,13 +28,11 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
-    "dotenv": "^17.4.2",
     "jest": "^30.3.0",
     "jest-environment-node": "^30.3.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "ts-jest": "^29.4.9",
-    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
