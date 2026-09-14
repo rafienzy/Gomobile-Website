@@ -31,8 +31,7 @@ function RelatedCases({ relatedSlugs }: { relatedSlugs: string[] }) {
   return (
     <section className="px-6 md:px-[136px] py-10 md:py-16">
       <div className="mb-10">
-        <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>CASE STUDIES</p>
-        <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+        <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
           See it in action.
         </h2>
       </div>

@@ -1,10 +1,11 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
-import { useDemo } from "../context/DemoMode";
 import { Icon } from "../components/Icon";
+import type { TeamMember } from "@/lib/content/team";
 
 const STATS = [
   { v: "9", s: "yrs", l: "In Operation" },
@@ -31,45 +32,16 @@ const VALUES = [
   },
 ];
 
-const LOREM_STATS = [
-  { v: "9", s: "yrs", l: "Lorem Ipsum" },
-  { v: "2400", s: "+", l: "Adipiscing Elit" },
-  { v: "120", s: "+", l: "Consectetur Inc" },
-  { v: "24", s: "", l: "Sed Do Eiusmod" },
-];
+/**
+ * Square source art, cropped to a circle by `rounded-full` on the element.
+ * Kept square so it stays reusable anywhere a square avatar is wanted; see
+ * public/assets/team/avatar-placeholder.svg for the source and how to
+ * re-export it.
+ */
+const AVATAR_PLACEHOLDER = "/assets/team/avatar-placeholder.png";
 
-const LOREM_VALUES = [
-  { icon: "viewfinder", title: "Lorem ipsum dolor sit", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna." },
-  { icon: "wrench", title: "Adipiscing elit tempor", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-  { icon: "users", title: "Consectetur incididunt", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-];
-
-const TEAM = [
-  { name: "Daniil Pisarenko", role: "Country Manager", initials: "DP" },
-  { name: "Jessica Pauli", role: "Director of Client Services and Operations", initials: "JP" },
-  { name: "Vinasia", role: "Finance", initials: "VI" },
-  { name: "Gian Luis Wizny", role: "General Affairs", initials: "GW" },
-  { name: "Rafi Abdillah", role: "Graphic Designer", initials: "RA" },
-  { name: "Reiza Bhatara Bachri", role: "Business Development", initials: "RB" },
-  { name: "Sangganing Pangasa", role: "Media Buyer", initials: "SP" },
-  { name: "Cindy Sintya Riris", role: "Account Manager", initials: "CR" },
-  { name: "Figo Maulana Said", role: "Communication Manager", initials: "FS" },
-];
-
-const LOREM_TEAM = [
-  { name: "Lorem Ipsum", role: "Lorem Dolor", initials: "LI" },
-  { name: "Dolor Sit", role: "Amet Consectetur", initials: "DS" },
-  { name: "Adipiscing Elit", role: "Sed Eiusmod", initials: "AE" },
-  { name: "Tempor Incididunt", role: "Ut Labore", initials: "TI" },
-  { name: "Dolore Magna", role: "Aliqua Enim", initials: "DM" },
-  { name: "Quis Nostrud", role: "Exercitation", initials: "QN" },
-  { name: "Ullamco Laboris", role: "Nisi Aliquip", initials: "UL" },
-  { name: "Commodo Consequat", role: "Duis Aute", initials: "CC" },
-  { name: "Irure Dolor", role: "In Reprehenderit", initials: "ID" },
-];
-
-export function AboutBody() {
-  const { isDemo } = useDemo();
+// The roster comes in as a prop, read from content/team.json by the page.
+export function AboutBody({ team }: { team: TeamMember[] }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -116,7 +88,7 @@ export function AboutBody() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-2 rounded-[28px] p-8 md:p-10"
           style={{ background: "var(--card)", border: "1px solid var(--border)" }}
         >
-          {(isDemo ? LOREM_STATS : STATS).map((s) => (
+          {STATS.map((s) => (
             <div key={s.l} className="about-stat flex flex-col items-start gap-2">
               <p
                 className="about-stat-value font-bricolage font-extrabold text-5xl md:text-[64px] leading-none tracking-[-2.88px] text-gradient"
@@ -137,16 +109,13 @@ export function AboutBody() {
       <section className="px-6 md:px-[136px] py-16 md:py-24">
         <div className="section-header flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-              {isDemo ? 'LOREM IPSUM' : 'WHAT WE BELIEVE'}
-            </p>
-            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-              {isDemo ? <>Lorem ipsum dolor<br />sit amet.</> : <>Three things we<br />never compromise on.</>}
+            <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
+              Three things we<br />never compromise on.
             </h2>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-          {(isDemo ? LOREM_VALUES : VALUES).map((v) => (
+          {VALUES.map((v) => (
             <div
               key={v.title}
               className="value-card flex flex-col gap-5 p-10 rounded-[28px] min-h-[280px]"
@@ -167,26 +136,35 @@ export function AboutBody() {
       {/* Team */}
       <section className="px-6 md:px-[136px] py-16 md:py-24">
         <div className="section-header mb-10">
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-            {isDemo ? 'LOREM IPSUM' : 'THE PEOPLE'}
-          </p>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
-            {isDemo ? <>Lorem ipsum<br />adipiscing elit.</> : 'Meet the team.'}
+          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
+            Meet the team.
           </h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {(isDemo ? LOREM_TEAM : TEAM).map((m) => (
+          {team.map((m) => (
             <div
               key={m.name}
               className="team-card flex flex-col items-center gap-4 p-6 md:p-8 rounded-[28px] text-center"
               style={{ background: "var(--card)", border: "1px solid var(--border)" }}
             >
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center text-xl font-bricolage font-bold text-white"
-                style={{ background: "linear-gradient(135deg, #ef6600, #cb0000)" }}
-              >
-                {m.initials}
-              </div>
+              {/*
+                Headshot when content/team.json supplies one, the shared
+                silhouette placeholder otherwise. The placeholder is a real
+                image rather than a styled div so both states go through the
+                same element and land on the same pixel grid.
+
+                Explicit 80x80 rather than fill: the circle is a fixed size,
+                and fill makes the optimizer emit a srcSet all the way up to
+                3840w for an avatar. object-cover so a non-square headshot is
+                cropped instead of squashed.
+              */}
+              <Image
+                src={m.photo ?? AVATAR_PLACEHOLDER}
+                alt={m.name}
+                width={80}
+                height={80}
+                className="w-20 h-20 rounded-full object-cover"
+              />
               <div>
                 <p className="font-bricolage font-bold text-base md:text-lg" style={{ color: "var(--fg)" }}>
                   {m.name}

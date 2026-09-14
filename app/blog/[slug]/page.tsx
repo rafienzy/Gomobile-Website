@@ -6,8 +6,8 @@ import { redirect } from "next/navigation";
  *
  * redirect() issues a 307, deliberately: these URLs are expected to work
  * again once the journal launches, and a 308 would be cached by browsers
- * long after that. BlogPostDetail and lib/db/blog are untouched, so bringing
- * the real page back means restoring this file from git.
+ * long after that. BlogPostDetail and lib/content/blog are untouched, so
+ * bringing the real page back means restoring this file from git.
  */
 
 export const metadata = {

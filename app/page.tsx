@@ -9,6 +9,7 @@ import { ContactCTA } from "./components/ContactCTA";
 import { Footer } from "./components/Footer";
 import { BackgroundGrain } from "./components/BackgroundGrain";
 import { getCaseStudies } from "@/lib/content/case-studies";
+import { getHeroStats } from "@/lib/content/hero-stats";
 
 export default function Home() {
   // Homepage features the first three in the running order from
@@ -25,7 +26,7 @@ export default function Home() {
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
       <Nav />
-      <Hero />
+      <Hero stats={getHeroStats()} />
       <TrustedBy />
       <Services />
       <CaseStudies featured={featured} />

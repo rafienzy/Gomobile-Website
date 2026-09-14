@@ -5,13 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { MagneticButton } from "./MagneticButton";
 import Link from "next/link";
-import { useDemo } from "../context/DemoMode";
-
-const STATS = [
-  { value: "2,421", label: "CAMPAIGNS\nLAUNCHED" },
-  { value: "24",    label: "SSPS VIA\nOPENRTB" },
-  { value: "106.7%",label: "KPI\nACHIEVEMENT" },
-];
+import type { HeroStat } from "@/lib/content/hero-stats";
 
 function Accolade({ logo, alt, rank, label, w }: { logo: string; alt: string; rank: string; label: string; w: number }) {
   return (
@@ -25,9 +19,8 @@ function Accolade({ logo, alt, rank, label, w }: { logo: string; alt: string; ra
   );
 }
 
-export function Hero() {
+export function Hero({ stats }: { stats: HeroStat[] }) {
   const { theme } = useTheme();
-  const { isDemo } = useDemo();
   const mode = theme === "dark" ? "darkmode" : "lightmode";
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -78,10 +71,14 @@ export function Hero() {
     tl.to(lbls, { y: -36, opacity: 0, duration: 0.3, ease: "power2.in" }, 0.04);
   };
 
+  // `stats` arrives from the server as build-time content and never changes
+  // for the life of the component, so closing over it here is safe. Bail out
+  // below one entry: there is nothing to cycle to, and `% 0` is NaN.
   useEffect(() => {
+    if (stats.length < 2) return;
     const id = setInterval(() => {
       setActiveIdx((cur) => {
-        const next = (cur + 1) % STATS.length;
+        const next = (cur + 1) % stats.length;
         runTransition(next);
         return cur;
       });
@@ -90,7 +87,7 @@ export function Hero() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const stat = STATS[displayedIdx];
+  const stat = stats[displayedIdx];
 
   return (
     <section ref={heroRef} className="relative overflow-hidden pt-[100px] md:pt-[180px] lg:pt-[294px] pb-24 px-6 md:px-[150px]">
@@ -98,16 +95,20 @@ export function Hero() {
       {/*
         Background image. Deliberately next/image rather than a CSS
         background-image: a CSS url() bypasses the optimizer entirely, so every
-        device downloaded the full 1920x1080 PNG at 1.87MB and decoded it to a
+        device would download the full 1920x1080 source and decode it to a
         7.9MB bitmap. A phone needs neither. With fill + sizes the optimizer
-        serves a viewport-width WebP, which cuts both the transfer and, more
+        serves a viewport-width copy, which cuts both the transfer and, more
         importantly, the decoded bitmap a phone has to hold in memory.
+
+        The source is now .webp (the 1.87MB .png master is kept out of git);
+        that shrinks the deploy, but the optimizer above is still what decides
+        what any given device actually downloads.
 
         priority because this is the LCP element: it should not lazy-load.
       */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/hero-bg.png"
+          src="/assets/hero-bg.webp"
           alt=""
           aria-hidden
           fill
@@ -138,23 +139,13 @@ export function Hero() {
           className="font-bricolage font-semibold text-[40px] leading-none tracking-[-2px] text-center w-full"
           style={{ color: "var(--fg)" }}
         >
-          {isDemo ? (
-            <>
-              <span className="hero-line block">Lorem Ipsum.</span>
-              <span className="hero-line block">Dolor Sit Amet.</span>
-              <span className="hero-line block">
-                Consectetur <span className="text-gradient-animated">Adipiscing</span>.
-              </span>
-            </>
-          ) : (
-            <>
-              <span className="hero-line block">Your Ads.</span>
-              <span className="hero-line block">The Right People.</span>
-              <span className="hero-line block">
-                Real <span className="text-gradient-animated">Growth</span>.
-              </span>
-            </>
-          )}
+          <>
+            <span className="hero-line block">Your Ads.</span>
+            <span className="hero-line block">The Right People.</span>
+            <span className="hero-line block">
+              Real <span className="text-gradient-animated">Growth</span>.
+            </span>
+          </>
         </h1>
 
         {/* Stats card */}
@@ -190,9 +181,7 @@ export function Hero() {
         {/* Description + CTA */}
         <div className="flex flex-col gap-4 items-center text-center w-full max-w-[344px]">
           <p className="font-nunitoSans text-sm leading-[1.5] tracking-tight" style={{ color: "var(--fg)" }}>
-            {isDemo
-              ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              : "We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen, and prove that it worked."}
+            We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen, and prove that it worked.
           </p>
           <Link href="/case-study">
             <MagneticButton className="btn-primary w-fit h-[48px]">
@@ -219,23 +208,13 @@ export function Hero() {
         {/* Left */}
         <div className="flex flex-col justify-between min-h-[569px] max-w-[676px]">
           <h1 className="font-bricolage font-semibold text-[80px] leading-none tracking-[-2.88px]" style={{ color: "var(--fg)" }}>
-            {isDemo ? (
-              <>
-                <span className="hero-line block">Lorem Ipsum.</span>
-                <span className="hero-line block">Dolor Sit Amet.</span>
-                <span className="hero-line block">
-                  Consectetur <span className="text-gradient-animated">Adipiscing</span>.
-                </span>
-              </>
-            ) : (
-              <>
-                <span className="hero-line block">Your Ads.</span>
-                <span className="hero-line block">The Right People.</span>
-                <span className="hero-line block">
-                  Real <span className="text-gradient-animated">Growth</span>.
-                </span>
-              </>
-            )}
+            <>
+              <span className="hero-line block">Your Ads.</span>
+              <span className="hero-line block">The Right People.</span>
+              <span className="hero-line block">
+                Real <span className="text-gradient-animated">Growth</span>.
+              </span>
+            </>
           </h1>
 
           <div className="flex flex-wrap gap-5 items-center mt-10">
@@ -288,9 +267,7 @@ export function Hero() {
 
           <div className="flex flex-col gap-[22px]">
             <p className="font-nunitoSans text-base leading-[1.5] tracking-tight" style={{ color: "var(--fg)" }}>
-              {isDemo
-                ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-                : "We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen, and prove that it worked."}
+              We are a digital marketing agency specializing in performance buying and programmatic advertising. We help brands reach their audience on every screen, and prove that it worked.
             </p>
             <Link href="/case-study">
               <MagneticButton className="btn-primary w-fit h-[52px]">

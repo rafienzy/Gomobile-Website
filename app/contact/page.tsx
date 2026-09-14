@@ -3,6 +3,7 @@ import { Footer } from "../components/Footer";
 import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { ContactBody } from "./ContactBody";
+import { getOffices } from "@/lib/content/offices";
 export const metadata = {
   title: "Contact | Go Mobile",
   description: "Tell us about your next campaign. We'll handle the strategy, the buying, and the proof it worked.",
@@ -14,7 +15,6 @@ export default function ContactPage() {
       <BackgroundGrain />
       <Nav />
       <PageHero
-        eyebrow="LET'S TALK"
         title={
           <>
             Tell us what<br />
@@ -22,7 +22,7 @@ export default function ContactPage() {
           </>
         }
       />
-      <ContactBody />
+      <ContactBody offices={getOffices()} />
       <Footer />
     </main>
   );

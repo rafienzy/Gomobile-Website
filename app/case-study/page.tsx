@@ -19,7 +19,6 @@ export default function CaseStudyPage() {
       <BackgroundGrain />
       <Nav />
       <PageHero
-        eyebrow="CASE STUDIES"
         title={<>Campaigns that<br />moved the <span className="text-gradient-animated">numbers</span>.</>}
         lede="A look at how we plan, buy, and optimize for brands across categories, and the lift we delivered."
       />

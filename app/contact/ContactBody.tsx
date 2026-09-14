@@ -4,27 +4,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../utils/scrollReveal";
 import { Icon } from "../components/Icon";
+import type { Office } from "@/lib/content/offices";
 
-const BUDGETS = ["< $10K", "$10K–$50K", "$50K–$150K", "$150K–$500K", "$500K+"];
-
-const OFFICES = [
-  {
-    city: "Jakarta",
-    label: "SEA Regional Hub",
-    address: "Menara Astra, 37th Floor, Jl. Jenderal Sudirman Kav. 5–6, Karet Tengsin, Tanah Abang, Jakarta Pusat 10220",
-    phone: "+62 818 903 358",
-    email: "bd@gomobileagency.com",
-    span: "md:col-span-2",
-  },
-  {
-    city: "Moscow",
-    label: "Go Ahead",
-    address: "25 Ostozhenka St., Bldg 1, Moscow 119034",
-    phone: "+7 (495) 665 91 24",
-    email: "hi@goahead.ai",
-    span: "md:col-span-1",
-  },
-];
+const BUDGETS =["< $10K", "$10K–$50K", "$50K–$150K", "$150K–$500K", "$500K+"];
 
 /**
  * Opening lines seeded from a `?topic=` param, so a CTA elsewhere on the site
@@ -34,7 +16,7 @@ const TOPIC_PREFILL: Record<string, string> = {
   html5: "We'd like to discuss a custom HTML5 ad unit.\n\n",
 };
 
-export function ContactBody() {
+export function ContactBody({ offices }: { offices: Office[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [budget, setBudget]   = useState("");
   const [message, setMessage] = useState("");
@@ -82,9 +64,6 @@ export function ContactBody() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
               <div className="flex flex-col gap-1">
-                <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-                  GET IN TOUCH
-                </p>
                 <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-tight tracking-tight" style={{ color: "var(--fg)" }}>
                   Send us a brief.
                 </h2>
@@ -183,9 +162,6 @@ export function ContactBody() {
 
           {/* What to expect */}
           <div className="glass-card rounded-[28px] p-8 flex flex-col gap-5">
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-              WHAT HAPPENS NEXT
-            </p>
             {[
               { step: "01", text: "We review your brief and align on goals." },
               { step: "02", text: "A strategist calls to clarify scope and market." },
@@ -208,9 +184,6 @@ export function ContactBody() {
 
           {/* Direct email */}
           <div className="glass-card rounded-[28px] p-8 flex flex-col gap-3">
-            <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-              PREFER EMAIL?
-            </p>
             <a
               href="mailto:bd@gomobileagency.com"
               className="font-bricolage font-bold text-lg tracking-tight transition-opacity hover:opacity-70"
@@ -228,16 +201,18 @@ export function ContactBody() {
       {/* ── Offices ── */}
       <div className="flex flex-col gap-6 mt-8">
         <div>
-          <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-            OFFICES
-          </p>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight mt-2" style={{ color: "var(--fg)" }}>
+          <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-[1.1] tracking-tight" style={{ color: "var(--fg)" }}>
             Where to find us.
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {OFFICES.map((o) => (
-            <div key={o.city} className={`office-card glass-card rounded-[28px] p-8 flex flex-col gap-4 ${o.span}`}>
+          {offices.map((o) => (
+            <div
+              key={o.city}
+              className={`office-card glass-card rounded-[28px] p-8 flex flex-col gap-4 ${
+                o.featured ? "md:col-span-2" : "md:col-span-1"
+              }`}
+            >
               <div className="flex flex-col gap-1">
                 <p className="font-helvetica font-bold text-[11px] tracking-[3px] uppercase" style={{ color: "#ef6600" }}>
                   {o.label}

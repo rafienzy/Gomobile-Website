@@ -1,0 +1,11 @@
+[
+  { "name": "Daniil Pisarenko", "role": "Country Manager", "photo": "/assets/team/emp_danill.webp" },
+  { "name": "Jessica Pauli", "role": "Director of Client Services and Operations", "photo": "/assets/team/emp_jessica.webp" },
+  { "name": "Vinasia", "role": "Finance", "photo": "/assets/team/emp_vina.webp" },
+  { "name": "Gian Luis Wizny", "role": "General Affairs", "photo": "/assets/team/emp_luis.webp" },
+  { "name": "Rafi Abdillah", "role": "Graphic Designer", "photo": "/assets/team/emp_rafi.webp" },
+  { "name": "Reiza Bhatara Bachri", "role": "Business Development", "photo": "/assets/team/emp_reiza.webp" },
+  { "name": "Sangganing Pangasa", "role": "Media Buyer", "photo": "/assets/team/emp_sangga.webp" },
+  { "name": "Cindy Sintya Riris", "role": "Account Manager", "photo": "/assets/team/emp_cindy.webp" },
+  { "name": "Figo Maulana Said", "role": "Communication Manager", "photo": "/assets/team/emp_figo.webp" }
+]
