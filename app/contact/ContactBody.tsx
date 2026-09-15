@@ -40,7 +40,7 @@ const TOPIC_PREFILL: Record<string, string> = {
  * environment, and a NEXT_PUBLIC_ var that nobody sets on the build server
  * fails silently at exactly the moment a real lead is trying to reach us.
  */
-const FORM_ENDPOINT: string | null = "https://formspree.io/f/xvkoenrl";
+const FORM_ENDPOINT: string | null = "https://formspree.io/f/mljeqqda";
 
 /** Shown wherever the form cannot take over. Also the address in the sidebar. */
 const FALLBACK_EMAIL = "bd@gomobileagency.com";
