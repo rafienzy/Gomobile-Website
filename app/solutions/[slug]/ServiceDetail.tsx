@@ -66,9 +66,6 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
           <div className="flex gap-2 flex-wrap mb-4">
             {d.tags.map((t) => <span key={t} className="chip">{t}</span>)}
           </div>
-          {/* Same service numbering the /solutions cards carry, kept for
-              continuity between the listing and this page. */}
-          <p className="font-helvetica font-bold text-xs tracking-[9px] mb-3" style={{ color: "#ef6600" }}>{d.eyebrow}</p>
           <h1 className="font-bricolage font-bold text-4xl md:text-[72px] leading-none tracking-[-2px] text-white max-w-[800px]">
             {d.title}
           </h1>
@@ -197,7 +194,6 @@ export function ServiceDetail({ data, relatedCases = [], relatedCasesSlot }: { d
               className="object-cover scale-[1.01] transition-transform duration-700 group-hover:scale-[1.06]" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-end p-8">
-              <p className="text-xs font-bold tracking-[6px] text-white/60 uppercase mb-2">{nextSvc.eyebrow}</p>
               <h3 className="font-bricolage font-bold text-2xl md:text-4xl text-white tracking-tight">{nextSvc.title}</h3>
             </div>
           </article>

@@ -30,7 +30,7 @@ export type CaseStudy = {
   };
   keyTakeaway?: string;
   /** Per-case heading for the approach section. Falls back to a generic default. */
-  approachHeading?: { eyebrow: string; title: string };
+  approachHeading?: { title: string };
   approach: { title: string; desc: string }[];
   /**
    * Compact spec list shown INSTEAD of `approach` when present. Used for the

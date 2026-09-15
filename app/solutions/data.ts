@@ -5,7 +5,6 @@ export interface Html5AdUnit     { title: string; type: string; w: number; h: nu
 
 export interface Service {
   slug: string;
-  eyebrow: string;
   title: string;
   thumb: string;
   heroDesc: string;
@@ -21,7 +20,6 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     slug: "programmatic-display",
-    eyebrow: "01 · PROGRAMMATIC",
     title: "Programmatic Display",
     thumb: "/assets/service-thumb-programmatic.webp",
     heroDesc: "Precision audience buying across 24 SSPs: display, native, and in-app.",
@@ -51,7 +49,6 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "video-ctv-ott",
-    eyebrow: "02 · VIDEO",
     title: "Video, CTV & OTT",
     thumb: "/assets/service-thumb-video.webp",
     heroDesc: "In-stream, out-stream, Connected TV and OTT, built for lean-forward and lean-back audiences.",
@@ -81,7 +78,6 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "rich-media-html5",
-    eyebrow: "03 · CREATIVE",
     title: "Rich Media & HTML5",
     thumb: "/assets/service-thumb-richmedia.webp",
     heroDesc: "Interactive, code-based ads engineered in-house for maximum engagement.",
@@ -119,7 +115,6 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "social-media",
-    eyebrow: "04 · SOCIAL",
     title: "Social Media Buying",
     thumb: "/assets/service-thumb-social.webp",
     heroDesc: "Audience-first paid social across Meta, TikTok, and LinkedIn.",

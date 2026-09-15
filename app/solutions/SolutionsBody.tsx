@@ -11,7 +11,6 @@ const SOLUTIONS = [
   {
     slug: "programmatic-display",
     thumb: "/assets/service-thumb-programmatic.webp",
-    eyebrow: "01 · PROGRAMMATIC",
     title: "Programmatic Display",
     desc: "Reach the right person at the right moment across premium publisher inventory. Display, native, and in-app, powered by our GoNet DSP and 24 SSP integrations.",
     features: ["Real-time bidding via OpenRTB", "AI-driven audience profiling", "Brand-safe inventory only", "WEB + IN-APP coverage"],
@@ -20,7 +19,6 @@ const SOLUTIONS = [
   {
     slug: "video-ctv-ott",
     thumb: "/assets/service-thumb-video.webp",
-    eyebrow: "02 · VIDEO",
     title: "Video, CTV & OTT",
     desc: "In-stream, out-stream, Connected TV, and OTT placements. We put your brand where the screens are, and where the attention is.",
     features: ["Pre-roll, mid-roll, out-stream", "CTV across major OEMs", "OTT premium publishers", "VPAID + VAST 4.0 support"],
@@ -29,7 +27,6 @@ const SOLUTIONS = [
   {
     slug: "rich-media-html5",
     thumb: "/assets/service-thumb-richmedia.webp",
-    eyebrow: "03 · CREATIVE",
     title: "Rich Media & HTML5",
     desc: "Interactive, code-based ads built in-house. Gamified banners, expandables, scratch-to-reveal, and high-impact creative formats engineered for engagement.",
     features: ["Custom HTML5 builds", "Gamified mechanics", "Expandable & interscroller", "Cross-device responsive"],
@@ -38,7 +35,6 @@ const SOLUTIONS = [
   {
     slug: "social-media",
     thumb: "/assets/service-thumb-social.webp",
-    eyebrow: "04 · SOCIAL",
     title: "Social Media Buying",
     desc: "Strategic paid campaigns across Meta, TikTok, and LinkedIn. Audience-first planning, creative A/B testing, and funnel-based optimization end-to-end.",
     features: ["Meta + TikTok + LinkedIn", "Creative A/B at scale", "Full-funnel reporting", "Pixel + CAPI implementation"],
@@ -88,11 +84,6 @@ export function SolutionsBody() {
                 </div>
               </Link>
               <div className="flex flex-col gap-5">
-                {/* Kept while the section eyebrows were dropped: this one is
-                    wayfinding, numbering the service against the others. */}
-                <p className="font-helvetica font-bold text-xs tracking-[9px]" style={{ color: "#ef6600" }}>
-                  {s.eyebrow}
-                </p>
                 <h2 className="font-bricolage font-bold text-3xl md:text-5xl leading-[1.05] tracking-tight" style={{ color: "var(--fg)" }}>
                   {s.title}
                 </h2>

@@ -17,7 +17,7 @@ import data from '@/content/offices.json';
 
 export type Office = {
   city: string;
-  /** Small eyebrow above the city, e.g. "SEA Regional Hub". */
+  /** What this office is, shown above the city, e.g. "SEA Regional Hub". */
   label: string;
   address: string;
   phone: string;
