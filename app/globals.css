@@ -18,6 +18,49 @@
   --border: rgba(255, 255, 255, 0.07);
 }
 
+/* ─── Theme crossfade ───────────────────────────────────────────────────────
+   ThemeProvider adds .theme-transition to <html> for the length of a toggle
+   and takes it off again. Scoping it that way matters: a permanent transition
+   on every element would also slow down every hover and focus state, and would
+   animate the whole page on first paint as the stored theme is applied.
+
+   transform is deliberately absent from the list. GSAP drives the reveal
+   animations by writing inline styles each frame, and a CSS transition on a
+   property it is animating smears rather than smooths.
+   ─────────────────────────────────────────────────────────────────────────── */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition:
+    background-color 380ms ease,
+    border-color     380ms ease,
+    color            380ms ease,
+    fill             380ms ease,
+    stroke           380ms ease,
+    box-shadow       380ms ease !important;
+  transition-delay: 0s !important;
+}
+
+/* The two background layers change by opacity rather than colour, so they need
+   their own rule. Higher specificity than the blanket one above, which would
+   otherwise strip opacity out of their transition list and make them snap. */
+.theme-transition .mesh-bg::after,
+.theme-transition .grain-bg {
+  transition: opacity 380ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after,
+  .theme-transition .mesh-bg::after,
+  .theme-transition .grain-bg {
+    transition: none !important;
+  }
+}
+
 html, body {
   background: var(--bg);
   color: var(--fg);
@@ -40,7 +83,17 @@ html, body {
     radial-gradient(ellipse 40% 40% at 78% 35%,  rgba(228,228,228,0.50) 0%, transparent 55%),
     #f8f8f8;
 }
-.dark .mesh-bg {
+/* The dark mesh sits on a pseudo-element rather than swapping the background
+   of .mesh-bg itself, because CSS cannot transition between two gradient
+   stacks. Fading one over the other gives a real crossfade; a background swap
+   would snap while every colour around it faded, which reads worse than an
+   instant switch. */
+.mesh-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
   background:
     radial-gradient(ellipse 75% 55% at 8% 18%,  rgba(22,22,22,0.95)   0%, transparent 65%),
     radial-gradient(ellipse 55% 65% at 90% 80%,  rgba(17,17,17,0.90)   0%, transparent 60%),
@@ -49,6 +102,7 @@ html, body {
     radial-gradient(ellipse 40% 40% at 78% 35%,  rgba(20,20,20,0.80)   0%, transparent 55%),
     #0a0a0a;
 }
+.dark .mesh-bg::after { opacity: 1; }
 
 /* ─── Glassmorphism ─────────────────────────────────────────────────────────
    Key: background must be very transparent so backdrop-filter can show through.
