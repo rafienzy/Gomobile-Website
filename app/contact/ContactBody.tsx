@@ -26,7 +26,11 @@ export function ContactBody({ offices }: { offices: Office[] }) {
   // page out of static rendering, and the prefill is not worth that.
   useEffect(() => {
     const topic = new URLSearchParams(window.location.search).get("topic");
-    if (topic && TOPIC_PREFILL[topic]) setMessage(TOPIC_PREFILL[topic]);
+    // hasOwn rather than a plain lookup: the key comes from the URL, and a
+    // bare TOPIC_PREFILL[topic] also finds inherited members, so ?topic=
+    // constructor would resolve to a function and setMessage would take it
+    // for a state updater.
+    if (topic && Object.hasOwn(TOPIC_PREFILL, topic)) setMessage(TOPIC_PREFILL[topic]);
   }, []);
 
   useEffect(() => {
