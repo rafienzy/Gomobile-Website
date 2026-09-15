@@ -19,19 +19,17 @@ const TOPIC_PREFILL: Record<string, string> = {
 /**
  * Where a submitted brief goes.
  *
- * ────────────────────────────────────────────────────────────────────────────
- * CURRENTLY POINTED AT A PERSONAL INBOX FOR TESTING.
- * Briefs from the live site land in rafi@, not in the business inbox. Swap
- * this for the real destination before launch.
- * ────────────────────────────────────────────────────────────────────────────
+ * Formspree. Note what is NOT encoded here: the recipient. Which inbox a brief
+ * lands in is a setting in the Formspree dashboard, so moving delivery from one
+ * person to a shared alias is a settings change, not a deploy. This id is
+ * opaque, so unlike an address-in-the-URL service it also puts no email address
+ * into the client bundle for scrapers to harvest.
  *
- * Any endpoint that accepts a FormData POST and answers JSON works here, so
- * changing provider is this one line:
+ * Formspree keeps a copy of every submission, which matters because email alone
+ * makes a spam filter or a stray delete into a permanently lost lead.
  *
- *   FormSubmit  https://formsubmit.co/ajax/<email>   (no account needed)
- *   Formspree   https://formspree.io/f/<form id>     (keeps a copy of every
- *                                                     submission, which email
- *                                                     alone does not)
+ * Any endpoint that takes a FormData POST and answers JSON works here, so
+ * changing provider is this one line.
  *
  * Set to null and submitting shows the error panel with the mailto fallback.
  * It never shows the success panel, because a form that claims to have sent a
@@ -42,7 +40,7 @@ const TOPIC_PREFILL: Record<string, string> = {
  * environment, and a NEXT_PUBLIC_ var that nobody sets on the build server
  * fails silently at exactly the moment a real lead is trying to reach us.
  */
-const FORM_ENDPOINT: string | null = "https://formsubmit.co/ajax/rafi@gomobileagency.com";
+const FORM_ENDPOINT: string | null = "https://formspree.io/f/xvkoenrl";
 
 /** Shown wherever the form cannot take over. Also the address in the sidebar. */
 const FALLBACK_EMAIL = "bd@gomobileagency.com";
