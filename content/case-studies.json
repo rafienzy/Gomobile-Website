@@ -29,11 +29,7 @@
       { "title": "Content, Documentation & Reporting", "desc": "Our team produced the event's creative assets, documented the event itself, and delivered performance reports throughout, so the organisers always knew what was working." }
     ],
     "channels": ["Website Development", "Email Marketing", "Paid Advertising", "Social Media", "Creative Production"],
-    "status": "published",
-    "needsReview": [
-      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "overview.result and approach[1]: deck says '+54% EMAIL OPEN RATE WITH 11% CTR'. Published here as absolute rates; flip wording if it was a +54% improvement (Open Question #3)."
-    ]
+    "status": "published"
   },
   {
     "slug": "bank-jago",
@@ -65,12 +61,7 @@
       { "title": "Creative-level optimization", "desc": "Campaigns were optimized at the individual-creative level, with raw MMP data analysed continuously to guide budget and creative decisions." }
     ],
     "channels": ["Mobile UA", "OEM Channels", "Creative Optimization", "MMP Analytics"],
-    "status": "published",
-    "needsReview": [
-      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "metrics[2] and metrics[3]: explainer wording for 'Event Progressions' and 'Monthly Improvement' is assumed; confirm definitions (Open Question #1).",
-      "overview.solution, approach[1], approach[3]: confirm OEM pre-install channels can be named publicly. Appsflyer deliberately generalised to 'MMP' (Open Question #2)."
-    ]
+    "status": "published"
   },
   {
     "slug": "singapore-airlines",
@@ -100,10 +91,7 @@
     ],
     "approach": [],
     "channels": ["Programmatic Video", "GoNet DSP", "Premium Publishers"],
-    "status": "published",
-    "needsReview": [
-      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
-    ]
+    "status": "published"
   },
   {
     "slug": "lion-parcel",
@@ -134,11 +122,7 @@
       { "title": "Compounding results", "desc": "With the store converting, organic installs rose 31% and revenue 20%, and the client scaled performance-channel budgets 2.1× on the back of it." }
     ],
     "channels": ["App Store Optimization", "Organic Growth", "Reviews & Ratings"],
-    "status": "published",
-    "needsReview": [
-      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "metrics: a 4th hero stat '+90% RR' exists in the copy pack but is WITHHELD because nobody could confirm what RR stands for (Open Question #5). To restore it once confirmed, add: { \"v\": \"+90%\", \"l\": \"<real label>\", \"desc\": \"<real explainer>\" }"
-    ]
+    "status": "published"
   },
   {
     "slug": "gudang-garam",
@@ -169,10 +153,7 @@
     ],
     "approach": [],
     "channels": ["Programmatic Display", "HTML5", "GoNet DSP"],
-    "status": "published",
-    "needsReview": [
-      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
-    ]
+    "status": "published"
   },
   {
     "slug": "camel",
@@ -202,10 +183,7 @@
     ],
     "approach": [],
     "channels": ["Programmatic Display", "GoNet DSP", "Premium Publishers"],
-    "status": "published",
-    "needsReview": [
-      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6)."
-    ]
+    "status": "published"
   },
   {
     "slug": "classmild",
@@ -235,10 +213,6 @@
     ],
     "approach": [],
     "channels": ["Rich Media & HTML5", "GoNet DSP", "Premium Publishers"],
-    "status": "published",
-    "needsReview": [
-      "overview.challenge: written by us as objective-framing; the source deck has no challenge text (Open Question #6).",
-      "metrics[3]: the copy pack's explainer claimed the CTR was 'more than double typical display benchmarks'. That comparison is our own claim, not the deck's, so it has been replaced with a factual explainer."
-    ]
+    "status": "published"
   }
 ]

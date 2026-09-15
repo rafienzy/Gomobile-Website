@@ -6,13 +6,5 @@
     "phone": "+62 818 903 358",
     "email": "bd@gomobileagency.com",
     "featured": true
-  },
-  {
-    "city": "Moscow",
-    "label": "Go Ahead",
-    "address": "25 Ostozhenka St., Bldg 1, Moscow 119034",
-    "phone": "+7 (495) 665 91 24",
-    "email": "hi@goahead.ai",
-    "featured": false
   }
 ]

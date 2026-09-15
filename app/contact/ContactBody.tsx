@@ -327,8 +327,16 @@ export function ContactBody({ offices }: { offices: Office[] }) {
           {offices.map((o) => (
             <div
               key={o.city}
+              /* A lone office takes the full row. Without this the featured
+                 card keeps its 2-of-3 span and leaves a third of the row
+                 empty, which reads as a card failing to load rather than as
+                 a deliberate layout. */
               className={`office-card glass-card rounded-[28px] p-8 flex flex-col gap-4 ${
-                o.featured ? "md:col-span-2" : "md:col-span-1"
+                offices.length === 1
+                  ? "md:col-span-3"
+                  : o.featured
+                    ? "md:col-span-2"
+                    : "md:col-span-1"
               }`}
             >
               <div className="flex flex-col gap-1">
