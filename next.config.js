@@ -87,6 +87,28 @@ const nextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+
+  /*
+   * www serves a full second copy of the site, on its own IP, with nothing
+   * pointing either way. Search engines see two identical sites and split the
+   * credit between them, and the sitemap declares the apex as canonical while
+   * www quietly contradicts it.
+   *
+   * Doing it here rather than as a panel setting keeps the rule in the repo
+   * where it is visible and survives a change of host. It is a server
+   * redirect, so like headers() it does not survive `output: 'export'`; that
+   * version would need the equivalent Apache rule instead.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.gomobile.id" }],
+        destination: "https://gomobile.id/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
