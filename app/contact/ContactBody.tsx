@@ -16,11 +16,33 @@ const TOPIC_PREFILL: Record<string, string> = {
   html5: "We'd like to discuss a custom HTML5 ad unit.\n\n",
 };
 
+/**
+ * Where a submitted brief goes.
+ *
+ * Paste the id from the Formspree form's endpoint here: for
+ * https://formspree.io/f/abcdwxyz that is "abcdwxyz". Until it is filled in,
+ * submitting shows the error panel with the mailto fallback. It never shows
+ * the success panel, because a form that claims to have sent a brief it threw
+ * away is worse than one that admits it is not set up.
+ *
+ * A plain constant rather than an env var on purpose: this id ships inside the
+ * client bundle either way, so nothing is hidden by moving it to the
+ * environment, and a NEXT_PUBLIC_ var that nobody sets on the build server
+ * fails silently at exactly the moment a real lead is trying to reach us.
+ */
+const FORMSPREE_ID = "";
+const FORM_ENDPOINT = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : null;
+
+/** Shown wherever the form cannot take over. Also the address in the sidebar. */
+const FALLBACK_EMAIL = "bd@gomobileagency.com";
+
+type SubmitStatus = "idle" | "sending" | "sent" | "error";
+
 export function ContactBody({ offices }: { offices: Office[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [budget, setBudget]   = useState("");
   const [message, setMessage] = useState("");
-  const [sent, setSent]       = useState(false);
+  const [status, setStatus]   = useState<SubmitStatus>("idle");
 
   // Read from window rather than useSearchParams: the latter would opt this
   // page out of static rendering, and the prefill is not worth that.
@@ -42,9 +64,39 @@ export function ContactBody({ offices }: { offices: Office[] }) {
     addReveal(el, el.querySelectorAll(".office-card"),  { stagger: 0.1, duration: 1, y: 40, start: "top 88%" });
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    if (status === "sending") return;
+
+    // Read the node now: after the first await, React may have cleared
+    // currentTarget off the synthetic event.
+    const form = e.currentTarget;
+
+    if (!FORM_ENDPOINT) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        // Without this Formspree answers a redirect to its own thank-you page
+        // rather than JSON, and there is no way to tell success from failure.
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+
+      if (!res.ok) throw new Error(`Form endpoint responded ${res.status}`);
+
+      setStatus("sent");
+      setMessage("");
+    } catch {
+      // Deliberately no success state on failure. The visitor gets the address
+      // instead, so the lead has somewhere to go.
+      setStatus("error");
+    }
   };
 
   return (
@@ -55,7 +107,7 @@ export function ContactBody({ offices }: { offices: Office[] }) {
 
         {/* Form */}
         <div className="form-panel glass-card rounded-[28px] p-8 md:p-12">
-          {sent ? (
+          {status === "sent" ? (
             <div className="flex flex-col items-center justify-center h-full min-h-[400px] gap-6 text-center">
               <Icon name="check" className="w-16 h-16 text-[#ef6600]" />
               <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-tight tracking-tight" style={{ color: "var(--fg)" }}>
@@ -67,6 +119,24 @@ export function ContactBody({ offices }: { offices: Office[] }) {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+              {/*
+                Honeypot. Bots fill every field they find; people never see this
+                one. Formspree drops any submission where _gotcha has a value.
+                Positioned off-screen rather than display:none, because some
+                bots skip hidden fields and would sail through.
+              */}
+              <input
+                type="text"
+                name="_gotcha"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+              />
+              {/* Subject line on the notification email, so a brief is
+                  recognisable in the inbox without opening it. */}
+              <input type="hidden" name="_subject" value="New brief from gomobile.id" />
+
               <div className="flex flex-col gap-1">
                 <h2 className="font-bricolage font-bold text-3xl md:text-4xl leading-tight tracking-tight" style={{ color: "var(--fg)" }}>
                   Send us a brief.
@@ -136,11 +206,37 @@ export function ContactBody({ offices }: { offices: Office[] }) {
                 />
               </div>
 
+              {status === "error" && (
+                <div
+                  role="alert"
+                  className="rounded-[16px] px-5 py-4 text-sm leading-[1.6]"
+                  style={{
+                    background: "rgba(203,0,0,0.08)",
+                    border: "1px solid rgba(203,0,0,0.25)",
+                    color: "var(--fg)",
+                  }}
+                >
+                  That didn&apos;t go through, and we&apos;d rather tell you than pretend it did.
+                  Please email{" "}
+                  <a
+                    href={`mailto:${FALLBACK_EMAIL}?subject=New brief from gomobile.id`}
+                    className="font-bold underline"
+                    style={{ color: "#ef6600" }}
+                  >
+                    {FALLBACK_EMAIL}
+                  </a>{" "}
+                  and we&apos;ll pick it up from there. Everything you typed is still in the form
+                  above, so nothing is lost.
+                </div>
+              )}
+
               <button
                 type="submit"
+                disabled={status === "sending"}
                 className="btn-primary h-[60px] text-[15px] self-start px-12"
+                style={status === "sending" ? { opacity: 0.6, cursor: "wait" } : undefined}
               >
-                SEND BRIEF
+                {status === "sending" ? "SENDING" : "SEND BRIEF"}
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M3.75 9h10.5M9 3.75L14.25 9L9 14.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -189,11 +285,11 @@ export function ContactBody({ offices }: { offices: Office[] }) {
           {/* Direct email */}
           <div className="glass-card rounded-[28px] p-8 flex flex-col gap-3">
             <a
-              href="mailto:bd@gomobileagency.com"
+              href={`mailto:${FALLBACK_EMAIL}`}
               className="font-bricolage font-bold text-lg tracking-tight transition-opacity hover:opacity-70"
               style={{ color: "var(--fg)" }}
             >
-              bd@gomobileagency.com
+              {FALLBACK_EMAIL}
             </a>
             <p className="text-sm" style={{ color: "var(--muted)" }}>
               Or call us at +62 818 903 358
