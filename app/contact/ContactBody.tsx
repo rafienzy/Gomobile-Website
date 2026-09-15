@@ -19,19 +19,30 @@ const TOPIC_PREFILL: Record<string, string> = {
 /**
  * Where a submitted brief goes.
  *
- * Paste the id from the Formspree form's endpoint here: for
- * https://formspree.io/f/abcdwxyz that is "abcdwxyz". Until it is filled in,
- * submitting shows the error panel with the mailto fallback. It never shows
- * the success panel, because a form that claims to have sent a brief it threw
- * away is worse than one that admits it is not set up.
+ * ────────────────────────────────────────────────────────────────────────────
+ * CURRENTLY POINTED AT A PERSONAL INBOX FOR TESTING.
+ * Briefs from the live site land in rafi@, not in the business inbox. Swap
+ * this for the real destination before launch.
+ * ────────────────────────────────────────────────────────────────────────────
  *
- * A plain constant rather than an env var on purpose: this id ships inside the
- * client bundle either way, so nothing is hidden by moving it to the
+ * Any endpoint that accepts a FormData POST and answers JSON works here, so
+ * changing provider is this one line:
+ *
+ *   FormSubmit  https://formsubmit.co/ajax/<email>   (no account needed)
+ *   Formspree   https://formspree.io/f/<form id>     (keeps a copy of every
+ *                                                     submission, which email
+ *                                                     alone does not)
+ *
+ * Set to null and submitting shows the error panel with the mailto fallback.
+ * It never shows the success panel, because a form that claims to have sent a
+ * brief it threw away is worse than one that admits it is not set up.
+ *
+ * A plain constant rather than an env var on purpose: this value ships inside
+ * the client bundle either way, so nothing is hidden by moving it to the
  * environment, and a NEXT_PUBLIC_ var that nobody sets on the build server
  * fails silently at exactly the moment a real lead is trying to reach us.
  */
-const FORMSPREE_ID = "";
-const FORM_ENDPOINT = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : null;
+const FORM_ENDPOINT: string | null = "https://formsubmit.co/ajax/rafi@gomobileagency.com";
 
 /** Shown wherever the form cannot take over. Also the address in the sidebar. */
 const FALLBACK_EMAIL = "bd@gomobileagency.com";
@@ -120,19 +131,26 @@ export function ContactBody({ offices }: { offices: Office[] }) {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
               {/*
-                Honeypot. Bots fill every field they find; people never see this
-                one. Formspree drops any submission where _gotcha has a value.
+                Honeypots. Bots fill every field they find; people never see
+                these. Two of them because the providers disagree on the name:
+                Formspree drops a submission when _gotcha is filled, FormSubmit
+                when _honey is. Carrying both means the trap keeps working
+                across a change of endpoint.
+
                 Positioned off-screen rather than display:none, because some
-                bots skip hidden fields and would sail through.
+                bots skip hidden fields and would sail straight through.
               */}
-              <input
-                type="text"
-                name="_gotcha"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
-              />
+              {["_gotcha", "_honey"].map((n) => (
+                <input
+                  key={n}
+                  type="text"
+                  name={n}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+                />
+              ))}
               {/* Subject line on the notification email, so a brief is
                   recognisable in the inbox without opening it. */}
               <input type="hidden" name="_subject" value="New brief from gomobile.id" />
