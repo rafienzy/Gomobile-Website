@@ -125,7 +125,7 @@ Note that `/blog` currently shows a "coming soon" placeholder, so posts in
   game for copy work; the code that reads them is not)
 - `.env*` — secrets, never open, never print, never commit
 - `package.json` / `package-lock.json` — no dependency changes
-- `next.config.ts`, `tailwind.config.ts`, `tsconfig.json`, `jest.config.ts`
+- `next.config.js`, `tailwind.config.ts`, `tsconfig.json`, `jest.config.ts`
 - Any GSAP / ScrollTrigger / Lenis animation code
 
 ## Before opening a PR

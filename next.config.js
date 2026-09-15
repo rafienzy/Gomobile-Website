@@ -1,4 +1,15 @@
-import type { NextConfig } from "next";
+/*
+ * Plain JavaScript, deliberately, not next.config.ts.
+ *
+ * Hostinger's build image ships a glibc older than 2.29, so Next's native SWC
+ * binary refuses to load there and the build falls back to @next/swc-wasm-nodejs.
+ * That fallback cannot compile a TypeScript config: it writes a temporary
+ * <hash>.next.config file and then fails to import it, and the build dies
+ * before it reaches a single page. A .js config needs no compile step, so
+ * config loading no longer depends on SWC working at all.
+ *
+ * Keep this file as .js while the site builds on Hostinger.
+ */
 
 /*
  * Security headers.
@@ -53,7 +64,8 @@ const securityHeaders = [
   },
 ];
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   /* Removes `x-powered-by: Next.js` from every response. It tells an attacker
    * which framework to look up advisories for and does nothing for us. */
   poweredByHeader: false,
@@ -77,4 +89,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
