@@ -9,8 +9,8 @@ import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { JsonLd } from "../components/JsonLd";
 export const metadata = pageMetadata({
   path: "/solutions",
-  title: "Solutions | Go Mobile",
-  description: "Programmatic, video, rich media, and social: every layer of your digital campaign.",
+  title: "Digital Advertising Solutions in Indonesia | Go Mobile",
+  description: "Programmatic, video, CTV, rich media, and social buying for brands in Indonesia and Southeast Asia, run from Jakarta.",
 });
 
 export default function SolutionsPage() {

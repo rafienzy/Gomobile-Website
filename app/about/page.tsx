@@ -10,8 +10,8 @@ import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { JsonLd } from "../components/JsonLd";
 export const metadata = pageMetadata({
   path: "/about",
-  title: "About | Go Mobile",
-  description: "We are a digital marketing agency specializing in performance buying and programmatic advertising.",
+  title: "About Go Mobile | Programmatic Agency in Jakarta",
+  description: "Founded in 2016, Go Mobile is an independent Jakarta-based agency for performance buying and programmatic advertising across Indonesia and Southeast Asia.",
 });
 
 export default function AboutPage() {

@@ -15,9 +15,9 @@ export const SITE_URL = "https://gomobile.id";
 export const SITE_NAME = "Go Mobile";
 
 /** Homepage title and description, also the defaults any page without its own inherits. */
-export const SITE_TITLE = "Go Mobile | Your Ads. The Right People. Real Growth.";
+export const SITE_TITLE = "Go Mobile | Programmatic Advertising Agency in Jakarta, Indonesia";
 export const SITE_DESCRIPTION =
-  "Go Mobile is a digital marketing agency specializing in performance buying and programmatic advertising.";
+  "Go Mobile is a Jakarta-based digital marketing agency specializing in performance buying and programmatic advertising across Indonesia and Southeast Asia.";
 
 /**
  * Official social profiles. The footer renders these and the Organization

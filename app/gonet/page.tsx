@@ -8,8 +8,8 @@ import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/structured-data";
 import { JsonLd } from "../components/JsonLd";
 export const metadata = pageMetadata({
   path: "/gonet",
-  title: "GoNet DSP | Go Mobile",
-  description: "Our independent real-time bidding platform: 24 SSPs, AI targeting, and built-in brand safety.",
+  title: "GoNet DSP: Independent DSP for Indonesia | Go Mobile",
+  description: "Our independent real-time bidding platform for Indonesia and Southeast Asia: 24 SSPs, AI targeting, and built-in brand safety.",
 });
 
 export default function GoNetPage() {

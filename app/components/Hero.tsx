@@ -207,7 +207,12 @@ export function Hero({ stats }: { stats: HeroStat[] }) {
 
         {/* Left */}
         <div className="flex flex-col justify-between min-h-[569px] max-w-[676px]">
-          <h1 className="font-bricolage font-semibold text-[80px] leading-none tracking-[-2.88px]" style={{ color: "var(--fg)" }}>
+          {/* Same words as the mobile <h1> above, which stays the one real
+              <h1> because Google indexes the mobile layout. Only one of the
+              two is ever displayed, so role="heading" keeps this the page
+              heading for screen readers on desktop without a second <h1> in
+              the HTML. */}
+          <div role="heading" aria-level={1} className="font-bricolage font-semibold text-[80px] leading-none tracking-[-2.88px]" style={{ color: "var(--fg)" }}>
             <>
               <span className="hero-line block">Your Ads.</span>
               <span className="hero-line block">The Right People.</span>
@@ -215,7 +220,7 @@ export function Hero({ stats }: { stats: HeroStat[] }) {
                 Real <span className="text-gradient-animated">Growth</span>.
               </span>
             </>
-          </h1>
+          </div>
 
           <div className="flex flex-wrap gap-5 items-center mt-10">
             <div className="hero-stat">

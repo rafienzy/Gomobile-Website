@@ -11,8 +11,8 @@ import { JsonLd } from "../components/JsonLd";
 
 export const metadata = pageMetadata({
   path: "/case-study",
-  title: "Case Studies | Go Mobile",
-  description: "Campaigns that moved the numbers. Real brands, real lift, real results.",
+  title: "Case Studies: Campaigns in Indonesia & Southeast Asia | Go Mobile",
+  description: "Campaigns that moved the numbers for brands like Bank Jago, Singapore Airlines and Lion Parcel across Indonesia and Southeast Asia.",
 });
 
 export default function CaseStudyPage() {

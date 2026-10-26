@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!s) return {};
   return pageMetadata({
     path: `/solutions/${s.slug}`,
-    title: `${s.title} | Go Mobile`,
-    description: s.heroDesc,
+    title: `${s.title} in Indonesia | Go Mobile`,
+    description: `${s.heroDesc} For brands in Indonesia and Southeast Asia, run from Jakarta.`,
   });
 }
 
