@@ -57,7 +57,35 @@ export function siteJsonLd() {
         email: HQ_EMAIL,
         telephone: HQ_PHONE,
         address: { "@type": "PostalAddress", ...HQ_ADDRESS },
-        ...(HQ_MAP_URL ? { hasMap: HQ_MAP_URL } : {}),
+        /*
+         * schema.org has no advertising or marketing agency type, so the
+         * company stays an Organization and says what kind it is through
+         * additionalType and knowsAbout.
+         *
+         * The office is a LocalBusiness: that is the type that matches a
+         * Google Business Profile, and as a Place it is where hasMap is valid
+         * (on the Organization itself validators reject it). Its name matches
+         * the Maps listing so the two are easy to pair.
+         */
+        additionalType: "https://en.wikipedia.org/wiki/Advertising_agency",
+        knowsAbout: [
+          "Programmatic advertising",
+          "Performance marketing",
+          "Connected TV and OTT advertising",
+          "Rich media and HTML5 advertising",
+          "Social media advertising",
+          "Mobile user acquisition",
+          "Demand-side platforms",
+        ],
+        location: {
+          "@type": "LocalBusiness",
+          name: "Go Mobile Indonesia",
+          parentOrganization: org,
+          address: { "@type": "PostalAddress", ...HQ_ADDRESS },
+          telephone: HQ_PHONE,
+          url: SITE_URL,
+          ...(HQ_MAP_URL ? { hasMap: HQ_MAP_URL } : {}),
+        },
         areaServed: ["Indonesia", "Southeast Asia"],
         sameAs: Object.values(SOCIAL_URLS),
       },

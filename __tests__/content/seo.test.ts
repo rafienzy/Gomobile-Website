@@ -45,9 +45,10 @@ describe('siteJsonLd', () => {
     expect(hq.phone.replace(/\D/g, '')).toBe(HQ_PHONE.replace(/\D/g, ''));
   });
 
-  it('links the Google Maps listing of the featured office as hasMap', () => {
+  it('links the Google Maps listing on the office Place, where schema.org allows hasMap', () => {
     const hq = getOffices().find((o) => o.featured)!;
-    expect(org.hasMap).toBe(hq.mapUrl);
+    expect(org.hasMap).toBeUndefined();
+    expect(org.location).toMatchObject({ '@type': 'LocalBusiness', hasMap: hq.mapUrl });
   });
 
   it('lists every footer social profile as sameAs', () => {
