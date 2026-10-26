@@ -166,6 +166,9 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
             </div>
             <div className="ml-auto text-right">
               <p className="text-sm" style={{ color: "var(--muted)" }}>{post.date}</p>
+              {post.updated && (
+                <p className="text-xs" style={{ color: "var(--muted)" }}>Last updated {post.updated}</p>
+              )}
               <p className="text-xs" style={{ color: "var(--muted)" }}>{post.readTime}</p>
             </div>
           </div>

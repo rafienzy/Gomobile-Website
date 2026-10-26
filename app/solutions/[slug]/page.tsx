@@ -8,6 +8,9 @@ import { BackgroundGrain } from "../../components/BackgroundGrain";
 import { getService, SERVICES } from "../data";
 import { ServiceDetail } from "./ServiceDetail";
 import { getCaseStudies } from "@/lib/content/case-studies";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, solutionJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "../../components/JsonLd";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -17,10 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const s = getService(slug);
   if (!s) return {};
-  return {
+  return pageMetadata({
+    path: `/solutions/${s.slug}`,
     title: `${s.title} | Go Mobile`,
     description: s.heroDesc,
-  };
+  });
 }
 
 function RelatedCases({ relatedSlugs }: { relatedSlugs: string[] }) {
@@ -65,6 +69,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   return (
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
+      <JsonLd data={solutionJsonLd(data)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Solutions", path: "/solutions" },
+          { name: data.title, path: `/solutions/${data.slug}` },
+        ])}
+      />
       <Nav />
       <ServiceDetail
         data={data}

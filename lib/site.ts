@@ -11,3 +11,22 @@
  * sitemap full of localhost URLs.
  */
 export const SITE_URL = "https://gomobile.id";
+
+export const SITE_NAME = "Go Mobile";
+
+/** Homepage title and description, also the defaults any page without its own inherits. */
+export const SITE_TITLE = "Go Mobile | Your Ads. The Right People. Real Growth.";
+export const SITE_DESCRIPTION =
+  "Go Mobile is a digital marketing agency specializing in performance buying and programmatic advertising.";
+
+/**
+ * Official social profiles. The footer renders these and the Organization
+ * structured data lists them as `sameAs`, which is how search engines and AI
+ * assistants tie the profiles to the site. One list so the two cannot drift.
+ */
+export const SOCIAL_URLS = {
+  instagram: "https://www.instagram.com/gomobile.indonesia/",
+  linkedin: "https://www.linkedin.com/company/gomobileindonesia/",
+  tiktok: "https://www.tiktok.com/@gomobileindo",
+  threads: "https://www.threads.com/@gomobile.indonesia",
+} as const;

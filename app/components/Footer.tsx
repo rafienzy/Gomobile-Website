@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { SOCIAL_URLS } from "@/lib/site";
 
 const NAV_COLS = [
   {
@@ -106,10 +107,10 @@ export function Footer() {
           {/* Social icons */}
           <div className="flex gap-3">
             {[
-              { icon: <InstagramIcon />, label: "Instagram", href: "https://www.instagram.com/gomobile.indonesia/" },
-              { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://www.linkedin.com/company/gomobileindonesia/" },
-              { icon: <TikTokIcon />, label: "TikTok", href: "https://www.tiktok.com/@gomobileindo" },
-              { icon: <ThreadsIcon />, label: "Threads", href: "https://www.threads.com/@gomobile.indonesia" },
+              { icon: <InstagramIcon />, label: "Instagram", href: SOCIAL_URLS.instagram },
+              { icon: <LinkedInIcon />, label: "LinkedIn", href: SOCIAL_URLS.linkedin },
+              { icon: <TikTokIcon />, label: "TikTok", href: SOCIAL_URLS.tiktok },
+              { icon: <ThreadsIcon />, label: "Threads", href: SOCIAL_URLS.threads },
             ].map(({ icon, label, href }) => (
               <a
                 key={label}

@@ -10,6 +10,10 @@ import { Footer } from "./components/Footer";
 import { BackgroundGrain } from "./components/BackgroundGrain";
 import { getCaseStudies } from "@/lib/content/case-studies";
 import { getHeroStats } from "@/lib/content/hero-stats";
+import { pageMetadata } from "@/lib/seo";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
+
+export const metadata = pageMetadata({ path: "/", title: SITE_TITLE, description: SITE_DESCRIPTION });
 
 export default function Home() {
   // Homepage features the first three in the running order from

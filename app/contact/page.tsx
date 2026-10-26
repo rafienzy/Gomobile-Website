@@ -4,15 +4,20 @@ import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { ContactBody } from "./ContactBody";
 import { getOffices } from "@/lib/content/offices";
-export const metadata = {
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "../components/JsonLd";
+export const metadata = pageMetadata({
+  path: "/contact",
   title: "Contact | Go Mobile",
   description: "Tell us about your next campaign. We'll handle the strategy, the buying, and the proof it worked.",
-};
+});
 
 export default function ContactPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Contact", path: "/contact" }])} />
       <Nav />
       <PageHero
         title={

@@ -4,15 +4,20 @@ import { ContactCTA } from "../components/ContactCTA";
 import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { SolutionsBody } from "./SolutionsBody";
-export const metadata = {
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "../components/JsonLd";
+export const metadata = pageMetadata({
+  path: "/solutions",
   title: "Solutions | Go Mobile",
   description: "Programmatic, video, rich media, and social: every layer of your digital campaign.",
-};
+});
 
 export default function SolutionsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Solutions", path: "/solutions" }])} />
       <Nav />
       <PageHero
         title={

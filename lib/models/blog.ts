@@ -24,6 +24,8 @@ export type BlogPost = {
   author: string;
   authorRole: string;
   date: string;
+  /** Same format as `date`. Set it when a published post is meaningfully revised. */
+  updated?: string;
   readTime: string;
   body: {
     intro: string;

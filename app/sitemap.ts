@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { getCaseStudies } from "@/lib/content/case-studies";
 import { SERVICES } from "@/app/solutions/data";
+import { JOURNAL_LIVE, getPosts } from "@/lib/content/blog";
+import { toIsoDate } from "@/lib/structured-data";
 
 /**
  * Generates /sitemap.xml at build time.
@@ -16,8 +18,8 @@ import { SERVICES } from "@/app/solutions/data";
  * encodes is real though: the work is what wins briefs, so case studies and
  * services sit above the legal pages.
  *
- * Deliberately absent: /blog/<slug>. Those URLs redirect to /blog while the
- * journal is unwritten, and listing a redirect as canonical content is a way
+ * /blog/<slug> entries appear only once JOURNAL_LIVE is on. Until then those
+ * URLs redirect to /blog, and listing a redirect as canonical content is a way
  * to get the whole sitemap distrusted.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -50,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     /* Placeholder until the journal is written. Listed so the section is known
        to exist; raise this once there are posts. */
     entry("/blog", 0.3),
+    ...(JOURNAL_LIVE
+      ? getPosts("published").map((p) => ({
+          ...entry(`/blog/${p.slug}`, 0.6),
+          lastModified: toIsoDate(p.updated ?? p.date) ?? now,
+        }))
+      : []),
 
     entry("/privacy", 0.2),
     entry("/terms", 0.2),

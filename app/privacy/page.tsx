@@ -3,16 +3,21 @@ import { Footer } from "../components/Footer";
 import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { LegalBody, LegalSection } from "../components/LegalBody";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "../components/JsonLd";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/privacy",
   title: "Privacy Policy | Go Mobile",
   description: "How Go Mobile collects, uses, and protects data across our website and programmatic advertising services.",
-};
+});
 
 export default function PrivacyPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Privacy Policy", path: "/privacy" }])} />
       <Nav />
       <PageHero
         title={

@@ -5,7 +5,9 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { Cursor } from "./components/Cursor";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { Analytics } from "./components/Analytics";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
+import { siteJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "./components/JsonLd";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -23,10 +25,6 @@ const nunitoSans = Nunito_Sans({
   display: "swap",
 });
 
-const TITLE = "Go Mobile | Your Ads. The Right People. Real Growth.";
-const DESCRIPTION =
-  "Go Mobile is a digital marketing agency specializing in performance buying and programmatic advertising.";
-
 export const metadata: Metadata = {
   /*
    * metadataBase turns every relative metadata URL absolute. Without it the
@@ -35,34 +33,32 @@ export const metadata: Metadata = {
    */
   metadataBase: new URL(SITE_URL),
 
-  title: TITLE,
-  description: DESCRIPTION,
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
 
   /*
-   * The apex is canonical. www currently serves a full second copy of the site
-   * with no redirect, so until that redirect exists this tag is the only thing
-   * telling a crawler which of the two is the real one.
-   */
-  alternates: { canonical: "/" },
-
-  /*
+   * Deliberately no canonical and no openGraph.url here. Every route inherits
+   * this object, so a canonical set here marks every page as a copy of the
+   * homepage. Each page sets its own through pageMetadata() in lib/seo.ts.
+   * The apex is canonical, and www currently serves a second copy of the site
+   * with no redirect, so those per-page tags are also what tell a crawler
+   * which of the two is the real one.
+   *
    * openGraph and twitter both point at app/opengraph-image.png, which Next
-   * picks up from the file name and sizes automatically. `type: "website"` and
-   * an explicit url are what make a pasted link render as a card rather than
-   * bare text in WhatsApp, LinkedIn and Slack.
+   * picks up from the file name and sizes automatically. These are the
+   * fallbacks for routes without their own, such as the 404.
    */
   openGraph: {
     type: "website",
-    url: SITE_URL,
-    siteName: "Go Mobile",
-    title: TITLE,
-    description: DESCRIPTION,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 };
 
@@ -78,6 +74,7 @@ export default function RootLayout({
       className={`${bricolage.variable} ${nunito.variable} ${nunitoSans.variable}`}
     >
       <body className="font-nunitoSans antialiased">
+        <JsonLd data={siteJsonLd()} />
         <ThemeProvider>
           <SmoothScroll />
           <Cursor />

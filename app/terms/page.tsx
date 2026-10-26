@@ -3,16 +3,21 @@ import { Footer } from "../components/Footer";
 import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { LegalBody, LegalSection } from "../components/LegalBody";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "../components/JsonLd";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/terms",
   title: "Terms of Service | Go Mobile",
   description: "The terms that govern your use of the Go Mobile website.",
-};
+});
 
 export default function TermsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Terms of Service", path: "/terms" }])} />
       <Nav />
       <PageHero
         title={

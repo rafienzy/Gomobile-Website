@@ -5,15 +5,20 @@ import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
 import { AboutBody } from "./AboutBody";
 import { getTeam } from "@/lib/content/team";
-export const metadata = {
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "../components/JsonLd";
+export const metadata = pageMetadata({
+  path: "/about",
   title: "About | Go Mobile",
   description: "We are a digital marketing agency specializing in performance buying and programmatic advertising.",
-};
+});
 
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <BackgroundGrain />
+      <JsonLd data={breadcrumbJsonLd([{ name: "About", path: "/about" }])} />
       <Nav />
       <PageHero
         title={
