@@ -86,6 +86,10 @@ export function GoNetBody() {
       const target = parseFloat(node.dataset.value || "0");
       const suffix = node.dataset.suffix || "";
       const obj = { val: 0 };
+      // The server HTML carries the real figure, which is what crawlers and
+      // AI assistants read. Zero it only here, once JS is running and the
+      // reveal has hidden the stat, so the count-up still starts from 0.
+      node.textContent = "0" + suffix;
       const t = ScrollTrigger.create({
         trigger: node, start: "top 88%", once: true,
         onEnter: () => gsap.to(obj, {
@@ -150,7 +154,7 @@ export function GoNetBody() {
                 data-value={s.num}
                 data-suffix={s.suffix}
               >
-                0{s.suffix}
+                {s.num}{s.suffix}
               </p>
               <p className="text-xs" style={{ color: "var(--muted)" }}>{s.label}</p>
             </div>

@@ -61,6 +61,10 @@ export function AboutBody({ team }: { team: TeamMember[] }) {
       const target = parseFloat(node.dataset.value || "0");
       const suffix = node.dataset.suffix || "";
       const obj = { val: 0 };
+      // The server HTML carries the real figure, which is what crawlers and
+      // AI assistants read. Zero it only here, once JS is running and the
+      // reveal has hidden the stat, so the count-up still starts from 0.
+      node.textContent = "0" + suffix;
       const t = ScrollTrigger.create({
         trigger: node,
         start: "top 88%",
@@ -95,7 +99,7 @@ export function AboutBody({ team }: { team: TeamMember[] }) {
                 data-value={s.v}
                 data-suffix={s.s}
               >
-                0{s.s}
+                {s.v}{s.s}
               </p>
               <p className="text-sm md:text-base font-medium" style={{ color: "var(--muted)" }}>
                 {s.l}
