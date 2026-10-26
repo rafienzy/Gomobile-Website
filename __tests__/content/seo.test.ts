@@ -45,6 +45,11 @@ describe('siteJsonLd', () => {
     expect(hq.phone.replace(/\D/g, '')).toBe(HQ_PHONE.replace(/\D/g, ''));
   });
 
+  it('links the Google Maps listing of the featured office as hasMap', () => {
+    const hq = getOffices().find((o) => o.featured)!;
+    expect(org.hasMap).toBe(hq.mapUrl);
+  });
+
   it('lists every footer social profile as sameAs', () => {
     expect(org.sameAs).toEqual(Object.values(SOCIAL_URLS));
   });

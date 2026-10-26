@@ -22,6 +22,13 @@ export type Office = {
   address: string;
   phone: string;
   email: string;
+  /**
+   * The office's Google Maps listing (Maps, Share, Copy link). Shown on
+   * /contact and sent as `hasMap` in the Organization structured data, which
+   * is how Google ties the Business Profile to this site. Optional: offices
+   * without a listing simply get no link.
+   */
+  mapUrl?: string;
   /** The primary office. Gets the wide card; everything else gets a narrow one. */
   featured: boolean;
 };

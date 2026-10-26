@@ -14,6 +14,7 @@ import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SOCIAL_URLS } from "@/lib/site";
 import type { Service } from "@/app/solutions/data";
 import type { CaseStudy } from "@/lib/models/case-study";
 import type { BlogPost } from "@/lib/models/blog";
+import { getOffices } from "@/lib/content/offices";
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -34,6 +35,8 @@ export const HQ_ADDRESS = {
   addressCountry: "ID",
 };
 export const HQ_PHONE = "+62-818-903-358";
+/** The Google Business Profile listing, read from content/offices.json. */
+export const HQ_MAP_URL = getOffices().find((o) => o.featured)?.mapUrl;
 export const HQ_EMAIL = "bd@gomobileagency.com";
 
 /** Organization + WebSite, rendered once on every page from the root layout. */
@@ -54,6 +57,7 @@ export function siteJsonLd() {
         email: HQ_EMAIL,
         telephone: HQ_PHONE,
         address: { "@type": "PostalAddress", ...HQ_ADDRESS },
+        ...(HQ_MAP_URL ? { hasMap: HQ_MAP_URL } : {}),
         areaServed: ["Indonesia", "Southeast Asia"],
         sameAs: Object.values(SOCIAL_URLS),
       },

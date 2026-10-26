@@ -28,6 +28,7 @@ function build() {
     `- Office: ${hq.address}`,
     `- Email: ${hq.email}`,
     `- Phone: ${hq.phone}`,
+    ...(hq.mapUrl ? [`- Google Maps: ${hq.mapUrl}`] : []),
     "",
     "## Services",
     "",

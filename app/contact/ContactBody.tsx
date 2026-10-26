@@ -348,6 +348,17 @@ export function ContactBody({ offices }: { offices: Office[] }) {
               <p className="text-sm leading-[1.6]" style={{ color: "var(--muted)" }}>
                 {o.address}
               </p>
+              {o.mapUrl && (
+                <a
+                  href={o.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold transition-opacity hover:opacity-60 -mt-2"
+                  style={{ color: "var(--fg)" }}
+                >
+                  View on Google Maps ↗
+                </a>
+              )}
               <div className="flex flex-col gap-1 mt-auto">
                 <a
                   href={`tel:${o.phone.replace(/[^\d+]/g, "")}`}
