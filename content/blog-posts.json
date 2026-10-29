@@ -1,5 +1,596 @@
 [
   {
+    "slug": "programmatic-advertising-indonesia-guide",
+    "img": "/assets/service-thumb-programmatic.webp",
+    "category": "Programmatic",
+    "title": "Programmatic advertising in Indonesia: a plain-language guide for brands",
+    "excerpt": "How programmatic buying works, the vocabulary you'll hear in a media plan, and the questions worth asking whoever buys your media, including us.",
+    "tags": [
+      "PROGRAMMATIC",
+      "INDONESIA",
+      "GUIDE"
+    ],
+    "relatedSlugs": [
+      "chatgpt-ads-indonesia"
+    ],
+    "author": "Go Mobile Team",
+    "authorRole": "",
+    "date": "Oct 29, 2026",
+    "readTime": "5 min read",
+    "blocks": [
+      {
+        "id": "b1",
+        "type": "paragraph",
+        "content": "Programmatic advertising is the automated buying of ad space, one impression at a time, through real-time auctions that take place in the time it takes a page or app to load. In Indonesia, where 229 million people are online (APJII, 2025) and most of them come through a phone, it's the main way brands buy display, video and in-app inventory at scale outside the walled gardens of Meta, TikTok and Google. Done well, it puts the ad in front of the right person at a fair price. Done badly, it buys cheap impressions nobody sees."
+      },
+      {
+        "id": "b2",
+        "type": "paragraph",
+        "content": "This guide explains how the system works, the vocabulary you'll hear in a media plan, and the questions worth asking whoever buys your media, including us."
+      },
+      {
+        "id": "b3",
+        "type": "heading2",
+        "content": "What is programmatic advertising?"
+      },
+      {
+        "id": "b4",
+        "type": "paragraph",
+        "content": "Programmatic advertising is the use of software to buy and sell digital ad space automatically. Instead of a brand negotiating a fixed banner placement with each publisher, a buying platform evaluates each available impression as it appears and decides, in milliseconds, whether to bid for it and how much to pay."
+      },
+      {
+        "id": "b5",
+        "type": "paragraph",
+        "content": "Three things make it different from traditional digital buying:"
+      },
+      {
+        "id": "b6",
+        "type": "numberedList",
+        "content": "**It's bought per impression, not per placement.**\n**It's audience-led.** The bid depends on who is likely to see the ad and in what context, not just which website it appears on.\n**It runs across thousands of sites and apps at once**, through a single buying platform."
+      },
+      {
+        "id": "b7",
+        "type": "heading2",
+        "content": "How does a programmatic auction work?"
+      },
+      {
+        "id": "b8",
+        "type": "paragraph",
+        "content": "When someone in Surabaya opens a news app, this happens before the page finishes loading:"
+      },
+      {
+        "id": "b9",
+        "type": "numberedList",
+        "content": "**The app's ad slot sends a bid request** through a **supply-side platform (SSP)**, the publisher's selling software. The request describes the impression: the app, the ad size, the device, the approximate location, and other signals.\n**Demand-side platforms (DSPs)**, the buyers' software, receive the request. Each DSP checks it against the campaigns it's running: is this the right audience, a brand-safe environment, a price worth paying?\n**DSPs that want the impression submit a bid.** Most of this traffic uses **OpenRTB**, the open real-time bidding standard published by IAB Tech Lab.\n**The highest valid bid wins**, and the winning ad is served."
+      },
+      {
+        "id": "b10",
+        "type": "paragraph",
+        "content": "The whole cycle typically completes in a fraction of a second. For scale: our own DSP, [GoNet](/gonet), is connected to 24 SSPs and evaluates more than 2.4 billion bid requests a day. Most of those it declines, and that selectivity is the point."
+      },
+      {
+        "id": "b11",
+        "type": "heading2",
+        "content": "Who's who: the programmatic vocabulary"
+      },
+      {
+        "id": "b12",
+        "type": "table",
+        "content": "",
+        "rows": [
+          [
+            "Term",
+            "What it means",
+            "Why you should care"
+          ],
+          [
+            "DSP (demand-side platform)",
+            "Software that buys impressions for advertisers",
+            "Its targeting, brand-safety filters and bidding logic decide where your money goes"
+          ],
+          [
+            "SSP (supply-side platform)",
+            "Software that sells publishers' impressions",
+            "More SSP connections means more inventory to choose from"
+          ],
+          [
+            "Ad exchange",
+            "The marketplace where bids meet supply",
+            "Usually invisible to the brand"
+          ],
+          [
+            "Open auction",
+            "Anyone can bid on the impression",
+            "Largest reach, most variable quality"
+          ],
+          [
+            "PMP (private marketplace)",
+            "Invitation-only auction with selected publishers",
+            "Premium inventory, more control, usually higher CPM"
+          ],
+          [
+            "Programmatic guaranteed",
+            "Fixed price, fixed volume, delivered programmatically",
+            "Predictable, like a direct buy, with programmatic targeting and reporting"
+          ],
+          [
+            "CPM",
+            "Cost per thousand impressions",
+            "The price, not the result"
+          ],
+          [
+            "Viewability",
+            "Whether the ad actually appeared on screen",
+            "An impression that isn't seen can't work"
+          ],
+          [
+            "VCR (video completion rate)",
+            "Share of video ads watched to the end",
+            "The core attention metric for video"
+          ],
+          [
+            "Brand safety",
+            "Keeping ads away from harmful or unsuitable content",
+            "Protects reputation and filters out a lot of fraud too"
+          ]
+        ]
+      },
+      {
+        "id": "b13",
+        "type": "heading2",
+        "content": "Why programmatic matters in Indonesia specifically"
+      },
+      {
+        "id": "b14",
+        "type": "paragraph",
+        "content": "APJII's 2025 survey counts 229.4 million internet users, an 80.66% penetration rate, up from 79.50% in 2024. Much of the attention that isn't on social platforms sits inside apps and mobile web, which is exactly the inventory programmatic buys."
+      },
+      {
+        "id": "b15",
+        "type": "paragraph",
+        "content": "The same APJII survey puts internet penetration at 84.69% in Java and 69.26% in Maluku and Papua. A national campaign that ignores this will over-deliver in Greater Jakarta and under-deliver everywhere else. Programmatic lets you set geography, frequency and budget by region rather than buying one national placement."
+      },
+      {
+        "id": "b16",
+        "type": "paragraph",
+        "content": "The same buying system can deliver display, native, in-app, rich media (interactive HTML5), online video, and Connected TV. One plan can follow the same audience from a CTV ad at home to a mobile banner on the commute."
+      },
+      {
+        "id": "b17",
+        "type": "paragraph",
+        "content": "Indonesia's Personal Data Protection Law (UU No. 27/2022, UU PDP) has been fully in force since October 2024. Targeting that relies on consented first-party data, contextual signals and privacy-safe profiling is more durable than targeting that depends on third-party cookies."
+      },
+      {
+        "id": "b18",
+        "type": "heading2",
+        "content": "What should you measure?"
+      },
+      {
+        "id": "b19",
+        "type": "paragraph",
+        "content": "The right metric depends on the job the campaign is doing:"
+      },
+      {
+        "id": "b20",
+        "type": "table",
+        "content": "",
+        "rows": [
+          [
+            "Campaign goal",
+            "Primary metrics",
+            "Watch out for"
+          ],
+          [
+            "Awareness",
+            "Reach, frequency, viewability, VCR (video)",
+            "Cheap CPMs on low-viewability inventory"
+          ],
+          [
+            "Consideration",
+            "CTR, engaged time, site visits",
+            "Accidental clicks on in-app placements inflating CTR"
+          ],
+          [
+            "Action (installs, sign-ups, sales)",
+            "Cost per action (CPA), conversion rate",
+            "Optimising to the cheapest conversions, not the valuable ones"
+          ]
+        ]
+      },
+      {
+        "id": "b21",
+        "type": "paragraph",
+        "content": "Some real numbers from our own campaigns, for context:"
+      },
+      {
+        "id": "b22",
+        "type": "bulletList",
+        "content": "**[Bank Jago](/case-study/bank-jago):** 19 months of always-on mobile user acquisition, with cost per action cut by 52.5% over the period and 495,000+ app installs.\n**[Singapore Airlines](/case-study/singapore-airlines):** premium in-stream video for the *Enhance Flight Experience* campaign, with 11.6 million+ completed views at a 20.31% view-through rate."
+      },
+      {
+        "id": "b23",
+        "type": "paragraph",
+        "content": "These are single campaigns, not benchmarks. Results depend on category, creative, budget and timing."
+      },
+      {
+        "id": "b24",
+        "type": "heading2",
+        "content": "Five mistakes that waste programmatic budget"
+      },
+      {
+        "id": "b25",
+        "type": "numberedList",
+        "content": "**Buying on CPM alone.** The cheapest impressions are often cheap for a reason: low viewability, poor placements or invalid traffic. Judge the buy on what the impressions achieved.\n**Not asking for a placement report.** You should be able to see every site and app your ads run on. If your partner can't show you, assume some of it went somewhere you wouldn't approve.\n**No frequency cap.** Showing the same person the same ad 30 times isn't reach. Cap frequency across devices, not per device.\n**Ignoring brand safety until something goes wrong.** Filtering should happen *before* the bid (pre-bid), using verification partners such as IAS or DoubleVerify, not as a refund request afterwards.\n**One creative for the whole funnel.** A 30-second brand film and a 6-second reminder do different jobs. Sequence them."
+      },
+      {
+        "id": "b26",
+        "type": "heading2",
+        "content": "Questions to ask your programmatic partner"
+      },
+      {
+        "id": "b27",
+        "type": "bulletList",
+        "content": "Which DSP do you use, and do you own or rent it?\nHow many SSPs and premium publishers can you reach in Indonesia?\nIs brand-safety filtering pre-bid or post-bid, and which verification vendors do you use?\nWill I get placement-level reporting, and can I block placements in real time?\nWhat fees sit between my budget and the media cost?\nHow do you target audiences in a way that complies with UU PDP?"
+      },
+      {
+        "id": "b28",
+        "type": "paragraph",
+        "content": "We're happy to answer all six ;)"
+      },
+      {
+        "id": "b29",
+        "type": "heading2",
+        "content": "Frequently asked questions"
+      },
+      {
+        "id": "b30",
+        "type": "heading3",
+        "content": "Is programmatic advertising the same as Google Ads or Meta Ads?"
+      },
+      {
+        "id": "b31",
+        "type": "paragraph",
+        "content": "Not quite. Google, Meta and TikTok run their own closed buying systems for their own inventory. Programmatic usually refers to buying across the open web, apps and CTV through a DSP, using open standards like OpenRTB, although Google also sells some inventory programmatically."
+      },
+      {
+        "id": "b32",
+        "type": "heading3",
+        "content": "How fast can a programmatic campaign go live?"
+      },
+      {
+        "id": "b33",
+        "type": "paragraph",
+        "content": "Once the brief, audience and creatives are signed off, a campaign can usually be live within about 48 hours. That's our standard for programmatic display."
+      },
+      {
+        "id": "b34",
+        "type": "heading3",
+        "content": "Is programmatic advertising safe for my brand?"
+      },
+      {
+        "id": "b35",
+        "type": "paragraph",
+        "content": "It can be, provided brand-safety and fraud filtering run before the bid and you get placement-level reporting. Without both, you have limited control over where your ads appear."
+      },
+      {
+        "id": "b36",
+        "type": "heading3",
+        "content": "Can programmatic advertising target people outside Jakarta?"
+      },
+      {
+        "id": "b37",
+        "type": "paragraph",
+        "content": "Yes. Geography can be set down to the province or city level, with separate budgets and frequency caps per region."
+      },
+      {
+        "id": "b38",
+        "type": "heading2",
+        "content": "Sources"
+      },
+      {
+        "id": "b39",
+        "type": "bulletList",
+        "content": "APJII, Survei Penetrasi Internet Indonesia 2025 (released 6 Aug 2025), as reported by [Bisnis.com](https://teknologi.bisnis.com/read/20250806/101/1899997/data-apjii) and [Kontan](https://industri.kontan.co.id/news/penetrasi-internet-di-indonesia-capai-8066-pemerataan-masih-jadi-tantangan)\nIAB Tech Lab, OpenRTB specification\nUndang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi\nGo Mobile platform and [case-study](/case-study) data (gomobile.id)"
+      }
+    ],
+    "status": "published"
+  },
+  {
+    "slug": "chatgpt-ads-indonesia",
+    "img": "/assets/featured-case-2.webp",
+    "category": "Industry",
+    "title": "ChatGPT now sells ads in Indonesia. The answer is still worth more than the ad slot.",
+    "excerpt": "OpenAI switched on ChatGPT Ads in Indonesia on 23 September 2026. Here's what launched, who sees it, how to buy it, and what we'd do with the first rupiah.",
+    "tags": [
+      "CHATGPT ADS",
+      "AI SEARCH",
+      "INDONESIA"
+    ],
+    "relatedSlugs": [
+      "programmatic-advertising-indonesia-guide"
+    ],
+    "author": "Go Mobile Team",
+    "authorRole": "",
+    "date": "Oct 29, 2026",
+    "readTime": "5 min read",
+    "blocks": [
+      {
+        "id": "b1",
+        "type": "paragraph",
+        "content": "Ask ChatGPT for the best laptop under Rp10 juta tonight and, on a free account, there's now a chance you'll see a brand paying to be there."
+      },
+      {
+        "id": "b2",
+        "type": "paragraph",
+        "content": "On 23 September 2026, OpenAI expanded ChatGPT Ads to seven new markets: **Indonesia, Malaysia, the Philippines, Singapore, Thailand, Vietnam and Taiwan**. It follows launches earlier in the year in Australia, New Zealand, Japan, South Korea and India, and takes the ad product to more than 60 countries."
+      },
+      {
+        "id": "b3",
+        "type": "paragraph",
+        "content": "For Indonesian marketers, this is the first new large-scale ad channel since TikTok. It's also a different kind of channel. People don't scroll ChatGPT. They ask it things, often right before they decide."
+      },
+      {
+        "id": "b4",
+        "type": "heading2",
+        "content": "The key facts"
+      },
+      {
+        "id": "b5",
+        "type": "table",
+        "content": "",
+        "rows": [
+          [
+            "",
+            ""
+          ],
+          [
+            "Launched in Indonesia",
+            "23 September 2026"
+          ],
+          [
+            "Other new markets",
+            "Malaysia, Philippines, Singapore, Thailand, Vietnam, Taiwan"
+          ],
+          [
+            "Who sees ads",
+            "Users on the Free and Go plans only"
+          ],
+          [
+            "Who doesn't",
+            "Plus, Pro, Business, Enterprise and Edu users (ad-free)"
+          ],
+          [
+            "Where ads appear",
+            "Labelled as ads and shown separately from ChatGPT's answer"
+          ],
+          [
+            "How to buy",
+            "Self-service Ads Manager, OpenAI's Ads Solutions team, or agency and technology partners"
+          ],
+          [
+            "Named agency partners",
+            "dentsu, Havas Media, Omnicom Media, Publicis Groupe, WPP"
+          ],
+          [
+            "Privacy position (OpenAI)",
+            "Conversations aren't shared with advertisers. Ads don't influence answers. Users can control ad personalisation"
+          ],
+          [
+            "Scale so far",
+            "US$1 billion annualised revenue run rate in under 200 days, with tens of thousands of advertisers (OpenAI, 31 August 2026)"
+          ],
+          [
+            "Published pricing for Indonesia",
+            "None we could confirm at the time of writing"
+          ]
+        ]
+      },
+      {
+        "id": "b6",
+        "type": "heading2",
+        "content": "Why this matters more in Indonesia than in most markets"
+      },
+      {
+        "id": "b7",
+        "type": "paragraph",
+        "content": "OpenAI said in mid-2025 that Indonesia was among the three Asia-Pacific countries with the most active ChatGPT users. DataIndonesia.id puts ChatGPT's share of Indonesia's AI chatbot market at 82.71% for August 2025 to August 2026. In practice, \"AI search\" in Indonesia mostly means ChatGPT."
+      },
+      {
+        "id": "b8",
+        "type": "paragraph",
+        "content": "Paid plans cost real money relative to local incomes, so the ad-supported audience here is likely to be a large share of the total. Paying users won't see ads, so the free-plan audience is the one advertisers can reach."
+      },
+      {
+        "id": "b9",
+        "type": "paragraph",
+        "content": "People ask chatbots which phone to buy, which bank has the best savings rate, which hotel to book in Bali. Those are the moments brands pay search engines for today."
+      },
+      {
+        "id": "b10",
+        "type": "heading2",
+        "content": "How it compares to what you already buy"
+      },
+      {
+        "id": "b11",
+        "type": "table",
+        "content": "",
+        "rows": [
+          [
+            "",
+            "Google Search",
+            "Meta and TikTok",
+            "Programmatic (display, video, CTV)",
+            "ChatGPT Ads"
+          ],
+          [
+            "User mindset",
+            "Looking for something",
+            "Scrolling, entertained",
+            "Reading, watching",
+            "Asking for advice"
+          ],
+          [
+            "Targeting logic",
+            "Keywords",
+            "Profile and behaviour",
+            "Audience, context, placement",
+            "The conversation's topic and context"
+          ],
+          [
+            "Maturity in Indonesia",
+            "Mature",
+            "Mature",
+            "Mature",
+            "Weeks old"
+          ],
+          [
+            "Measurement history",
+            "Years of benchmarks",
+            "Years of benchmarks",
+            "Years of benchmarks",
+            "None yet locally"
+          ]
+        ]
+      },
+      {
+        "id": "b12",
+        "type": "paragraph",
+        "content": "OpenAI is explicit that **ads do not influence ChatGPT's answers.** That one sentence should shape how brands split their effort."
+      },
+      {
+        "id": "b13",
+        "type": "paragraph",
+        "content": "There are now two places a brand can show up when someone asks ChatGPT about its category:"
+      },
+      {
+        "id": "b14",
+        "type": "numberedList",
+        "content": "**Inside the answer**, because ChatGPT found and trusted information about you. You can't buy this.\n**Next to the answer**, in a labelled ad slot. You can buy this."
+      },
+      {
+        "id": "b15",
+        "type": "paragraph",
+        "content": "The first one is worth more. A recommendation inside the answer reads as advice. An ad next to it reads as an ad, however well targeted. If a competitor is named in the answer and you only appear in the sponsored slot, you're paying to stand beside their recommendation."
+      },
+      {
+        "id": "b16",
+        "type": "paragraph",
+        "content": "Getting into the answer is mostly about having clear, specific, trustworthy information available on the web:"
+      },
+      {
+        "id": "b17",
+        "type": "bulletList",
+        "content": "**Your own website states plainly who you are and what you do,** in text (not only in images) and in structured data that search engines and AI crawlers can read.\n**You publish things worth citing:** specific numbers, clear explanations, dated facts with named sources.\n**Other credible sites mention you:** news coverage, industry directories, reviews.\n**Your information is consistent everywhere.** The same name, description and facts on your site, LinkedIn, marketplaces and directories."
+      },
+      {
+        "id": "b18",
+        "type": "paragraph",
+        "content": "None of this is new. It's good SEO with a sharper reason to do it."
+      },
+      {
+        "id": "b19",
+        "type": "heading2",
+        "content": "Should you buy ChatGPT Ads now?"
+      },
+      {
+        "id": "b20",
+        "type": "paragraph",
+        "content": "Probably, in a small and disciplined way. Early ad markets tend to be less crowded, and the learning is worth having before competitors get it. Here's how we'd approach a first test:"
+      },
+      {
+        "id": "b21",
+        "type": "numberedList",
+        "content": "**Pick one high-intent category question you want to win.** For example, \"best credit card for travel in Indonesia\" or \"laptop for students under Rp8 juta\". Start with the questions closest to purchase.\n**Check what ChatGPT already says** about that question, in Bahasa Indonesia and in English. Note who gets named and why.\n**Run a capped test budget** for 4 to 6 weeks, with a clear success metric (cost per qualified visit, sign-up or sale), not impressions.\n**Hold out a control.** Compare against the same period in search and social, so you can tell whether ChatGPT is bringing new customers or just moving existing ones.\n**Time it.** Harbolnas 12.12 and the run-up to Ramadan 2027 are when shopping questions spike. A test in November gives you data before those peaks."
+      },
+      {
+        "id": "b22",
+        "type": "paragraph",
+        "content": "Treat any early benchmarks, including your own, as provisional. The auction is weeks old in Indonesia and prices will move as more advertisers arrive."
+      },
+      {
+        "id": "b23",
+        "type": "heading2",
+        "content": "What to watch next"
+      },
+      {
+        "id": "b24",
+        "type": "bulletList",
+        "content": "**Local pricing and minimum budgets** for Indonesia, which we haven't seen published yet.\n**Commerce integrations.** OpenAI already works with marketplaces in other markets. A tie-in with a major Indonesian platform would change how quickly this channel drives sales.\n**Regulation.** Indonesia's Personal Data Protection Law (UU PDP) has been fully in force since October 2024. Watch how ad personalisation inside AI chats is treated as enforcement develops.\n**Competition.** Google already shows ads alongside its AI-generated search results in some markets. Expect \"ads next to AI answers\" to become a standard format."
+      },
+      {
+        "id": "b25",
+        "type": "heading2",
+        "content": "Frequently asked questions"
+      },
+      {
+        "id": "b26",
+        "type": "heading3",
+        "content": "Are there ads in ChatGPT in Indonesia?"
+      },
+      {
+        "id": "b27",
+        "type": "paragraph",
+        "content": "Yes. Since 23 September 2026, ChatGPT shows ads in Indonesia to users on the Free and Go plans. Plus, Pro, Business, Enterprise and Edu users don't see ads."
+      },
+      {
+        "id": "b28",
+        "type": "heading3",
+        "content": "Can brands pay to appear in ChatGPT's answers?"
+      },
+      {
+        "id": "b29",
+        "type": "paragraph",
+        "content": "No. According to OpenAI, ads are labelled, shown separately from the answer, and don't influence what ChatGPT says. Appearing inside the answer depends on the information ChatGPT can find and trust about your brand."
+      },
+      {
+        "id": "b30",
+        "type": "heading3",
+        "content": "How do you buy ChatGPT Ads in Indonesia?"
+      },
+      {
+        "id": "b31",
+        "type": "paragraph",
+        "content": "Through OpenAI's self-service Ads Manager, OpenAI's Ads Solutions team, or agency and technology partners. Eligibility depends on where the advertising and billing entity is based."
+      },
+      {
+        "id": "b32",
+        "type": "heading3",
+        "content": "How much do ChatGPT Ads cost in Indonesia?"
+      },
+      {
+        "id": "b33",
+        "type": "paragraph",
+        "content": "OpenAI hadn't published Indonesia-specific pricing or minimum budgets at the time of writing. Plan a capped test budget and judge it on cost per result, not cost per impression."
+      },
+      {
+        "id": "b34",
+        "type": "heading3",
+        "content": "Does ChatGPT share my conversations with advertisers?"
+      },
+      {
+        "id": "b35",
+        "type": "paragraph",
+        "content": "OpenAI says conversations are kept private from advertisers, customer data isn't sold, and users can control ad personalisation."
+      },
+      {
+        "id": "b36",
+        "type": "callout",
+        "content": "*Want help testing ChatGPT Ads alongside your search, social and programmatic budgets, or making sure your brand shows up in the answers?* [Talk to us](/contact)."
+      },
+      {
+        "id": "b37",
+        "type": "heading2",
+        "content": "Sources"
+      },
+      {
+        "id": "b38",
+        "type": "bulletList",
+        "content": "OpenAI, [\"ChatGPT Ads expands to Southeast Asia and Taiwan\"](https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan/), 23 Sept 2026\n[TechNode Global](https://technode.global/2026/09/24/openai-chatgpt-ads-southeast-asia-taiwan/), 24 Sept 2026\n[Inside AI News](https://insideai.news/news/ai-in-business/chatgpt-ads-southeast-asia-expansion/12756/)\n[DataIndonesia.id](https://dataindonesia.id/46/68/digital/internet), 28 Sept 2026\nUndang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "slug": "why-we-stopped-buying-open-exchange-impressions",
     "img": "/assets/featured-case-1.webp",
     "category": "Programmatic",
@@ -41,7 +632,7 @@
       ],
       "conclusion": "The uncomfortable truth is that open exchange is optimised for volume, not for advertisers. PMP requires more upfront work: publisher relationships, deal ID management, and tighter inventory constraints. But the performance gap is now so well documented in our own data that we can't justify defaulting to open exchange for any client with a meaningful cost-per-outcome target. If you're still buying open exchange as your primary channel, run the split test. The numbers will change your mind."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "gamified-ads-outperform-static",
@@ -81,7 +672,7 @@
       ],
       "conclusion": "The 6× figure is real but it requires one non-negotiable condition: an honest, immediate first frame that shows the user what they're being invited to do. Not a CTA. Not a logo. A mid-state interaction that looks like it's waiting for them. Everything else, the mechanic, the reward, the brand message, is secondary to solving that opening 800ms."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "ctv-in-sea",
@@ -125,7 +716,7 @@
       ],
       "conclusion": "SEA CTV is a real channel with real audiences, but it requires local knowledge to buy well. The premium brand associations are with the global platforms; the premium audiences are often somewhere else. Run a split test between global streaming inventory and curated local OTT on your next campaign. Measure completion, audio-on rate, and downstream search lift. The results will recalibrate where you allocate your video budget."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "mmm-is-back",
@@ -169,7 +760,7 @@
       ],
       "conclusion": "The measurement ecosystem in digital advertising is genuinely broken, and anyone claiming their single-source attribution methodology has all the answers is selling something. The pragmatic path is a hybrid stack with clear decision boundaries: MMM for strategy, MTA for tactics, incrementality tests for truth. It's more work. It's also the only approach we trust."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "google-cookie-reversal",
@@ -213,7 +804,7 @@
       ],
       "conclusion": "The Google cookie reversal is a tactical reprieve, not a strategic vindication of cookie dependence. The signal environment will continue fragmenting. The advertisers who emerge stronger from this period are the ones who didn't let the reprieve slow them down."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "rich-media-build-times",
@@ -253,7 +844,7 @@
       ],
       "conclusion": "If your HTML5 build cycle is measured in days, the constraint is almost certainly not the creative work. It's the surrounding workflow. Audit where the time actually goes before investing in better creative talent or more detailed briefs. The leverage is usually in the packaging and QA automation, not the animation itself."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "why-our-dsp-rejects-23-percent",
@@ -297,7 +888,7 @@
       ],
       "conclusion": "Pre-bid filtering isn't glamorous work, but it's one of the highest-ROI investments in programmatic infrastructure. If you're running a DSP or working with one, understand what filtering happens before the auction, and what the rejection rate is. A DSP with a 0% pre-bid rejection rate isn't cleaner than ours; it's just passing the cost of those impressions to the advertiser."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "sea-ad-market-in-5-charts",
@@ -341,7 +932,7 @@
       ],
       "conclusion": "The headline numbers for SEA digital advertising are healthy. But the distribution of where that spend goes, and the quality of the inventory absorbing it, is increasingly uneven. The gap between programmatic buyers who filter well and those who don't is widening, and it's showing up in cost-per-outcome data. Standard industry benchmarks won't tell you this because they aggregate across both populations."
     },
-    "status": "published"
+    "status": "draft"
   },
   {
     "slug": "incrementality-testing",
@@ -385,6 +976,6 @@
       ],
       "conclusion": "Incrementality testing isn't a special project. It should be a permanent fixture of your measurement practice. The barrier is mostly operational: the test design, the pacing management, and the result interpretation are learnable skills. The knowledge that comes from 12 months of continuous incrementality testing is significantly more reliable than any attribution model, and it compounds over time as your test history accumulates."
     },
-    "status": "published"
+    "status": "draft"
   }
 ]

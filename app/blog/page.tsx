@@ -3,27 +3,23 @@ import { Footer } from "../components/Footer";
 import { ContactCTA } from "../components/ContactCTA";
 import { BackgroundGrain } from "../components/BackgroundGrain";
 import { PageHero } from "../components/PageHero";
-import { ComingSoon } from "./ComingSoon";
+import { BlogBody } from "./BlogBody";
+import { getPosts } from "@/lib/content/blog";
 import { pageMetadata } from "@/lib/seo";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { JsonLd } from "../components/JsonLd";
 
 /*
- * The journal is not written yet, so /blog shows a placeholder instead of the
- * post grid. BlogBody, the [slug] detail page and lib/content/blog are all
- * left in place: restoring the real listing means swapping this file back for
- * one that feeds getPosts() into <BlogBody />, not rebuilding it. Do that in
- * the same change that flips JOURNAL_LIVE in lib/content/blog.ts.
- *
- * The nine drafted posts are parked in content/blog-posts.json, so nothing is
- * waiting on the CMS to exist. The route is fully static either way.
+ * Posts come from content/blog-posts.json; the first published one is the
+ * featured card. The coming-soon screen in ./ComingSoon is kept for the case
+ * where JOURNAL_LIVE in lib/content/blog.ts has to be switched off again.
  */
 
 export const metadata = pageMetadata({
   path: "/blog",
   title: "Journal | Go Mobile",
   description:
-    "Working theories, post-mortems, and field notes from buying media across Southeast Asia. Launching soon.",
+    "Plain-language guides and field notes on programmatic, video and AI advertising in Indonesia, from the Go Mobile team.",
 });
 
 export default function BlogPage() {
@@ -33,10 +29,10 @@ export default function BlogPage() {
       <JsonLd data={breadcrumbJsonLd([{ name: "Journal", path: "/blog" }])} />
       <Nav />
       <PageHero
-        title={<>Coming<br /><span className="text-gradient-animated">soon</span>.</>}
-        lede="We are writing up what we learn buying media across Southeast Asia every day. The first pieces land shortly."
+        title={<>Notes from the<br /><span className="text-gradient-animated">trade desk</span>.</>}
+        lede="Working theories, guides and field notes from buying media every day across Indonesia and Southeast Asia."
       />
-      <ComingSoon />
+      <BlogBody posts={getPosts("published")} />
       <ContactCTA />
       <Footer />
     </main>

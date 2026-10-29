@@ -2,6 +2,7 @@ import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SOCIAL_URLS } from "@/lib/site";
 import { SERVICES } from "@/app/solutions/data";
 import { getCaseStudies } from "@/lib/content/case-studies";
 import { getOffices } from "@/lib/content/offices";
+import { JOURNAL_LIVE, getPosts } from "@/lib/content/blog";
 
 /**
  * Serves /llms.txt (llmstxt.org): a plain Markdown summary of the site for
@@ -39,6 +40,14 @@ function build() {
     "",
     ...getCaseStudies("published").map((c) => `- [${c.brand}](${SITE_URL}/case-study/${c.slug}): ${c.headline}`),
     "",
+    ...(JOURNAL_LIVE
+      ? [
+          "## Journal",
+          "",
+          ...getPosts("published").map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug}): ${p.excerpt}`),
+          "",
+        ]
+      : []),
     "## Company",
     "",
     `- [About](${SITE_URL}/about): history, approach and team`,

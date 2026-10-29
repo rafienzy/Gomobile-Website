@@ -185,12 +185,10 @@ export function blogPostingJsonLd(p: BlogPost) {
     image: abs(p.img),
     datePublished: published,
     dateModified: modified,
-    author: {
-      "@type": "Person",
-      name: p.author,
-      jobTitle: p.authorRole,
-      worksFor: org,
-    },
+    // A post with no authorRole is bylined to the team, so credit the company.
+    author: p.authorRole
+      ? { "@type": "Person", name: p.author, jobTitle: p.authorRole, worksFor: org }
+      : org,
     publisher: org,
     mainEntityOfPage: url,
     url,

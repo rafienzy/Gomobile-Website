@@ -49,9 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
        and worth indexing, but not somewhere a search should land first. */
     entry("/ad-formats-demo", 0.4),
 
-    /* Placeholder until the journal is written. Listed so the section is known
-       to exist; raise this once there are posts. */
-    entry("/blog", 0.3),
+    entry("/blog", 0.6),
     ...(JOURNAL_LIVE
       ? getPosts("published").map((p) => ({
           ...entry(`/blog/${p.slug}`, 0.6),

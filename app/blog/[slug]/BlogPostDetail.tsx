@@ -1,17 +1,47 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { addReveal } from "../../utils/scrollReveal";
 import type { BlogPost, ContentBlock } from "@/lib/models/blog";
 
+/** Renders the inline syntax documented on ContentBlock: **bold**, *italic*, [label](href). */
+function renderInline(text: string): ReactNode[] {
+  const out: ReactNode[] = [];
+  const re = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)\s]+)\)|\*([^*]+)\*/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text))) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    const key = m.index;
+    if (m[1] !== undefined) {
+      out.push(<strong key={key} className="font-semibold" style={{ color: "var(--fg)" }}>{renderInline(m[1])}</strong>);
+    } else if (m[2] !== undefined) {
+      const href = m[3];
+      const cls = "underline decoration-orange-500/50 underline-offset-4 hover:decoration-orange-500";
+      out.push(
+        href.startsWith("/") ? (
+          <Link key={key} href={href} className={cls}>{renderInline(m[2])}</Link>
+        ) : (
+          <a key={key} href={href} target="_blank" rel="noopener noreferrer" className={cls}>{renderInline(m[2])}</a>
+        )
+      );
+    } else {
+      out.push(<em key={key}>{renderInline(m[4])}</em>);
+    }
+    last = re.lastIndex;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 function BlocksRenderer({ blocks }: { blocks: ContentBlock[] }) {
   return (
     <div className="flex flex-col gap-6">
       {blocks.map((block) => {
-        if (!block.content && block.type !== 'divider') return null;
+        if (!block.content && block.type !== 'divider' && block.type !== 'table') return null;
 
         if (block.type === 'divider') {
           return <hr key={block.id} className="border-none h-px" style={{ background: 'var(--border)' }} />;
@@ -48,7 +78,7 @@ function BlocksRenderer({ blocks }: { blocks: ContentBlock[] }) {
               className="pl-5 border-l-2 border-orange-500/40"
             >
               <p className="text-lg md:text-xl leading-[1.7] italic" style={{ color: 'var(--muted)' }}>
-                {block.content}
+                {renderInline(block.content)}
               </p>
             </blockquote>
           );
@@ -61,7 +91,7 @@ function BlocksRenderer({ blocks }: { blocks: ContentBlock[] }) {
               className="glass-card px-6 py-5 rounded-[16px] border-l-2 border-orange-500/40"
             >
               <p className="text-base leading-[1.8]" style={{ color: 'var(--fg)' }}>
-                {block.content}
+                {renderInline(block.content)}
               </p>
             </div>
           );
@@ -75,11 +105,76 @@ function BlocksRenderer({ blocks }: { blocks: ContentBlock[] }) {
                 <li key={i} className="flex items-start gap-3">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-orange-500/60 shrink-0" />
                   <span className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
-                    {item.replace(/^[-•]\s*/, '')}
+                    {renderInline(item.replace(/^[-•]\s*/, ''))}
                   </span>
                 </li>
               ))}
             </ul>
+          );
+        }
+
+        if (block.type === 'numberedList') {
+          const items = block.content.split('\n').filter(Boolean);
+          return (
+            <ol key={block.id} className="space-y-3 pl-1">
+              {items.map((item, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <span
+                    className="mt-1 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #ef6600, #cb0000)' }}
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
+                    {renderInline(item.replace(/^\d+[.)]\s*/, ''))}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          );
+        }
+
+        if (block.type === 'table') {
+          const [head, ...rows] = block.rows ?? [];
+          if (!head) return null;
+          return (
+            <div
+              key={block.id}
+              className="overflow-x-auto rounded-[20px]"
+              style={{ border: '1px solid var(--border)' }}
+            >
+              <table className="w-full min-w-[560px] text-left border-collapse">
+                {/* An all-blank first row means the table has no column headings. */}
+                {head.some(Boolean) && (
+                  <thead>
+                    <tr style={{ background: 'linear-gradient(90deg, #ef6600, #cb0000)' }}>
+                      {head.map((h, i) => (
+                        <th key={i} scope="col" className="px-5 py-4 text-sm md:text-base font-bold text-white align-bottom">
+                          {renderInline(h)}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                )}
+                <tbody>
+                  {rows.map((row, r) => (
+                    <tr key={r} style={{ background: r % 2 ? 'rgba(239, 102, 0, 0.08)' : 'transparent' }}>
+                      {row.map((cell, c) =>
+                        c === 0 ? (
+                          <th key={c} scope="row" className="px-5 py-3.5 text-sm md:text-[15px] font-bold align-top" style={{ color: 'var(--fg)' }}>
+                            {renderInline(cell)}
+                          </th>
+                        ) : (
+                          <td key={c} className="px-5 py-3.5 text-sm md:text-[15px] leading-[1.6] align-top" style={{ color: 'var(--muted)' }}>
+                            {renderInline(cell)}
+                          </td>
+                        )
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           );
         }
 
@@ -97,7 +192,7 @@ function BlocksRenderer({ blocks }: { blocks: ContentBlock[] }) {
 
         return (
           <p key={block.id} className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
-            {block.content}
+            {renderInline(block.content)}
           </p>
         );
       })}
@@ -162,7 +257,9 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
             </div>
             <div className="flex flex-col">
               <p className="text-sm font-bold" style={{ color: "var(--fg)" }}>{post.author}</p>
-              <p className="text-xs"            style={{ color: "var(--muted)" }}>{post.authorRole}</p>
+              {post.authorRole && (
+                <p className="text-xs" style={{ color: "var(--muted)" }}>{post.authorRole}</p>
+              )}
             </div>
             <div className="ml-auto text-right">
               <p className="text-sm" style={{ color: "var(--muted)" }}>{post.date}</p>
@@ -180,7 +277,7 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
         <div className="post-body max-w-[720px] mx-auto flex flex-col gap-8">
           {post.blocks && post.blocks.length > 0 ? (
             <BlocksRenderer blocks={post.blocks} />
-          ) : (
+          ) : post.body && (
             <>
               <p className="text-lg md:text-xl leading-[1.8] font-medium" style={{ color: "var(--fg)" }}>
                 {post.body.intro}

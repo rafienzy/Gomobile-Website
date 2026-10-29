@@ -13,10 +13,10 @@ export function BlogBody({ posts: livePosts = [] }: { posts?: BlogPost[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [topic, setTopic] = useState("All");
 
-  const allPosts = livePosts;
   const featuredPost = livePosts[0] ?? null;
-
-  const filtered = topic === "All" ? allPosts : allPosts.filter((p) => p.category === topic);
+  // Only offer topics that have posts, and don't repeat the featured post under "All".
+  const topics = TOPICS.filter((t) => t === "All" || livePosts.some((p) => p.category === t));
+  const filtered = topic === "All" ? livePosts.slice(1) : livePosts.filter((p) => p.category === topic);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -93,7 +93,7 @@ export function BlogBody({ posts: livePosts = [] }: { posts?: BlogPost[] }) {
       {/* Topic filter */}
       <section className="px-6 md:px-[136px]">
         <div className="topic-bar flex flex-wrap gap-2">
-          {TOPICS.map((t) => {
+          {topics.map((t) => {
             const isActive = t === topic;
             return (
               <button

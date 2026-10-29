@@ -19,16 +19,15 @@ const POSTS = data as BlogPost[];
 
 /**
  * The launch switch for individual posts. While false, every /blog/<slug>
- * redirects to /blog and the sitemap lists no posts. Flipping it to true
- * renders each published post with its own canonical URL, BlogPosting
- * structured data, and a sitemap entry.
+ * redirects to /blog and the sitemap lists no posts. While true, each
+ * published post renders with its own canonical URL, BlogPosting structured
+ * data, and a sitemap entry.
  *
- * Two things it does not do: app/blog/page.tsx still shows the coming-soon
- * screen and needs its post grid restored in the same change, and the posts
- * in content/blog-posts.json are drafts parked as "published", so check their
- * status, dates and copy first.
+ * Turning it off again also means putting the coming-soon screen back in
+ * app/blog/page.tsx. The nine placeholder posts from before launch are kept
+ * in content/blog-posts.json as drafts: their authors and claims are not real.
  */
-export const JOURNAL_LIVE = false;
+export const JOURNAL_LIVE = true;
 
 export function getPosts(
   status: 'published' | 'draft' | 'all' = 'published'

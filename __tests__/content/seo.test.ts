@@ -89,10 +89,19 @@ describe('toIsoDate', () => {
 });
 
 describe('blogPostingJsonLd', () => {
-  it('attributes the post to a named person who works for Go Mobile', () => {
-    const p = getPosts()[0];
-    const j = blogPostingJsonLd(p);
-    expect(j.author).toMatchObject({ '@type': 'Person', name: p.author, worksFor: { '@id': ORG_ID } });
-    expect(j.datePublished).toBe(toIsoDate(p.date));
+  const post = getPosts('all')[0];
+
+  it('attributes a post with an author role to that person, working for Go Mobile', () => {
+    const j = blogPostingJsonLd({ ...post, author: 'Rafi Abdilah', authorRole: 'Editor' });
+    expect(j.author).toMatchObject({ '@type': 'Person', name: 'Rafi Abdilah', worksFor: { '@id': ORG_ID } });
+  });
+
+  it('attributes a team-bylined post to the organisation, not an invented person', () => {
+    expect(blogPostingJsonLd({ ...post, authorRole: '' }).author).toEqual({ '@id': ORG_ID });
+  });
+
+  it('gives every published post a date the schema can parse', () => {
+    for (const p of getPosts()) expect(blogPostingJsonLd(p).datePublished).toBe(toIsoDate(p.date));
+    expect(getPosts().every((p) => toIsoDate(p.date))).toBe(true);
   });
 });

@@ -1,7 +1,15 @@
+/**
+ * Text in `content` and in table cells takes a small inline syntax:
+ * **bold**, *italic* and [label](href). List items are one per line.
+ */
 export type ContentBlock = {
   id: string;
-  type: 'paragraph' | 'heading2' | 'heading3' | 'quote' | 'image' | 'divider' | 'callout' | 'bulletList';
+  type:
+    | 'paragraph' | 'heading2' | 'heading3' | 'quote' | 'image' | 'divider'
+    | 'callout' | 'bulletList' | 'numberedList' | 'table';
   content: string;
+  /** Table blocks only. The first row is the header row (all blank for none); `content` is unused. */
+  rows?: string[][];
 };
 
 export type SEOMeta = {
@@ -27,7 +35,8 @@ export type BlogPost = {
   /** Same format as `date`. Set it when a published post is meaningfully revised. */
   updated?: string;
   readTime: string;
-  body: {
+  /** Legacy fixed layout, used only when a post has no `blocks`. */
+  body?: {
     intro: string;
     sections: { heading: string; content: string }[];
     conclusion: string;
