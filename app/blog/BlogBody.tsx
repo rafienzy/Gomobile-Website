@@ -14,9 +14,9 @@ export function BlogBody({ posts: livePosts = [] }: { posts?: BlogPost[] }) {
   const [topic, setTopic] = useState("All");
 
   const featuredPost = livePosts[0] ?? null;
-  // Only offer topics that have posts, and don't repeat the featured post under "All".
+  // Only offer topics that have posts. "All" lists every post, the featured one included.
   const topics = TOPICS.filter((t) => t === "All" || livePosts.some((p) => p.category === t));
-  const filtered = topic === "All" ? livePosts.slice(1) : livePosts.filter((p) => p.category === topic);
+  const filtered = topic === "All" ? livePosts : livePosts.filter((p) => p.category === topic);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
