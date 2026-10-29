@@ -7,7 +7,7 @@ import { JsonLd } from "../../components/JsonLd";
 import { BlogPostDetail } from "./BlogPostDetail";
 import { JOURNAL_LIVE, getPost, getPosts, getRelatedPosts } from "@/lib/content/blog";
 import { pageMetadata } from "@/lib/seo";
-import { blogPostingJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
+import { blogPostingJsonLd, breadcrumbJsonLd, toIsoDate } from "@/lib/structured-data";
 
 /*
  * Until JOURNAL_LIVE is flipped, any direct link to an individual post lands
@@ -31,6 +31,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${post.title} | Go Mobile Journal`,
     description: post.excerpt,
     type: "article",
+    image: post.shareImg ? { url: post.shareImg, alt: post.imgAlt ?? post.title } : undefined,
+    article: {
+      publishedTime: toIsoDate(post.date),
+      modifiedTime: toIsoDate(post.updated ?? post.date),
+      tags: post.tags,
+    },
   });
 }
 

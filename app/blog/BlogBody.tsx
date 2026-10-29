@@ -48,7 +48,7 @@ export function BlogBody({ posts: livePosts = [] }: { posts?: BlogPost[] }) {
             <div className="relative h-[280px] md:h-[480px] overflow-hidden">
               <Image
                 src={featuredPost.img}
-                alt={featuredPost.title}
+                alt={featuredPost.imgAlt ?? featuredPost.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover scale-[1.01] transition-transform duration-700 group-hover:scale-[1.06]"
@@ -125,7 +125,7 @@ export function BlogBody({ posts: livePosts = [] }: { posts?: BlogPost[] }) {
                 <div className="relative h-[200px] overflow-hidden">
                   <Image
                     src={p.img}
-                    alt={p.title}
+                    alt={p.imgAlt ?? p.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover scale-[1.01] transition-transform duration-700 group-hover:scale-[1.08]"

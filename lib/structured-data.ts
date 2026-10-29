@@ -182,7 +182,7 @@ export function blogPostingJsonLd(p: BlogPost) {
     "@type": "BlogPosting",
     headline: p.title,
     description: p.excerpt,
-    image: abs(p.img),
+    image: p.shareImg ? [abs(p.img), abs(p.shareImg)] : abs(p.img),
     datePublished: published,
     dateModified: modified,
     // A post with no authorRole is bylined to the team, so credit the company.

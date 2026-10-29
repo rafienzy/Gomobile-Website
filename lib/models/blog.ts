@@ -26,6 +26,10 @@ export type SEOMeta = {
 export type BlogPost = {
   slug: string;
   img: string;
+  /** Describes the cover for screen readers and image search. Falls back to the title. */
+  imgAlt?: string;
+  /** 1200×630 JPEG for link previews. Without it the post shares with the site-wide card. */
+  shareImg?: string;
   category: string;
   title: string;
   excerpt: string;

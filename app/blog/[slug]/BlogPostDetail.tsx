@@ -221,7 +221,7 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
         <div className="post-hero relative rounded-[28px] overflow-hidden h-[300px] md:h-[520px]">
           <Image
             src={post.img}
-            alt={post.title}
+            alt={post.imgAlt ?? post.title}
             fill
             sizes="100vw"
             className="object-cover scale-[1.01]"
@@ -333,7 +333,7 @@ export function BlogPostDetail({ post, related = [] }: { post: BlogPost; related
                     <div className="relative h-[180px] overflow-hidden">
                       <Image
                         src={r.img}
-                        alt={r.title}
+                        alt={r.imgAlt ?? r.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 33vw"
                         className="object-cover scale-[1.01] transition-transform duration-700 group-hover:scale-[1.08]"

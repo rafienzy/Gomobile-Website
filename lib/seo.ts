@@ -26,12 +26,20 @@ export function pageMetadata({
   title,
   description,
   type = "website",
+  image,
+  article,
 }: {
   path: string;
   title: string;
   description?: string;
   type?: "website" | "article";
+  /** A page's own 1200×630 JPEG share card, in place of the site-wide one. */
+  image?: { url: string; alt: string };
+  /** ISO dates and tags for og:article, when `type` is "article". */
+  article?: { publishedTime?: string; modifiedTime?: string; tags?: string[] };
 }): Metadata {
+  const og = image ? { ...SHARE_IMAGE, ...image, type: "image/jpeg" } : { ...SHARE_IMAGE, url: "/opengraph-image.png" };
+  const tw = image ? og : { ...SHARE_IMAGE, url: "/twitter-image.png" };
   return {
     title,
     description,
@@ -43,13 +51,14 @@ export function pageMetadata({
       title,
       description,
       locale: "en_US",
-      images: [{ ...SHARE_IMAGE, url: "/opengraph-image.png" }],
+      images: [og],
+      ...(type === "article" ? article : {}),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [{ ...SHARE_IMAGE, url: "/twitter-image.png" }],
+      images: [tw],
     },
   };
 }
