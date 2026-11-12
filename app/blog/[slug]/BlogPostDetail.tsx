@@ -37,166 +37,218 @@ function renderInline(text: string): ReactNode[] {
   return out;
 }
 
+const isFaqHeading = (b: ContentBlock) =>
+  b.type === 'heading2' && /^frequently asked questions$/i.test(b.content.trim());
+
+type Item = ContentBlock | { faq: ContentBlock; answer: ContentBlock[] };
+
+/**
+ * Under a "Frequently asked questions" heading, each heading3 and the blocks
+ * after it (up to the next heading or callout) become one accordion item.
+ * Native <details> keeps the answers in the HTML, so search engines and AI
+ * crawlers read them whether or not a visitor opens them.
+ */
+function groupFaq(blocks: ContentBlock[]): Item[] {
+  const out: Item[] = [];
+  let inFaq = false;
+  for (const b of blocks) {
+    if (b.type === 'heading2') inFaq = isFaqHeading(b);
+    else if (b.type === 'callout') inFaq = false;
+    const last = out[out.length - 1];
+    if (inFaq && b.type === 'heading3') out.push({ faq: b, answer: [] });
+    else if (inFaq && last && 'faq' in last && b.type !== 'heading2') last.answer.push(b);
+    else out.push(b);
+  }
+  return out;
+}
+
+function FaqItem({ q, answer }: { q: ContentBlock; answer: ContentBlock[] }) {
+  return (
+    <details
+      className="group rounded-[16px] px-5 md:px-6 [&_summary::-webkit-details-marker]:hidden"
+      style={{ border: '1px solid var(--border)' }}
+    >
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 md:py-5">
+        <h3
+          className="font-bricolage font-semibold text-lg md:text-xl leading-[1.3] tracking-tight"
+          style={{ color: 'var(--fg)' }}
+        >
+          {q.content}
+        </h3>
+        <span
+          aria-hidden
+          className="relative w-4 h-4 shrink-0 text-orange-500 before:absolute before:left-0 before:top-1/2 before:h-0.5 before:w-4 before:-translate-y-1/2 before:bg-current after:absolute after:left-1/2 after:top-0 after:h-4 after:w-0.5 after:-translate-x-1/2 after:bg-current after:transition-transform group-open:after:scale-y-0"
+        />
+      </summary>
+      <div className="flex flex-col gap-4 pb-5">{answer.map(renderBlock)}</div>
+    </details>
+  );
+}
+
 function BlocksRenderer({ blocks }: { blocks: ContentBlock[] }) {
   return (
     <div className="flex flex-col gap-6">
-      {blocks.map((block) => {
-        if (!block.content && block.type !== 'divider' && block.type !== 'table') return null;
-
-        if (block.type === 'divider') {
-          return <hr key={block.id} className="border-none h-px" style={{ background: 'var(--border)' }} />;
-        }
-
-        if (block.type === 'heading2') {
-          return (
-            <h2
-              key={block.id}
-              className="font-bricolage font-bold text-2xl md:text-3xl leading-[1.15] tracking-tight"
-              style={{ color: 'var(--fg)' }}
-            >
-              {block.content}
-            </h2>
-          );
-        }
-
-        if (block.type === 'heading3') {
-          return (
-            <h3
-              key={block.id}
-              className="font-bricolage font-semibold text-xl md:text-2xl leading-[1.2] tracking-tight"
-              style={{ color: 'var(--fg)' }}
-            >
-              {block.content}
-            </h3>
-          );
-        }
-
-        if (block.type === 'quote') {
-          return (
-            <blockquote
-              key={block.id}
-              className="pl-5 border-l-2 border-orange-500/40"
-            >
-              <p className="text-lg md:text-xl leading-[1.7] italic" style={{ color: 'var(--muted)' }}>
-                {renderInline(block.content)}
-              </p>
-            </blockquote>
-          );
-        }
-
-        if (block.type === 'callout') {
-          return (
-            <div
-              key={block.id}
-              className="glass-card px-6 py-5 rounded-[16px] border-l-2 border-orange-500/40"
-            >
-              <p className="text-base leading-[1.8]" style={{ color: 'var(--fg)' }}>
-                {renderInline(block.content)}
-              </p>
-            </div>
-          );
-        }
-
-        if (block.type === 'bulletList') {
-          const items = block.content.split('\n').filter(Boolean);
-          return (
-            <ul key={block.id} className="space-y-2 pl-4">
-              {items.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-orange-500/60 shrink-0" />
-                  <span className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
-                    {renderInline(item.replace(/^[-•]\s*/, ''))}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          );
-        }
-
-        if (block.type === 'numberedList') {
-          const items = block.content.split('\n').filter(Boolean);
-          return (
-            <ol key={block.id} className="space-y-3 pl-1">
-              {items.map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span
-                    className="mt-1 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #ef6600, #cb0000)' }}
-                  >
-                    {i + 1}
-                  </span>
-                  <span className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
-                    {renderInline(item.replace(/^\d+[.)]\s*/, ''))}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          );
-        }
-
-        if (block.type === 'table') {
-          const [head, ...rows] = block.rows ?? [];
-          if (!head) return null;
-          return (
-            <div
-              key={block.id}
-              className="overflow-x-auto rounded-[20px]"
-              style={{ border: '1px solid var(--border)' }}
-            >
-              <table className="w-full min-w-[560px] text-left border-collapse">
-                {/* An all-blank first row means the table has no column headings. */}
-                {head.some(Boolean) && (
-                  <thead>
-                    <tr style={{ background: 'linear-gradient(90deg, #ef6600, #cb0000)' }}>
-                      {head.map((h, i) => (
-                        <th key={i} scope="col" className="px-5 py-4 text-sm md:text-base font-bold text-white align-bottom">
-                          {renderInline(h)}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                )}
-                <tbody>
-                  {rows.map((row, r) => (
-                    <tr key={r} style={{ background: r % 2 ? 'rgba(239, 102, 0, 0.08)' : 'transparent' }}>
-                      {row.map((cell, c) =>
-                        c === 0 ? (
-                          <th key={c} scope="row" className="px-5 py-3.5 text-sm md:text-[15px] font-bold align-top" style={{ color: 'var(--fg)' }}>
-                            {renderInline(cell)}
-                          </th>
-                        ) : (
-                          <td key={c} className="px-5 py-3.5 text-sm md:text-[15px] leading-[1.6] align-top" style={{ color: 'var(--muted)' }}>
-                            {renderInline(cell)}
-                          </td>
-                        )
-                      )}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          );
-        }
-
-        if (block.type === 'image') {
-          return (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={block.id}
-              src={block.content}
-              alt=""
-              className="w-full rounded-[16px] object-cover"
-            />
-          );
-        }
-
-        return (
-          <p key={block.id} className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
-            {renderInline(block.content)}
-          </p>
-        );
-      })}
+      {groupFaq(blocks).map((item) =>
+        'faq' in item ? <FaqItem key={item.faq.id} q={item.faq} answer={item.answer} /> : renderBlock(item)
+      )}
     </div>
+  );
+}
+
+function renderBlock(block: ContentBlock): ReactNode {
+  if (!block.content && block.type !== 'divider' && block.type !== 'table') return null;
+
+  if (block.type === 'divider') {
+    return <hr key={block.id} className="border-none h-px" style={{ background: 'var(--border)' }} />;
+  }
+
+  if (block.type === 'heading2') {
+    return (
+      <h2
+        key={block.id}
+        className="font-bricolage font-bold text-2xl md:text-3xl leading-[1.15] tracking-tight"
+        style={{ color: 'var(--fg)' }}
+      >
+        {block.content}
+      </h2>
+    );
+  }
+
+  if (block.type === 'heading3') {
+    return (
+      <h3
+        key={block.id}
+        className="font-bricolage font-semibold text-xl md:text-2xl leading-[1.2] tracking-tight"
+        style={{ color: 'var(--fg)' }}
+      >
+        {block.content}
+      </h3>
+    );
+  }
+
+  if (block.type === 'quote') {
+    return (
+      <blockquote
+        key={block.id}
+        className="pl-5 border-l-2 border-orange-500/40"
+      >
+        <p className="text-lg md:text-xl leading-[1.7] italic" style={{ color: 'var(--muted)' }}>
+          {renderInline(block.content)}
+        </p>
+      </blockquote>
+    );
+  }
+
+  if (block.type === 'callout') {
+    return (
+      <div
+        key={block.id}
+        className="glass-card px-6 py-5 rounded-[16px] border-l-2 border-orange-500/40"
+      >
+        <p className="text-base leading-[1.8]" style={{ color: 'var(--fg)' }}>
+          {renderInline(block.content)}
+        </p>
+      </div>
+    );
+  }
+
+  if (block.type === 'bulletList') {
+    const items = block.content.split('\n').filter(Boolean);
+    return (
+      <ul key={block.id} className="space-y-2 pl-4">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-orange-500/60 shrink-0" />
+            <span className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
+              {renderInline(item.replace(/^[-•]\s*/, ''))}
+            </span>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  if (block.type === 'numberedList') {
+    const items = block.content.split('\n').filter(Boolean);
+    return (
+      <ol key={block.id} className="space-y-3 pl-1">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-4">
+            <span
+              className="mt-1 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+              style={{ background: 'linear-gradient(135deg, #ef6600, #cb0000)' }}
+            >
+              {i + 1}
+            </span>
+            <span className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
+              {renderInline(item.replace(/^\d+[.)]\s*/, ''))}
+            </span>
+          </li>
+        ))}
+      </ol>
+    );
+  }
+
+  if (block.type === 'table') {
+    const [head, ...rows] = block.rows ?? [];
+    if (!head) return null;
+    return (
+      <div
+        key={block.id}
+        className="overflow-x-auto rounded-[20px]"
+        style={{ border: '1px solid var(--border)' }}
+      >
+        <table className="w-full min-w-[560px] text-left border-collapse">
+          {/* An all-blank first row means the table has no column headings. */}
+          {head.some(Boolean) && (
+            <thead>
+              <tr style={{ background: 'linear-gradient(90deg, #ef6600, #cb0000)' }}>
+                {head.map((h, i) => (
+                  <th key={i} scope="col" className="px-5 py-4 text-sm md:text-base font-bold text-white align-bottom">
+                    {renderInline(h)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+          )}
+          <tbody>
+            {rows.map((row, r) => (
+              <tr key={r} style={{ background: r % 2 ? 'rgba(239, 102, 0, 0.08)' : 'transparent' }}>
+                {row.map((cell, c) =>
+                  c === 0 ? (
+                    <th key={c} scope="row" className="px-5 py-3.5 text-sm md:text-[15px] font-bold align-top" style={{ color: 'var(--fg)' }}>
+                      {renderInline(cell)}
+                    </th>
+                  ) : (
+                    <td key={c} className="px-5 py-3.5 text-sm md:text-[15px] leading-[1.6] align-top" style={{ color: 'var(--muted)' }}>
+                      {renderInline(cell)}
+                    </td>
+                  )
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  if (block.type === 'image') {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        key={block.id}
+        src={block.content}
+        alt=""
+        className="w-full rounded-[16px] object-cover"
+      />
+    );
+  }
+
+  return (
+    <p key={block.id} className="text-base md:text-lg leading-[1.8]" style={{ color: 'var(--muted)' }}>
+      {renderInline(block.content)}
+    </p>
   );
 }
 
