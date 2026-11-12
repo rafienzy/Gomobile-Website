@@ -1,5 +1,294 @@
 [
   {
+    "slug": "harbolnas-by-the-numbers",
+    "img": "/assets/blog/harbolnas-by-the-numbers-live-selling.webp",
+    "imgAlt": "A woman on a sofa holds up a yellow handbag to a camera on the table, presenting it as if in a live shopping stream",
+    "shareImg": "/assets/blog/harbolnas-by-the-numbers-live-selling-share.jpg",
+    "category": "Industry",
+    "title": "Harbolnas by the numbers: what seven years of data say about Indonesia's national online shopping week",
+    "excerpt": "Harbolnas has quadrupled since 2019. Growth is slowing, far more sellers are joining, and most shoppers now buy through live shopping.",
+    "tags": [
+      "HARBOLNAS",
+      "E-COMMERCE",
+      "INDONESIA"
+    ],
+    "relatedSlugs": [
+      "chatgpt-ads-indonesia",
+      "programmatic-advertising-indonesia-guide"
+    ],
+    "author": "Go Mobile Team",
+    "authorRole": "",
+    "date": "Nov 12, 2026",
+    "readTime": "5 min read",
+    "blocks": [
+      {
+        "id": "b1",
+        "type": "paragraph",
+        "content": "Every December, Indonesia holds its national online shopping week. **Harbolnas** (Hari Belanja Online Nasional, or National Online Shopping Day) began in 2012 as a one-day promotion run by e-commerce companies. It has since become a week-long, government-backed event that marketplaces, retailers and brands plan around for months."
+      },
+      {
+        "id": "b2",
+        "type": "paragraph",
+        "content": "In 2025, shoppers spent **Rp36.4 trillion** over seven days, according to the Ministry of Trade, four times the figure recorded in 2019. This year's edition runs from **10 to 16 December**, and the government is aiming for around Rp40 trillion. We looked at the official figures for every year since 2019 to see what has changed beyond the headline total."
+      },
+      {
+        "id": "b3",
+        "type": "heading2",
+        "content": "Four times bigger in six years"
+      },
+      {
+        "id": "b4",
+        "type": "table",
+        "content": "",
+        "rows": [
+          [
+            "Year",
+            "Transaction value",
+            "Change vs previous year"
+          ],
+          [
+            "2019",
+            "Rp9.1 trillion",
+            ""
+          ],
+          [
+            "2020",
+            "Rp11.6 trillion",
+            "+27%"
+          ],
+          [
+            "2021",
+            "Rp18.1 trillion",
+            "+56%"
+          ],
+          [
+            "2022",
+            "Rp22.7 trillion",
+            "+25%"
+          ],
+          [
+            "2023",
+            "Rp25.7 trillion",
+            "+13%"
+          ],
+          [
+            "2024",
+            "Rp31.2 trillion",
+            "+21%"
+          ],
+          [
+            "2025",
+            "Rp36.4 trillion",
+            "+17%"
+          ],
+          [
+            "2026 (target)",
+            "Rp40 trillion",
+            "+10%"
+          ]
+        ]
+      },
+      {
+        "id": "b5",
+        "type": "paragraph",
+        "content": "*Growth rates are our calculations from the announced totals.*"
+      },
+      {
+        "id": "b6",
+        "type": "paragraph",
+        "content": "Harbolnas has grown every year since 2019, including through the pandemic. The sharpest rise came in 2021, the second year of COVID-19, when many households were buying online what they used to buy in shops. Growth has eased since then, which is what you would expect from an event of this size. Each year's increase is measured against a much larger base, and with around four in five Indonesians already online, according to the internet providers' association APJII, there are fewer first-time shoppers left to bring in."
+      },
+      {
+        "id": "b7",
+        "type": "paragraph",
+        "content": "The 2026 target points to slower growth than any year in the table. For brands, this means most Harbolnas shoppers have bought online before, and new sales are increasingly won from competitors rather than from people shopping online for the first time."
+      },
+      {
+        "id": "b8",
+        "type": "heading2",
+        "content": "The field of sellers tripled in a year"
+      },
+      {
+        "id": "b9",
+        "type": "paragraph",
+        "content": "The government counted **407** participating businesses in 2024 and **more than 1,300** in 2025, ranging from individual merchants to online retailers and entire marketplaces. Total spending rose 17% over the same period. The two counts were reported by different ministries and may not be measured in the same way, so the comparison is a rough one. Even so, many more sellers joined the event than the extra spending would suggest, which leaves more brands chasing the same shoppers in the same seven days."
+      },
+      {
+        "id": "b10",
+        "type": "paragraph",
+        "content": "That competition reaches well beyond the marketplaces. Brands also compete for attention on social media, video and display advertising during 12.12 week, where busier auctions tend to push prices up. Those that settle their plans and budgets before the event starts are in a better position than those that react once it is underway."
+      },
+      {
+        "id": "b11",
+        "type": "heading2",
+        "content": "Local brands kept their volume, not their share"
+      },
+      {
+        "id": "b12",
+        "type": "table",
+        "content": "",
+        "rows": [
+          [
+            "Year",
+            "Local products value",
+            "Share of total",
+            "Growth in local value"
+          ],
+          [
+            "2022",
+            "Rp10.0 trillion",
+            "44%",
+            ""
+          ],
+          [
+            "2023",
+            "Rp12.3 trillion",
+            "48.1%",
+            "+23%"
+          ],
+          [
+            "2024",
+            "Rp16.1 trillion",
+            "52%",
+            "+31%"
+          ],
+          [
+            "2025",
+            "Rp16.6 trillion",
+            "45.6%",
+            "+3%"
+          ]
+        ]
+      },
+      {
+        "id": "b13",
+        "type": "paragraph",
+        "content": "*2022 share and all growth rates are our calculations from the announced figures.*"
+      },
+      {
+        "id": "b14",
+        "type": "paragraph",
+        "content": "Supporting local products has been one of the government's stated aims for Harbolnas, and for three years their share rose steadily, passing half of all spending in 2024. In 2025, local sales stayed close to the previous year's level while the event as a whole kept growing. Most of the new spending went to non-local brands, and the local share slipped back below half."
+      },
+      {
+        "id": "b15",
+        "type": "paragraph",
+        "content": "Taking part in the official programme is no longer enough on its own for local brands to grow during Harbolnas. They are competing for the same attention as international brands, and shoppers need a clear reason to choose them."
+      },
+      {
+        "id": "b16",
+        "type": "heading2",
+        "content": "People decide on live video, then buy"
+      },
+      {
+        "id": "b17",
+        "type": "paragraph",
+        "content": "Live shopping has become a central part of how Indonesians shop during Harbolnas. A host, often a creator or someone from the brand's own team, streams on a marketplace or social app, tries products on camera, answers questions from the comments and announces discounts that only last while the stream is running. The Ministry of Trade reported that **about 80% of Harbolnas 2025 shoppers** used live shopping, and said they valued it because they could see product reviews interactively and in real time. A year earlier, the government found that half of all buyers purchased through affiliate links, the product links creators share on social media in return for a commission on each sale."
+      },
+      {
+        "id": "b18",
+        "type": "paragraph",
+        "content": "Together, these figures suggest that many shoppers have already made up their minds by the time they reach the checkout. The decision forms while they watch someone they trust use the product, so brands that advertise only on marketplace search pages tend to reach people late. Live streams, creator content, and the video and display ads people see in the weeks before 12.12 are where much of that persuasion now happens."
+      },
+      {
+        "id": "b19",
+        "type": "paragraph",
+        "content": "11.11 arrives in November, Harbolnas follows in mid-December, and in recent years government-backed sales such as EPIC Sale and BINA Great Sale have carried on until the end of the month. For many shoppers the process starts weeks before 12 December, as they browse, compare prices, follow brands and save items during 11.11, with some holding off until Harbolnas for a better deal. Reaching these people in November, before advertising demand peaks, is often easier and cheaper than trying to win them during the event week itself."
+      },
+      {
+        "id": "b20",
+        "type": "paragraph",
+        "content": "Harbolnas 2026 covers more ground than earlier editions. Under Trade Ministry Regulation No. 19 of 2026, the event includes services as well as goods, so **online travel agents, ride-hailing apps, social commerce and other digital service platforms** can take part officially for the first time. This gives travel, transport and service brands a reason to run their own 12.12 promotions."
+      },
+      {
+        "id": "b21",
+        "type": "paragraph",
+        "content": "It also means the 2026 total will include spending that was not counted before, so any increase on 2025 will partly reflect the wider scope rather than higher spending alone. Brands reviewing their own 12.12 results will get a clearer picture by comparing them with their own previous year than with the national figure."
+      },
+      {
+        "id": "b22",
+        "type": "heading2",
+        "content": "Frequently asked questions"
+      },
+      {
+        "id": "b23",
+        "type": "heading3",
+        "content": "When is Harbolnas 2026?"
+      },
+      {
+        "id": "b24",
+        "type": "paragraph",
+        "content": "From 10 to 16 December 2026."
+      },
+      {
+        "id": "b25",
+        "type": "heading3",
+        "content": "How much was spent during Harbolnas 2025?"
+      },
+      {
+        "id": "b26",
+        "type": "paragraph",
+        "content": "Rp36.4 trillion, up 17% on 2024, according to the Ministry of Trade."
+      },
+      {
+        "id": "b27",
+        "type": "heading3",
+        "content": "What is the Harbolnas 2026 target?"
+      },
+      {
+        "id": "b28",
+        "type": "paragraph",
+        "content": "Around Rp40 trillion. The Trade Minister expects growth of 5% to 10% on 2025."
+      },
+      {
+        "id": "b29",
+        "type": "heading3",
+        "content": "What do people buy during Harbolnas?"
+      },
+      {
+        "id": "b30",
+        "type": "paragraph",
+        "content": "Fashion and sportswear, personal care, and food and drink have been the most popular categories in recent years."
+      },
+      {
+        "id": "b31",
+        "type": "heading3",
+        "content": "How many people shop during Harbolnas?"
+      },
+      {
+        "id": "b32",
+        "type": "paragraph",
+        "content": "The government counted at least 98 million buyers in 2024. We could not find a published figure for 2025."
+      },
+      {
+        "id": "b33",
+        "type": "heading3",
+        "content": "Who can take part in Harbolnas 2026?"
+      },
+      {
+        "id": "b34",
+        "type": "paragraph",
+        "content": "Marketplaces, online retailers and merchants, and for the first time, online travel agents, ride-hailing apps, social commerce and other digital service platforms."
+      },
+      {
+        "id": "b35",
+        "type": "callout",
+        "content": "*Planning your 12.12 media? We buy programmatic display, video and CTV across Indonesia with placement-level reporting.* [Talk to us](/contact)."
+      },
+      {
+        "id": "b36",
+        "type": "heading2",
+        "content": "Sources"
+      },
+      {
+        "id": "b37",
+        "type": "bulletList",
+        "content": "Kementerian Perdagangan, Harbolnas 2025 results, as reported by [Katadata](https://katadata.co.id/berita/industri/695ca4120627c/harbolnas-2025-lampaui-target-transaksi-tembus-rp-36-4-triliun) (6 Jan 2026), [Bisnis.com](https://ekonomi.bisnis.com/read/20260105/12/1941563/kemendag-transaksi-harbolnas-2025-tembus-rp364-triliun), [ANTARA](https://www.antaranews.com/berita/5333344/mendag-transaksi-harbolnas-capai-rp364-triliun) and [Warta Ekonomi](https://wartaekonomi.co.id/read595792/transaksi-harbolnas-2025-tembus-rp364-triliun)\nKementerian Koordinator Bidang Perekonomian, [Harbolnas 2024 press release](https://www.ekon.go.id/publikasi/detail/6116/didominasi-penjualan-produk-lokal-hari-belanja-online-nasional-harbolnas-2024-mampu-cetak-transaksi-sebesar-rp312-triliun)\nHarbolnas 2026 target and scope, as reported by [Fortune IDN](https://www.fortuneidn.com/business/transaksi-harbolnas-2026-ditargetkan-naik-10-persen-capai-rp40-t-00-my5jv-tdpbvw) and [BCA Sekuritas](https://bcasekuritas.co.id/en/latest-news/news/pemerintah-targetkan-transaksi-harbolnas-2026-capai-rp40-triliun)\nHarbolnas 2022 (NielsenIQ via idEA), as reported by [Kontan](https://momsmoney.kontan.co.id/news/transaksi-harbolnas-2022-capai-rp-227-triliun)\nHarbolnas 2023 total, local products, and the comparison with 2019, as reported by [Akurat](https://akurat.co/infotech/729174/transaksi-harbolnas-2023-sukses-lampaui-target-hingga-rp25-7-triliun)\nHarbolnas history and 2020 and 2021 figures, as reported by [balinesia.id](https://balinesia.id/read/ternyata-begini-sejarah-harbolnas-12-12-yang-selalu-ditunggu-tunggu) via TrenAsia\nAPJII, Survei Penetrasi Internet Indonesia 2025, as reported by [Bisnis.com](https://teknologi.bisnis.com/read/20250806/101/1899997/data-apjii)"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "slug": "programmatic-advertising-indonesia-guide",
     "img": "/assets/blog/programmatic-advertising-indonesia-guide-digital-billboards.webp",
     "imgAlt": "Curved digital billboards showing ads above shops at Piccadilly Circus, London, on an overcast day",
